@@ -12,7 +12,20 @@ class CreatePelanggaranTable extends Migration
      */
     public function up()
     {
-        //
+         Schema::create('pelanggaran', function($table){
+         $table->increments('idpelanggaran');
+         $table->integer('idpegawai')->unsigned();
+         $table->date('tglpelanggaran');
+		 $table->string('jenispelanggaran');
+		 $table->string('sanksi');
+		 $table->string('keterangan');
+         $table->timestamps();
+		 
+		 $table->foreign('idpegawai')
+                  ->references('idpegawai')
+                  ->on('pegawai')
+                  ->onDelete('cascade');
+      });
     }
 
     /**
@@ -22,6 +35,6 @@ class CreatePelanggaranTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('pelanggaran');
     }
 }

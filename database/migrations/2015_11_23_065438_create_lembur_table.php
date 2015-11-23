@@ -12,7 +12,19 @@ class CreateLemburTable extends Migration
      */
     public function up()
     {
-        //
+         Schema::create('lembur', function($table){
+         $table->increments('idlembur');
+         $table->integer('idpegawai')->unsigned();
+         $table->date('tgllembur');
+		 $table->integer('jangkawaktu');
+		 $table->string('keterangan');
+         $table->timestamps();
+		 
+		 $table->foreign('idpegawai')
+                  ->references('idpegawai')
+                  ->on('pegawai')
+                  ->onDelete('cascade');
+      });
     }
 
     /**
@@ -22,6 +34,6 @@ class CreateLemburTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('lembur');
     }
 }

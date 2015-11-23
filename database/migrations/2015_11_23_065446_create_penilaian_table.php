@@ -12,7 +12,21 @@ class CreatePenilaianTable extends Migration
      */
     public function up()
     {
-        //
+         Schema::create('penilaian', function($table){
+         $table->increments('idpenilaian');
+         $table->integer('idpegawai')->unsigned();
+         $table->date('tglpenilaian');
+		 $table->integer('nilaikompetensi');
+		 $table->integer('nilaikedisiplinan');
+		 $table->integer('nilaiperilaku');
+		 $table->string('keterangan');
+         $table->timestamps();
+		 
+		 $table->foreign('idpegawai')
+                  ->references('idpegawai')
+                  ->on('pegawai')
+                  ->onDelete('cascade');
+      });
     }
 
     /**
@@ -22,6 +36,6 @@ class CreatePenilaianTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('penilaian');
     }
 }

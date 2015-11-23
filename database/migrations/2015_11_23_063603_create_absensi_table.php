@@ -15,7 +15,7 @@ class CreateAbsensiTable extends Migration
         Schema::create('absensi', function($table){
          $table->increments('idabsensi');
          $table->integer('idpegawai')->unsigned();
-		 $table->date('tanggal');
+		 $table->date('tglabsen');
          $table->time('waktumasuk');
 		 $table->time('waktupulang');
 		 $table->string('status');

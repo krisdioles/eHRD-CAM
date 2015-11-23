@@ -12,7 +12,16 @@ class CreateTrainingTable extends Migration
      */
     public function up()
     {
-        //
+         Schema::create('training', function($table){
+         $table->increments('idtraining');
+		 $table->string('namatraining');
+         $table->date('tgltraining');
+		 $table->integer('anggaran');
+		 $table->string('lokasi');
+		 $table->string('keterangan');
+         $table->timestamps();
+		 
+      });
     }
 
     /**
@@ -22,6 +31,6 @@ class CreateTrainingTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('training');
     }
 }

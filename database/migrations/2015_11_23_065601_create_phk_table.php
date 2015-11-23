@@ -12,7 +12,20 @@ class CreatePhkTable extends Migration
      */
     public function up()
     {
-        //
+         Schema::create('phk', function($table){
+         $table->increments('idphk');
+         $table->integer('idpegawai')->unsigned();
+		 $table->string('nomorsurat');
+		 $table->string('jenisphk');
+         $table->date('tglphk');
+		 $table->string('keterangan');
+         $table->timestamps();
+		 
+		 $table->foreign('idpegawai')
+                  ->references('idpegawai')
+                  ->on('pegawai')
+                  ->onDelete('cascade');
+      });
     }
 
     /**
@@ -22,6 +35,6 @@ class CreatePhkTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('phk');
     }
 }

@@ -12,7 +12,19 @@ class CreateDetailtrainingTable extends Migration
      */
     public function up()
     {
-        //
+         Schema::create('detailtraining', function($table){
+         $table->integer('idtraining')->unsigned();
+         $table->integer('idpegawai')->unsigned();
+         $table->timestamps();
+		 $table->foreign('idtraining')
+                  ->references('idtraining')
+                  ->on('training')
+                  ->onDelete('cascade');
+		 $table->foreign('idpegawai')
+                  ->references('idpegawai')
+                  ->on('pegawai')
+                  ->onDelete('cascade');
+      });
     }
 
     /**
@@ -22,6 +34,6 @@ class CreateDetailtrainingTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('detailtraining');
     }
 }

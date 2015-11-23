@@ -12,7 +12,23 @@ class CreatePenggajianTable extends Migration
      */
     public function up()
     {
-        //
+         Schema::create('penggajian', function($table){
+         $table->increments('idpenggajian');
+         $table->integer('idpegawai')->unsigned();
+         $table->date('tglpenggajian');
+		 $table->integer('biayabonus');
+		 $table->string('keteranganbonus');
+		 $table->integer('biayapotongan');
+		 $table->string('keteranganpotongan');
+		 $table->integer('jumlahpenggajian');
+		 $table->string('keterangan');
+         $table->timestamps();
+		 
+		 $table->foreign('idpegawai')
+                  ->references('idpegawai')
+                  ->on('pegawai')
+                  ->onDelete('cascade');
+      });
     }
 
     /**
@@ -22,6 +38,6 @@ class CreatePenggajianTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('penggajian');
     }
 }
