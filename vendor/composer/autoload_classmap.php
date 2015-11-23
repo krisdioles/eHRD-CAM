@@ -7,8 +7,16 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'CreateAbsensiTable' => $baseDir . '/database/migrations/2015_11_23_063603_create_absensi_table.php',
+    'CreateCutiTable' => $baseDir . '/database/migrations/2015_11_23_065426_create_cuti_table.php',
+    'CreateDetailtrainingTable' => $baseDir . '/database/migrations/2015_11_23_065521_create_detailtraining_table.php',
+    'CreateLemburTable' => $baseDir . '/database/migrations/2015_11_23_065438_create_lembur_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePegawaiTable' => $baseDir . '/database/migrations/2015_11_23_062746_create_pegawai_table.php',
+    'CreatePelanggaranTable' => $baseDir . '/database/migrations/2015_11_23_065547_create_pelanggaran_table.php',
+    'CreatePenggajianTable' => $baseDir . '/database/migrations/2015_11_23_065457_create_penggajian_table.php',
+    'CreatePenilaianTable' => $baseDir . '/database/migrations/2015_11_23_065446_create_penilaian_table.php',
+    'CreatePhkTable' => $baseDir . '/database/migrations/2015_11_23_065601_create_phk_table.php',
+    'CreateTrainingTable' => $baseDir . '/database/migrations/2015_11_23_065509_create_training_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
