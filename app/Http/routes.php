@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('/pages/dashboard');
-});
+Route::get('/', 'PegawaiController@index');
 
 Route::get('/login', function () {
     return view('/auth/login');
@@ -30,3 +28,5 @@ Route::get('/absensi', function () {
 Route::get('/cuti', function () {
     return view('/pages/cuti');
 });
+
+

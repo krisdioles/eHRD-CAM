@@ -12,20 +12,21 @@ class CreateAbsensiTable extends Migration
      */
     public function up()
     {
-        Schema::create('absensi', function($table){
-         $table->increments('idabsensi');
-         $table->integer('idpegawai')->unsigned();
-		 $table->date('tglabsen');
-         $table->time('waktumasuk');
-		 $table->time('waktupulang');
-		 $table->string('status');
-         $table->timestamps();
+        Schema::create('absensi', function(Blueprint $table){
+        $table->increments('idabsensi');
+        $table->integer('idpegawai')->unsigned();
+		$table->date('tglabsen');
+        $table->time('waktumasuk');
+		$table->time('waktupulang');
+		$table->string('status');
+        $table->rememberToken();
+        $table->timestamps();
 		 
-		 $table->foreign('idpegawai')
-                  ->references('idpegawai')
-                  ->on('pegawai')
-                  ->onDelete('cascade');
-      });
+		$table->foreign('idpegawai')
+                ->references('idpegawai')
+                ->on('pegawai')
+                ->onDelete('cascade');
+        });
     }
 
     /**

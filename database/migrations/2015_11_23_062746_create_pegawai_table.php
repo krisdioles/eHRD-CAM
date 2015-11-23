@@ -12,18 +12,20 @@ class CreatePegawaiTable extends Migration
      */
     public function up()
     {
-         Schema::create('pegawai', function($table){
-         $table->increments('idpegawai');
-         $table->string('password');
-         $table->string('role');
-         $table->string('nama');
-		 $table->string('alamat');
-		 $table->string('jeniskelamin');
-		 $table->date('tgllahir');
-         $table->integer('gajipokok');
-		 $table->integer('tunjangantetap');
-         $table->timestamps();
-      });
+        Schema::create('pegawai', function(Blueprint $table){
+        $table->increments('idpegawai');
+        $table->string('password');
+        $table->string('role');
+        $table->string('nama');
+        $table->string('email');
+        $table->string('alamat');
+        $table->string('jeniskelamin');
+        $table->date('tgllahir');
+        $table->integer('gajipokok');
+        $table->integer('tunjangantetap');
+        $table->rememberToken();
+        $table->timestamps();
+        });
     }
 
     /**

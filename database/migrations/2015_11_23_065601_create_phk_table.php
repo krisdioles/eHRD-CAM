@@ -12,7 +12,7 @@ class CreatePhkTable extends Migration
      */
     public function up()
     {
-         Schema::create('phk', function($table){
+         Schema::create('phk', function(Blueprint $table){
          $table->increments('idphk');
          $table->integer('idpegawai')->unsigned();
 		 $table->string('nomorsurat');

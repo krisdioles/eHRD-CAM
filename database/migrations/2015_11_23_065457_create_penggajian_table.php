@@ -12,7 +12,7 @@ class CreatePenggajianTable extends Migration
      */
     public function up()
     {
-         Schema::create('penggajian', function($table){
+         Schema::create('penggajian', function(Blueprint $table){
          $table->increments('idpenggajian');
          $table->integer('idpegawai')->unsigned();
          $table->date('tglpenggajian');

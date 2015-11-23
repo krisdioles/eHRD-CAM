@@ -12,7 +12,7 @@ class CreateCutiTable extends Migration
      */
     public function up()
     {
-         Schema::create('cuti', function($table){
+         Schema::create('cuti', function(Blueprint $table){
          $table->increments('idcuti');
          $table->integer('idpegawai')->unsigned();
 		 $table->string('jeniscuti');

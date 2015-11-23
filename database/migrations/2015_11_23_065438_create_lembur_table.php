@@ -12,7 +12,7 @@ class CreateLemburTable extends Migration
      */
     public function up()
     {
-         Schema::create('lembur', function($table){
+         Schema::create('lembur', function(Blueprint $table){
          $table->increments('idlembur');
          $table->integer('idpegawai')->unsigned();
          $table->date('tgllembur');

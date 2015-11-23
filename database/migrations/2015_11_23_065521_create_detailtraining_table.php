@@ -12,7 +12,7 @@ class CreateDetailtrainingTable extends Migration
      */
     public function up()
     {
-         Schema::create('detailtraining', function($table){
+         Schema::create('detailtraining', function(Blueprint $table){
          $table->integer('idtraining')->unsigned();
          $table->integer('idpegawai')->unsigned();
          $table->timestamps();

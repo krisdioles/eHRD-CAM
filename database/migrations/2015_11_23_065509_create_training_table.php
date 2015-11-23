@@ -12,7 +12,7 @@ class CreateTrainingTable extends Migration
      */
     public function up()
     {
-         Schema::create('training', function($table){
+         Schema::create('training', function(Blueprint $table){
          $table->increments('idtraining');
 		 $table->string('namatraining');
          $table->date('tgltraining');

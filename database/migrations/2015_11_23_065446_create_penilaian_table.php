@@ -12,7 +12,7 @@ class CreatePenilaianTable extends Migration
      */
     public function up()
     {
-         Schema::create('penilaian', function($table){
+         Schema::create('penilaian', function(Blueprint $table){
          $table->increments('idpenilaian');
          $table->integer('idpegawai')->unsigned();
          $table->date('tglpenilaian');
