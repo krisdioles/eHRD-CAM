@@ -3,8 +3,8 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Absensi</a></li>
-            <li><a href="#">Cuti</a></li>
+            <li><a href="/eHRD-CAM/public/absensi">Absensi</a></li>
+            <li><a href="/eHRD-CAM/public/cuti">Cuti</a></li>
             <li><a href="#">Lembur</a></li>
           </ul>
           <ul class="nav nav-sidebar">

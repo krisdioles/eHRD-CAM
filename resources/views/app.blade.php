@@ -21,8 +21,6 @@
   <body>
     @include('partials.nav')
 
-    @include('partials.menu')
-
     @yield('content') 
 
     <!-- Bootstrap core JavaScript
