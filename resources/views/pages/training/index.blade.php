@@ -23,7 +23,7 @@
                 <tr>
                   <td>{{ $training->idtraining }}</td>
                   <td>{{ $training->namatraining }}</td>
-                  <td>ipsum</td>
+                  <td>{{ $training->lokasi }}</td>
                   <td>dolor</td>
                   <td>sit</td>
                 </tr>

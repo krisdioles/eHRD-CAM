@@ -12,4 +12,12 @@ class Training extends Model
      * @var string
      */
     protected $table = 'training';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['namatraining', 'lokasi', 'anggaran', 'tgltraining', 'keterangan'];
+
 }

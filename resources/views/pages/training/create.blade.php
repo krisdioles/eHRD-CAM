@@ -11,27 +11,22 @@
 @section('content')
 <div class="col-md-8 col-md-offset-2">
 	<h2 class="sub-header">Create Training</h2>
-	<div class="table-responsive">
-	    <table class="table table-striped">
-	      <thead>
-	        <tr>
-	          <th>#</th>
-	          <th>Nama Training</th>
-	          <th>Lokasi</th>
-	          <th>Tanggal Training</th>
-	          <th>Anggaran</th>
-	        </tr>
-	      </thead>
-	      <tbody>
+	<div class="form-group">
+		{!! Form::open(['url'=>'training']) !!}
+			{!! Form::label('namatraining', 'Nama Training : ') !!}
+			{!! Form::text('namatraining', null, ['class'=>'form-control']) !!}
 
-	        <td>1,001</td>
-	          <td>Lorem</td>
-	          <td>ipsum</td>
-	          <td>dolor</td>
-	          <td>sit</td>
+			<!-- Lokasi Form Input -->
+			<div class="form-group">
+				{!! Form::label('lokasi', 'Lokasi : ') !!}
+				{!! Form::text('lokasi', null, ['class'=>'form-control']) !!}
+			</div>
 
-	      </tbody>
-	    </table>
+			<!-- Add Training Form Input -->
+			<div class="form-group">
+				{!! Form::submit('Add Training', ['class'=>'btn btn-primary form-control']) !!}
+			</div>
+		{!! Form::close() !!}
 	</div>
 </div>
 @endsection

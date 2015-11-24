@@ -29,9 +29,6 @@ Route::get('cuti', function () {
     return view('pages/cuti');
 });
 
-// Route::get('/training/create', function () {
-//     return view('/pages/training/create');
-// });
-
 Route::get('training', 'TrainingController@index');
 Route::get('training/create', 'TrainingController@create');
+Route::post('training', 'TrainingController@store');
