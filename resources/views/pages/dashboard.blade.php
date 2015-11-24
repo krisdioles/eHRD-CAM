@@ -43,6 +43,7 @@
                 </tr>
               </thead>
               <tbody>
+
                 @foreach($peg as $pegawai)
                 <tr>
                   <td>{{ $pegawai->idpegawai }}</td>
@@ -52,6 +53,7 @@
                   <td>sit</td>
                 </tr>
                 @endforeach
+                
               </tbody>
             </table>
           </div>

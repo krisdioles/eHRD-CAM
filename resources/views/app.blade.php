@@ -10,6 +10,8 @@
 
     <title>Dashboard</title>
 
+    @yield('spcss')
+
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -22,6 +24,8 @@
     @include('partials.nav')
 
     @yield('content') 
+
+    @yield('spjs')
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

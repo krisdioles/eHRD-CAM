@@ -11,22 +11,27 @@
 |
 */
 
-Route::get('/', 'PegawaiController@index');
+Route::get('', 'PegawaiController@index');
 
-Route::get('/login', function () {
-    return view('/auth/login');
+Route::get('login', function () {
+    return view('auth/login');
 });
 
-Route::get('/register', function () {
-    return view('/auth/register');
+Route::get('register', function () {
+    return view('auth/register');
 });
 
-Route::get('/absensi', function () {
-    return view('/pages/absensi');
+Route::get('absensi', function () {
+    return view('pages/absensi');
 });
 
-Route::get('/cuti', function () {
-    return view('/pages/cuti');
+Route::get('cuti', function () {
+    return view('pages/cuti');
 });
 
+// Route::get('/training/create', function () {
+//     return view('/pages/training/create');
+// });
 
+Route::get('training', 'TrainingController@index');
+Route::get('training/create', 'TrainingController@create');
