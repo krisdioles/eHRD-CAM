@@ -17,7 +17,7 @@ class CreatePhkTable extends Migration
          $table->integer('idpegawai')->unsigned();
 		 $table->string('nomorsurat');
 		 $table->string('jenisphk');
-         $table->date('tglphk');
+         $table->timestamp('tglphk');
 		 $table->string('keterangan');
          $table->timestamps();
 		 

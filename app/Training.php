@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Training extends Model
 {
@@ -13,6 +14,10 @@ class Training extends Model
      */
     protected $table = 'training';
 
+    protected $primaryKey = 'idtraining';
+
+    protected $dates = ['tgltraining'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -20,4 +25,13 @@ class Training extends Model
      */
     protected $fillable = ['namatraining', 'lokasi', 'anggaran', 'tgltraining', 'keterangan'];
 
+    public function scopeFuture($query)
+    {
+        $query->where('tgltraining', '>=', Carbon::today());
+    }
+
+    public function setTgltrainingAttribute($date)
+    {
+        $this->attributes['tgltraining'] = Carbon::parse($date);
+    }
 }

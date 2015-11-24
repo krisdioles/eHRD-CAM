@@ -15,7 +15,7 @@ class CreatePenggajianTable extends Migration
          Schema::create('penggajian', function(Blueprint $table){
          $table->increments('idpenggajian');
          $table->integer('idpegawai')->unsigned();
-         $table->date('tglpenggajian');
+         $table->timestamp('tglpenggajian');
 		 $table->integer('biayabonus');
 		 $table->string('keteranganbonus');
 		 $table->integer('biayapotongan');

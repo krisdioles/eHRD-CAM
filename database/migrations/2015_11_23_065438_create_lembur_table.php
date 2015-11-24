@@ -15,7 +15,7 @@ class CreateLemburTable extends Migration
          Schema::create('lembur', function(Blueprint $table){
          $table->increments('idlembur');
          $table->integer('idpegawai')->unsigned();
-         $table->date('tgllembur');
+         $table->timestamp('tgllembur');
 		 $table->integer('jangkawaktu');
 		 $table->string('keterangan');
          $table->timestamps();

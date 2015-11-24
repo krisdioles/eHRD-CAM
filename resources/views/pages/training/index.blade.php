@@ -22,9 +22,9 @@
               @foreach($train as $training)
                 <tr>
                   <td>{{ $training->idtraining }}</td>
-                  <td>{{ $training->namatraining }}</td>
+                  <td><a href="{{ url('/training', $training->idtraining) }}">{{ $training->namatraining }}</td>
                   <td>{{ $training->lokasi }}</td>
-                  <td>dolor</td>
+                  <td>{{ $training->tgltraining->toDateString() }}</td>
                   <td>sit</td>
                 </tr>
               @endforeach

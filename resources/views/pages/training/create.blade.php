@@ -13,13 +13,22 @@
 	<h2 class="sub-header">Create Training</h2>
 	<div class="form-group">
 		{!! Form::open(['url'=>'training']) !!}
-			{!! Form::label('namatraining', 'Nama Training : ') !!}
-			{!! Form::text('namatraining', null, ['class'=>'form-control']) !!}
+		
+			<div class="form-group">
+				{!! Form::label('namatraining', 'Nama Training : ') !!}
+				{!! Form::text('namatraining', null, ['class'=>'form-control']) !!}
+			</div>
 
 			<!-- Lokasi Form Input -->
 			<div class="form-group">
 				{!! Form::label('lokasi', 'Lokasi : ') !!}
 				{!! Form::text('lokasi', null, ['class'=>'form-control']) !!}
+			</div>
+
+			<!-- Tgltraining Form Input -->
+			<div class="form-group">
+				{!! Form::label('tgltraining', 'Tanggal Training : ') !!}
+				{!! Form::input('date', 'tgltraining', date('Y-m-d'), ['class'=>'form-control']) !!}
 			</div>
 
 			<!-- Add Training Form Input -->

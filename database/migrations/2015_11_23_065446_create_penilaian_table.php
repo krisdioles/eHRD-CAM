@@ -15,7 +15,7 @@ class CreatePenilaianTable extends Migration
          Schema::create('penilaian', function(Blueprint $table){
          $table->increments('idpenilaian');
          $table->integer('idpegawai')->unsigned();
-         $table->date('tglpenilaian');
+         $table->timestamp('tglpenilaian');
 		 $table->integer('nilaikompetensi');
 		 $table->integer('nilaikedisiplinan');
 		 $table->integer('nilaiperilaku');

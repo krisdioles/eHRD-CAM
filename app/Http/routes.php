@@ -12,6 +12,7 @@
 */
 
 Route::get('', 'PegawaiController@index');
+Route::get('dashboard', 'PegawaiController@index');
 
 Route::get('login', function () {
     return view('auth/login');
@@ -31,4 +32,5 @@ Route::get('cuti', function () {
 
 Route::get('training', 'TrainingController@index');
 Route::get('training/create', 'TrainingController@create');
+Route::get('training/{idtraining}', 'TrainingController@show');
 Route::post('training', 'TrainingController@store');

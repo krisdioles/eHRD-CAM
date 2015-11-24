@@ -16,9 +16,9 @@ class CreateCutiTable extends Migration
          $table->increments('idcuti');
          $table->integer('idpegawai')->unsigned();
 		 $table->string('jeniscuti');
-         $table->date('tglpengajuan');
-		 $table->date('tglawal');
-		 $table->date('tglakhir');
+         $table->timestamp('tglpengajuan');
+		 $table->timestamp('tglawal');
+		 $table->timestamp('tglakhir');
 		 $table->string('nomorsurat');
          $table->timestamps();
 		 

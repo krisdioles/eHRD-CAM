@@ -15,7 +15,7 @@ class CreatePelanggaranTable extends Migration
          Schema::create('pelanggaran', function(Blueprint $table){
          $table->increments('idpelanggaran');
          $table->integer('idpegawai')->unsigned();
-         $table->date('tglpelanggaran');
+         $table->timestamp('tglpelanggaran');
 		 $table->string('jenispelanggaran');
 		 $table->string('sanksi');
 		 $table->string('keterangan');

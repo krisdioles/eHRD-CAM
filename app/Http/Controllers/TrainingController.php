@@ -7,14 +7,23 @@ use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Training;
+use Carbon\Carbon;
 
 class TrainingController extends Controller
 {
     public function index()
     {
-    	$train = Training::latest('idtraining')->get();
+    	$train = Training::oldest('tgltraining')->future()->get();
 
     	return view('pages/training/index', compact('train'));
+    }
+
+    public function show($idtraining)
+    {
+        $training=Training::findOrFail($idtraining);
+
+        //dd($training->tgltraining);
+        return view('pages/training/show', compact('training'));
     }
 
     public function create()
@@ -24,9 +33,7 @@ class TrainingController extends Controller
 
     public function store()
     {
-    	$input=Request::all();
-
-    	Training::create($input);
+    	Training::create(Request::all());
 
     	return redirect('training');
     }
