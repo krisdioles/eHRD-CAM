@@ -16,7 +16,7 @@
     <h1>{{ $training->namatraining }}</h1>
 
 	<h3>{{ $training->lokasi }}</h3>
-	<h3>{{ $training->tgltraining }}</h3>
+	<h3>{{ $training->tgltraining->toDateString() }}</h3>
 </div>
 @endsection
 

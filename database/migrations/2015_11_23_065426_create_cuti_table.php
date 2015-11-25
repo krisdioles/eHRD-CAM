@@ -20,6 +20,7 @@ class CreateCutiTable extends Migration
 		 $table->timestamp('tglawal');
 		 $table->timestamp('tglakhir');
 		 $table->string('nomorsurat');
+         $table->string('status');
          $table->timestamps();
 		 
 		 $table->foreign('idpegawai')

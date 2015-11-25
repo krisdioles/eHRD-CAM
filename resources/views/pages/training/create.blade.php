@@ -12,33 +12,18 @@
 <div class="col-md-8 col-md-offset-2">
 	<h2 class="sub-header">Create Training</h2>
 	<div class="form-group">
+
 		{!! Form::open(['url'=>'training']) !!}
-		
-			<div class="form-group">
-				{!! Form::label('namatraining', 'Nama Training : ') !!}
-				{!! Form::text('namatraining', null, ['class'=>'form-control']) !!}
-			</div>
-
-			<!-- Lokasi Form Input -->
-			<div class="form-group">
-				{!! Form::label('lokasi', 'Lokasi : ') !!}
-				{!! Form::text('lokasi', null, ['class'=>'form-control']) !!}
-			</div>
-
-			<!-- Tgltraining Form Input -->
-			<div class="form-group">
-				{!! Form::label('tgltraining', 'Tanggal Training : ') !!}
-				{!! Form::input('date', 'tgltraining', date('Y-m-d'), ['class'=>'form-control']) !!}
-			</div>
-
-			<!-- Add Training Form Input -->
-			<div class="form-group">
-				{!! Form::submit('Add Training', ['class'=>'btn btn-primary form-control']) !!}
-			</div>
+			@include('pages/training/_form', ['submitButtonText'=>'Add Article'])
 		{!! Form::close() !!}
+
+		@include('errors/list')
+
 	</div>
 </div>
 @endsection
+
+
 
 @section('spjs')
 	<script src="../js/bootstrap.min.js"></script>

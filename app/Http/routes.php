@@ -30,7 +30,4 @@ Route::get('cuti', function () {
     return view('pages/cuti');
 });
 
-Route::get('training', 'TrainingController@index');
-Route::get('training/create', 'TrainingController@create');
-Route::get('training/{idtraining}', 'TrainingController@show');
-Route::post('training', 'TrainingController@store');
+Route::resource('training', 'TrainingController');
