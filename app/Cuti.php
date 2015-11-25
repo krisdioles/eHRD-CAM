@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Cuti extends Model
 {
@@ -22,5 +23,15 @@ class Cuti extends Model
      *
      * @var array
      */
-    protected $fillable = ['jeniscuti', 'tglpengajuan', 'tglawal', 'tglakhir', 'nomorsurat', 'status'];
+    protected $fillable = ['jeniscuti', 'tglpengajuan', 'tglawal', 'tglakhir', 'nomorsurat', 'status', 'idpegawai'];
+
+    public function scopeFuture($query)
+    {
+        $query->where('created_at', '>=', Carbon::today());
+    }
+
+    public function pegawai()
+    {
+        return $this->belongsTo('App\Pegawai');
+    }
 }

@@ -26,8 +26,10 @@ Route::get('absensi', function () {
     return view('pages/absensi');
 });
 
-Route::get('cuti', function () {
-    return view('pages/cuti');
-});
+// Route::get('cuti', function () {
+//     return view('pages/cuti');
+// });
+
+Route::resource('cuti', 'CutiController');
 
 Route::resource('training', 'TrainingController');

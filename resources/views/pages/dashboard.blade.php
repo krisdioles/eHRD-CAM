@@ -49,7 +49,7 @@
                   <td>{{ $pegawai->idpegawai }}</td>
                   <td>{{ $pegawai->nama }}</td>
                   <td>ipsum</td>
-                  <td>dolor</td>
+                  <td>{{ $pegawai->email }}</td>
                   <td>sit</td>
                 </tr>
                 @endforeach

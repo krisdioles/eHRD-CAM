@@ -11,9 +11,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/eHRD-CAM/public/">Dashboard</a></li>
-            <li><a href="/eHRD-CAM/public/login">Profile</a></li>
-            <li><a href="/eHRD-CAM/public/register">Help</a></li>
+            <li><a href="/eHRD-CAM/public/"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>   Dashboard</a></li>
+            <li><a href="/eHRD-CAM/public/login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>  Login</a></li>
+            <li><a href="/eHRD-CAM/public/register"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>   Register</a></li>
           </ul>
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">

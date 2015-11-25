@@ -26,4 +26,14 @@ class Pegawai extends Model
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function training()
+    {
+        return $this->belongsToMany('App\Training');
+    }
+
+    public function cuti()
+    {
+        return $this->hasMany('App\Cuti');
+    }
 }

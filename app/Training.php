@@ -34,4 +34,9 @@ class Training extends Model
     {
         $this->attributes['tgltraining'] = Carbon::parse($date);
     }
+
+    public function pegawai()
+    {
+        return $this->belongsToMany('App\Pegawai');
+    }
 }

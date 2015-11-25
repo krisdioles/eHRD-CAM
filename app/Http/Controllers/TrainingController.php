@@ -13,9 +13,9 @@ class TrainingController extends Controller
 {
     public function index()
     {
-    	$train = Training::oldest('tgltraining')->future()->get();
+    	$training = Training::oldest('tgltraining')->future()->get();
 
-    	return view('pages/training/index', compact('train'));
+    	return view('pages/training/index', compact('training'));
     }
 
     public function show($idtraining)
