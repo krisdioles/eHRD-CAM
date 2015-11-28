@@ -14,7 +14,7 @@
 	<div class="form-group">
 
 		{!! Form::open(['url'=>'cuti']) !!}
-			@include('pages/cuti/_form', ['submitButtonText'=>'Add Article'])
+			@include('pages/cuti/_form', ['submitButtonText'=>'Add Cuti'])
 		{!! Form::close() !!}
 
 		@include('errors/list')

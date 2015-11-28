@@ -14,7 +14,7 @@
 	<div class="form-group">
 		
 		{!! Form::model($cuti, ['method' => 'PATCH' ,'url'=>'cuti/'.$cuti->idcuti]) !!}
-			@include('pages/cuti/_form', ['submitButtonText'=>'Update Article'])
+			@include('pages/cuti/_form', ['submitButtonText'=>'Update Cuti'])
 		{!! Form::close() !!}
 
 		@include('errors/list')

@@ -14,7 +14,7 @@
 	<div class="form-group">
 		
 		{!! Form::model($training, ['method' => 'PATCH' ,'url'=>'training/'.$training->idtraining]) !!}
-			@include('pages/training/_form', ['submitButtonText'=>'Update Article'])
+			@include('pages/training/_form', ['submitButtonText'=>'Update Training'])
 		{!! Form::close() !!}
 
 		@include('errors/list')
