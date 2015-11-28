@@ -1,5 +1,22 @@
 @extends('app')
 
+@section('spcss')
+	<!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/dashboard.css" rel="stylesheet">
+@endsection
+
+<?php 
+	$kodepegawai = substr_replace(
+			DB::table('pegawai')->orderBy('created_at', 'desc')->pluck('kodepegawai'),
+			substr(DB::table('pegawai')->orderBy('created_at', 'desc')->pluck('kodepegawai'),3,3)+1,
+			6-strlen(substr(DB::table('pegawai')->orderBy('created_at', 'desc')->pluck('kodepegawai'),3,3)+1),
+			strlen(substr(DB::table('pegawai')->orderBy('created_at', 'desc')->pluck('kodepegawai'),3,3)+1)
+		);
+?>
+
 @section('content')
 <div class="container-fluid" style="padding-top : 20px">
 	<div class="row">
@@ -22,14 +39,21 @@
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Name</label>
+							<label class="col-md-4 control-label">Kode Pegawai</label>
+							<div class="col-md-6">
+								<input class="form-control" id="kodepegawai" name='kodepegawai' type="text" placeholder="{{ $kodepegawai }}" value="{{ $kodepegawai }}" disabled>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">Nama</label>
 							<div class="col-md-6">
 								<input type="text" class="form-control" name="name" value="{{ old('name') }}">
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
+							<label class="col-md-4 control-label">Alamat E-Mail</label>
 							<div class="col-md-6">
 								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
 							</div>
@@ -43,7 +67,7 @@
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Confirm Password</label>
+							<label class="col-md-4 control-label">Konfirmasi Password</label>
 							<div class="col-md-6">
 								<input type="password" class="form-control" name="password_confirmation">
 							</div>
@@ -62,4 +86,8 @@
 		</div>
 	</div>
 </div>
+@endsection
+
+@section('spjs')
+	<script src="../js/bootstrap.min.js"></script>
 @endsection

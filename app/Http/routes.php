@@ -14,22 +14,23 @@
 Route::get('', 'PegawaiController@index');
 Route::get('dashboard', 'PegawaiController@index');
 
-Route::get('login', function () {
-    return view('auth/login');
-});
+// Route::get('login', function () {
+//     return view('auth/login');
+// });
 
-Route::get('register', function () {
-    return view('auth/register');
-});
+// Route::get('register', function () {
+//     return view('auth/register');
+// });
 
 Route::get('absensi', function () {
     return view('pages/absensi');
 });
 
-// Route::get('cuti', function () {
-//     return view('pages/cuti');
-// });
-
 Route::resource('cuti', 'CutiController');
 
 Route::resource('training', 'TrainingController');
+
+Route::controllers([
+	'auth'=>'Auth\AuthController',
+	'password'=>'Auth\PasswordController'
+]);

@@ -1,5 +1,13 @@
 @extends('app')
 
+@section('spcss')
+	<!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/dashboard.css" rel="stylesheet">
+@endsection
+
 @section('content')
 <div class="container-fluid" style="padding-top : 20px">
 	<div class="row">
@@ -56,4 +64,8 @@
 		</div>
 	</div>
 </div>
+@endsection
+
+@section('spjs')
+	<script src="../js/bootstrap.min.js"></script>
 @endsection
