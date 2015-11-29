@@ -1,4 +1,5 @@
 {!! Form::hidden('pegawai_id', Auth::user()->idpegawai) !!}
+{!! Form::hidden('status', 'Pending') !!}
 
 <div class="form-group">
 	{!! Form::label('jeniscuti', 'Jenis Cuti : ') !!}

@@ -15,7 +15,12 @@
                   <th>Lokasi</th>
                   <th>Tanggal Training</th>
                   <th>Anggaran</th>
-                  <th></th>
+
+                  @if(Auth::user()->idpegawai==1)
+                    <th></th>
+                    <th></th>
+                  @endif
+                  
                 </tr>
               </thead>
               <tbody>
@@ -27,21 +32,28 @@
                   <td>{{ $training->lokasi }}</td>
                   <td>{{ $training->tgltraining->toDateString() }}</td>
                   <td>sit</td>
-                  <td width="5">
-                      <form action="{{ url('/training/'.$training->idtraining.'/edit') }}">
-                          <button class="btn-xs btn-link" type="submit">Edit</button>
-                      </form>
-                  </td>
-                  <td width="5">
-                      {!! Form::open(['method' => 'DELETE', 'route' => ['training.destroy', $training->idtraining]]) !!}
-                          <button class="btn-xs btn-link" type="submit">Delete</button>
-                      {!! Form::close() !!}
-                  </td>
+
+                  @if(Auth::user()->idpegawai==1)
+                    <td width="5">
+                        <form action="{{ url('/training/'.$training->idtraining.'/edit') }}">
+                            <button class="btn-xs btn-link" type="submit">Edit</button>
+                        </form>
+                    </td>
+                    <td width="5">
+                        {!! Form::open(['method' => 'DELETE', 'route' => ['training.destroy', $training->idtraining]]) !!}
+                            <button class="btn-xs btn-link" type="submit">Delete</button>
+                        {!! Form::close() !!}
+                    </td>
+                  @endif
+
                 </tr>
               @endforeach
 
               </tbody>
             </table>
-            <a class="btn btn-default" href="{{ url('/training/create') }}" role="button">Create</a>
+
+            @if(Auth::user()->idpegawai==1)
+              <a class="btn btn-default" href="{{ url('/training/create') }}" role="button">Create</a>
+            @endif
           </div>
 </div>

@@ -71,4 +71,13 @@ class CutiController extends Controller
         //Session::flash('message', 'Successfully deleted the cuti!');
         return redirect('cuti');
     }
+
+    public function accept($idcuti)
+    {
+        $cuti=Cuti::findOrFail($idcuti);
+        $cuti->status = 'Accepted';
+        $cuti->save();
+
+        return redirect('cuti');
+    }
 }

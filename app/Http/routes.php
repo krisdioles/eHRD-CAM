@@ -34,6 +34,7 @@ Route::get('absensi', function () {
 });
 
 Route::resource('cuti', 'CutiController');
+Route::get('cuti/{idcuti}/accept', 'CutiController@accept');
 
 Route::resource('training', 'TrainingController');
 
