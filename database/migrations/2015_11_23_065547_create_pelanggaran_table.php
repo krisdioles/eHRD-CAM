@@ -14,14 +14,14 @@ class CreatePelanggaranTable extends Migration
     {
          Schema::create('pelanggaran', function(Blueprint $table){
          $table->increments('idpelanggaran');
-         $table->integer('idpegawai')->unsigned();
+         $table->integer('pegawai_id')->unsigned();
          $table->timestamp('tglpelanggaran');
 		 $table->string('jenispelanggaran');
 		 $table->string('sanksi');
 		 $table->string('keterangan');
          $table->timestamps();
 		 
-		 $table->foreign('idpegawai')
+		 $table->foreign('pegawai_id')
                   ->references('idpegawai')
                   ->on('pegawai')
                   ->onDelete('cascade');

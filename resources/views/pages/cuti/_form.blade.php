@@ -1,4 +1,4 @@
-{!! Form::hidden('idpegawai', Auth::user()->idpegawai) !!}
+{!! Form::hidden('pegawai_id', Auth::user()->idpegawai) !!}
 
 <div class="form-group">
 	{!! Form::label('jeniscuti', 'Jenis Cuti : ') !!}

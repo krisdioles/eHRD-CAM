@@ -11,6 +11,13 @@
 |
 */
 
+// if(Auth::guest())
+// {
+// 	Route::get('', function () {
+//     	return view('auth/login');
+// 	});
+// }
+
 Route::get('', 'PegawaiController@index');
 Route::get('dashboard', 'PegawaiController@index');
 

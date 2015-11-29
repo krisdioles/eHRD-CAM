@@ -14,13 +14,13 @@ class CreateDetailtrainingTable extends Migration
     {
          Schema::create('detailtraining', function(Blueprint $table){
          $table->integer('idtraining')->unsigned();
-         $table->integer('idpegawai')->unsigned();
+         $table->integer('pegawai_id')->unsigned();
          $table->timestamps();
-		 $table->foreign('idtraining')
+		 $table->foreign('training_id')
                   ->references('idtraining')
                   ->on('training')
                   ->onDelete('cascade');
-		 $table->foreign('idpegawai')
+		 $table->foreign('pegawai_id')
                   ->references('idpegawai')
                   ->on('pegawai')
                   ->onDelete('cascade');

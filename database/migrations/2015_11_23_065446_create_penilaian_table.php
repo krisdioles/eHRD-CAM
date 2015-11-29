@@ -14,7 +14,7 @@ class CreatePenilaianTable extends Migration
     {
          Schema::create('penilaian', function(Blueprint $table){
          $table->increments('idpenilaian');
-         $table->integer('idpegawai')->unsigned();
+         $table->integer('pegawai_id')->unsigned();
          $table->timestamp('tglpenilaian');
 		 $table->integer('nilaikompetensi');
 		 $table->integer('nilaikedisiplinan');
@@ -22,7 +22,7 @@ class CreatePenilaianTable extends Migration
 		 $table->string('keterangan');
          $table->timestamps();
 		 
-		 $table->foreign('idpegawai')
+		 $table->foreign('pegawai_id')
                   ->references('idpegawai')
                   ->on('pegawai')
                   ->onDelete('cascade');

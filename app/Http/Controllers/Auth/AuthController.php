@@ -45,6 +45,7 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:pegawai',
             'password' => 'required|confirmed|min:6',
+            'kodepegawai' => 'required',
         ]);
     }
 
@@ -57,10 +58,10 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return Pegawai::create([
+            'kodepegawai' => $data['kodepegawai'],
             'nama' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'kodepegawai' => $data['kodepegawai'],
         ]);
     }
 }

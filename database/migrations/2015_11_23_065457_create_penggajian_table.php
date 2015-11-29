@@ -14,7 +14,7 @@ class CreatePenggajianTable extends Migration
     {
          Schema::create('penggajian', function(Blueprint $table){
          $table->increments('idpenggajian');
-         $table->integer('idpegawai')->unsigned();
+         $table->integer('pegawai_id')->unsigned();
          $table->timestamp('tglpenggajian');
 		 $table->integer('biayabonus');
 		 $table->string('keteranganbonus');
@@ -24,7 +24,7 @@ class CreatePenggajianTable extends Migration
 		 $table->string('keterangan');
          $table->timestamps();
 		 
-		 $table->foreign('idpegawai')
+		 $table->foreign('pegawai_id')
                   ->references('idpegawai')
                   ->on('pegawai')
                   ->onDelete('cascade');

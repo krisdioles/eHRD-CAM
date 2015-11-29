@@ -23,7 +23,7 @@ class Cuti extends Model
      *
      * @var array
      */
-    protected $fillable = ['jeniscuti', 'tglpengajuan', 'tglawal', 'tglakhir', 'nomorsurat', 'status', 'idpegawai'];
+    protected $fillable = ['jeniscuti', 'tglpengajuan', 'tglawal', 'tglakhir', 'nomorsurat', 'status', 'pegawai_id'];
 
     public function scopeFuture($query)
     {

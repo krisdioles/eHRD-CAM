@@ -14,14 +14,14 @@ class CreatePhkTable extends Migration
     {
          Schema::create('phk', function(Blueprint $table){
          $table->increments('idphk');
-         $table->integer('idpegawai')->unsigned();
+         $table->integer('pegawai_id')->unsigned();
 		 $table->string('nomorsurat');
 		 $table->string('jenisphk');
          $table->timestamp('tglphk');
 		 $table->string('keterangan');
          $table->timestamps();
 		 
-		 $table->foreign('idpegawai')
+		 $table->foreign('pegawai_id')
                   ->references('idpegawai')
                   ->on('pegawai')
                   ->onDelete('cascade');

@@ -13,16 +13,23 @@ class CutiController extends Controller
 {
     public function index()
     {
-    	$cuti = Cuti::oldest('tglpengajuan')->future()->get();
+        if(\Auth::user()->idpegawai==1)
+        {
+            $cuti = Cuti::oldest('tglpengajuan')->future()->get();  
+        }
+        else
+        {
+            $cuti = \Auth::user()->cuti;
+        }
 
-    	return view('pages/cuti/index', compact('cuti'));
+        return view('pages/cuti/index', compact('cuti'));
+    	
     }
 
     public function show($idcuti)
     {
         $cuti=Cuti::findOrFail($idcuti);
 
-        //dd($cuti->tglcuti);
         return view('pages/cuti/show', compact('cuti'));
     }
 

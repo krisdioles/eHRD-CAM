@@ -14,7 +14,7 @@ class CreateAbsensiTable extends Migration
     {
         Schema::create('absensi', function(Blueprint $table){
         $table->increments('idabsensi');
-        $table->integer('idpegawai')->unsigned();
+        $table->integer('pegawai_id')->unsigned();
 		$table->timestamp('tglabsen');
         $table->timestamp('waktumasuk');
 		$table->timestamp('waktupulang');
@@ -22,7 +22,7 @@ class CreateAbsensiTable extends Migration
         $table->rememberToken();
         $table->timestamps();
 		 
-		$table->foreign('idpegawai')
+		$table->foreign('pegawai_id')
                 ->references('idpegawai')
                 ->on('pegawai')
                 ->onDelete('cascade');

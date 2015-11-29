@@ -41,7 +41,7 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label">Kode Pegawai</label>
 							<div class="col-md-6">
-								<input class="form-control" id="kodepegawai" name='kodepegawai' type="text" placeholder="{{ $kodepegawai }}" value="{{ $kodepegawai }}" disabled>
+								<input type="text" class="form-control" name="kodepegawai" id="kodepegawai" value="{{ $kodepegawai}}" readonly>
 							</div>
 						</div>
 

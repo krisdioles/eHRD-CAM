@@ -14,7 +14,7 @@ class CreateCutiTable extends Migration
     {
          Schema::create('cuti', function(Blueprint $table){
          $table->increments('idcuti');
-         $table->integer('idpegawai')->unsigned();
+         $table->integer('pegawai_id')->unsigned();
 		 $table->string('jeniscuti');
          $table->timestamp('tglpengajuan');
 		 $table->timestamp('tglawal');
@@ -23,7 +23,7 @@ class CreateCutiTable extends Migration
          $table->string('status');
          $table->timestamps();
 		 
-		 $table->foreign('idpegawai')
+		 $table->foreign('pegawai_id')
                   ->references('idpegawai')
                   ->on('pegawai')
                   ->onDelete('cascade');
