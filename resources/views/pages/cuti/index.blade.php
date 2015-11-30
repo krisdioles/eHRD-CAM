@@ -15,7 +15,11 @@
           <th>Tanggal Awal</th>
           <th>Tanggal Akhir</th>
           <th>Status</th>
-          <th>Diajukan Oleh</th>
+
+          @if(Auth::user()->idpegawai==1)
+            <th>Diajukan Oleh</th>
+          @endif
+          
           <th></th>
 
           @if(Auth::user()->idpegawai!=1)

@@ -30,6 +30,11 @@ class Cuti extends Model
         $query->where('created_at', '>=', Carbon::today());
     }
 
+    public function scopeFuture1($query)
+    {
+        $query->where('tglawal', '>=', Carbon::today());
+    }
+
     public function pegawai()
     {
         return $this->belongsTo('App\Pegawai');

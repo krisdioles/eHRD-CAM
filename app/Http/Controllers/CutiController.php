@@ -19,17 +19,15 @@ class CutiController extends Controller
         }
         else
         {
-            $cuti = \Auth::user()->cuti;
+            $cuti = \Auth::user()->cuti()->future1()->get();
         }
 
         return view('pages/cuti/index', compact('cuti'));
     	
     }
 
-    public function show($idcuti)
+    public function show(Cuti $cuti)
     {
-        $cuti=Cuti::findOrFail($idcuti);
-
         return view('pages/cuti/show', compact('cuti'));
     }
 
@@ -45,26 +43,21 @@ class CutiController extends Controller
     	return redirect('cuti');
     }
 
-    public function edit($idcuti)
+    public function edit(Cuti $cuti)
     {
-        $cuti=Cuti::findOrFail($idcuti);
-
         return view('pages/cuti/edit', compact('cuti'));
     }
 
-    public function update($idcuti, CutiRequest $request)
+    public function update(Cuti $cuti, CutiRequest $request)
     {
-        $cuti=Cuti::findOrFail($idcuti);
-
         $cuti->update($request->all());
 
         return redirect('cuti');
     }
 
-    public function destroy($idcuti)
+    public function destroy(Cuti $cuti)
     {
         // delete
-        $cuti = Cuti::findOrFail($idcuti);
         $cuti->delete();
 
         // redirect
@@ -72,9 +65,8 @@ class CutiController extends Controller
         return redirect('cuti');
     }
 
-    public function accept($idcuti)
+    public function accept(Cuti $cuti)
     {
-        $cuti=Cuti::findOrFail($idcuti);
         $cuti->status = 'Accepted';
         $cuti->save();
 

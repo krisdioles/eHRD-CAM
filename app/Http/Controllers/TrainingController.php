@@ -18,11 +18,8 @@ class TrainingController extends Controller
     	return view('pages/training/index', compact('training'));
     }
 
-    public function show($idtraining)
+    public function show(Training $training)
     {
-        $training=Training::findOrFail($idtraining);
-
-        //dd($training->tgltraining);
         return view('pages/training/show', compact('training'));
     }
 
@@ -38,26 +35,22 @@ class TrainingController extends Controller
     	return redirect('training');
     }
 
-    public function edit($idtraining)
+    public function edit(Training $training)
     {
-        $training=Training::findOrFail($idtraining);
 
         return view('pages/training/edit', compact('training'));
     }
 
-    public function update($idtraining, TrainingRequest $request)
+    public function update(Training $training, TrainingRequest $request)
     {
-        $training=Training::findOrFail($idtraining);
-
         $training->update($request->all());
 
         return redirect('training');
     }
 
-    public function destroy($idtraining)
+    public function destroy(Training $training)
     {
         // delete
-        $training = Training::find($idtraining);
         $training->delete();
 
         // redirect
