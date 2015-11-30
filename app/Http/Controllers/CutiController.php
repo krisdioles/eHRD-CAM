@@ -38,7 +38,9 @@ class CutiController extends Controller
 
     public function store(CutiRequest $request)
     {
-    	Cuti::create($request->all());
+    	\Auth::user()->cuti()->create($request->all());
+
+        flash()->overlay('Cuti telah terdaftar!');
 
     	return redirect('cuti');
     }
@@ -52,6 +54,8 @@ class CutiController extends Controller
     {
         $cuti->update($request->all());
 
+        flash()->overlay('Cuti berhasil diedit!');
+
         return redirect('cuti');
     }
 
@@ -61,7 +65,7 @@ class CutiController extends Controller
         $cuti->delete();
 
         // redirect
-        //Session::flash('message', 'Successfully deleted the cuti!');
+        flash()->overlay('Cuti berhasil dihapus!');
         return redirect('cuti');
     }
 

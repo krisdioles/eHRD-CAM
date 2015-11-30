@@ -19,7 +19,7 @@
           @if(Auth::user()->idpegawai==1)
             <th>Diajukan Oleh</th>
           @endif
-          
+
           <th></th>
 
           @if(Auth::user()->idpegawai!=1)
