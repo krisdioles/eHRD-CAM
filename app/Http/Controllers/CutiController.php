@@ -54,7 +54,7 @@ class CutiController extends Controller
     {
         $cuti->update($request->all());
 
-        flash()->overlay('Cuti berhasil diedit!');
+        flash()->overlay('Cuti berhasil diubah!');
 
         return redirect('cuti');
     }
@@ -73,6 +73,8 @@ class CutiController extends Controller
     {
         $cuti->status = 'Accepted';
         $cuti->save();
+
+        flash()->overlay('Cuti telah diberikan!');
 
         return redirect('cuti');
     }

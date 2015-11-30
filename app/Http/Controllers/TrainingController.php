@@ -32,18 +32,21 @@ class TrainingController extends Controller
     {
     	Training::create($request->all());
 
+        flash()->overlay('Training berhasil disimpan!');
+
     	return redirect('training');
     }
 
     public function edit(Training $training)
     {
-
         return view('pages/training/edit', compact('training'));
     }
 
     public function update(Training $training, TrainingRequest $request)
     {
         $training->update($request->all());
+
+        flash()->overlay('Training berhasil diubah!');
 
         return redirect('training');
     }
@@ -54,7 +57,7 @@ class TrainingController extends Controller
         $training->delete();
 
         // redirect
-        //Session::flash('message', 'Successfully deleted the training!');
+        flash()->overlay('Training berhasil dihapus!');
         return redirect('training');
     }
 }
