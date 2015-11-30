@@ -17,6 +17,15 @@
 
 	<h3>{{ $training->lokasi }}</h3>
 	<h3>{{ $training->tgltraining->toDateString() }}</h3>
+	
+	@unless($training->pegawai->isEmpty())
+		<h5>Peserta Training : </h5>
+		<ul>
+			@foreach ($training->pegawai as $pegawai)
+				<li>{{ $pegawai->nama }}</li>
+			@endforeach
+		</ul>
+	@endunless
 </div>
 @endsection
 

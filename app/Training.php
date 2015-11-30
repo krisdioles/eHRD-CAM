@@ -39,4 +39,9 @@ class Training extends Model
     {
         return $this->belongsToMany('App\Pegawai');
     }
+
+    public function getPegawaiListAttribute()
+    {
+        return $this->pegawai->lists('idpegawai')->all();
+    }
 }

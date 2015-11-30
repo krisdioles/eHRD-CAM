@@ -6,6 +6,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Training;
+use App\Pegawai;
 use Carbon\Carbon;
 use App\Http\Requests\TrainingRequest;
 
@@ -25,28 +26,34 @@ class TrainingController extends Controller
 
     public function create()
     {
-    	return view('pages/training/create');
+        $peg=Pegawai::lists('nama', 'idpegawai');
+
+    	return view('pages/training/create', compact('peg'));
     }
 
     public function store(TrainingRequest $request)
     {
-    	Training::create($request->all());
+     	$training=Training::create($request->all());
 
-        flash()->overlay('Training berhasil disimpan!');
+        $training->pegawai()->attach($request->input('pegawai_list'));
+
+        flash()->info('Training berhasil disimpan!');
 
     	return redirect('training');
     }
 
     public function edit(Training $training)
     {
-        return view('pages/training/edit', compact('training'));
+        $peg=Pegawai::lists('nama', 'idpegawai');
+
+        return view('pages/training/edit', compact('training', 'peg'));
     }
 
     public function update(Training $training, TrainingRequest $request)
     {
         $training->update($request->all());
 
-        flash()->overlay('Training berhasil diubah!');
+        flash()->info('Training berhasil diubah!');
 
         return redirect('training');
     }
@@ -57,7 +64,7 @@ class TrainingController extends Controller
         $training->delete();
 
         // redirect
-        flash()->overlay('Training berhasil dihapus!');
+        flash()->info('Training berhasil dihapus!');
         return redirect('training');
     }
 }

@@ -13,6 +13,12 @@
 	{!! Form::input('date', 'tgltraining', date('Y-m-d'), ['class'=>'form-control']) !!}
 </div>
 
+<!-- Pegawai for Training Form Input -->
+<div class="form-group">
+	{!! Form::label('pegawai_list', 'Pegawai : ') !!}
+	{!! Form::select('pegawai_list[]', $peg, null, ['class'=>'form-control', 'multiple'=>'multiple']) !!}
+</div>
+
 <div class="form-group">
 	{!! Form::submit($submitButtonText, ['class'=>'btn btn-primary form-control']) !!}
 </div>

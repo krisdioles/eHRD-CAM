@@ -15,7 +15,8 @@ class AdminSeeder extends Seeder
             'nama' => 'Administrator',
             'email' => 'admin@example.com',
             'password' => bcrypt('admin'),
-            'kodepegawai' => 'CAM001',
+            'kodepegawai' => 'CAM000',
+            'role' => 'admin',
         ]);
     }
 }

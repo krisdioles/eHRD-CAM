@@ -12,16 +12,25 @@ class CreateTrainingTable extends Migration
      */
     public function up()
     {
-         Schema::create('training', function(Blueprint $table){
-         $table->increments('idtraining');
-		 $table->string('namatraining');
-         $table->timestamp('tgltraining');
-		 $table->integer('anggaran');
-		 $table->string('lokasi');
-		 $table->string('keterangan');
-         $table->timestamps();
-		 
-      });
+        Schema::create('training', function(Blueprint $table){
+            $table->increments('idtraining');
+    		$table->string('namatraining');
+            $table->timestamp('tgltraining');
+    		$table->integer('anggaran');
+    		$table->string('lokasi');
+    		$table->string('keterangan');
+            $table->timestamps();
+        });
+
+        Schema::create('pegawai_training', function(Blueprint $table){
+            $table->integer('pegawai_id')->unsigned()->index();
+            $table->foreign('pegawai_id')->references('idpegawai')->on('pegawai')->onDelete('cascade');
+
+            $table->integer('training_id')->unsigned()->index();
+            $table->foreign('training_id')->references('idtraining')->on('training')->onDelete('cascade');
+
+            $table->timestamps();
+        });
     }
 
     /**
@@ -32,5 +41,6 @@ class CreateTrainingTable extends Migration
     public function down()
     {
         Schema::drop('training');
+        Schema::drop('pegawai_training');
     }
 }

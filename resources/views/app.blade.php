@@ -22,7 +22,7 @@
 
   <body>
     @include('partials.nav')
-
+    
     @include('flash::message')
 
     @yield('content')
@@ -36,7 +36,7 @@
     <script src="js/bootstrap.min.js"></script>
 
     <script>
-        $('#flash-overlay-modal').modal();
+        $('#flash-overlay-modal').modal('show');
     </script>
   </body>
 </html>

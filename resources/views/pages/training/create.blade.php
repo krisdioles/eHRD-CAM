@@ -13,7 +13,7 @@
 	<h2 class="sub-header">Create Training</h2>
 	<div class="form-group">
 
-		{!! Form::open(['url'=>'training']) !!}
+		{!! Form::model($training=new \App\Training, ['url'=>'training']) !!}
 			@include('pages/training/_form', ['submitButtonText'=>'Add Training'])
 		{!! Form::close() !!}
 

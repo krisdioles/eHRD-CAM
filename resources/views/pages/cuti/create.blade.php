@@ -13,7 +13,7 @@
 	<h2 class="sub-header">Create Cuti</h2>
 	<div class="form-group">
 
-		{!! Form::open(['url'=>'cuti']) !!}
+		{!! Form::model($cuti=new \App\Cuti, ['url'=>'cuti']) !!}
 			@include('pages/cuti/_form', ['submitButtonText'=>'Add Cuti'])
 		{!! Form::close() !!}
 
