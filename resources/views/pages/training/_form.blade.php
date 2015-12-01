@@ -10,7 +10,7 @@
 
 <div class="form-group">
 	{!! Form::label('tgltraining', 'Tanggal Training : ') !!}
-	{!! Form::input('date', 'tgltraining', date('Y-m-d'), ['class'=>'form-control']) !!}
+	{!! Form::input('date', 'tgltraining', $training->tgltraining->format('Y-m-d'), ['class'=>'form-control']) !!}
 </div>
 
 <!-- Pegawai for Training Form Input -->

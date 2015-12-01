@@ -25,6 +25,16 @@ class Cuti extends Model
      */
     protected $fillable = ['jeniscuti', 'tglpengajuan', 'tglawal', 'tglakhir', 'nomorsurat', 'status', 'pegawai_id'];
 
+    public function setTglawalAttribute($date)
+    {
+        $this->attributes['tglawal'] = Carbon::parse($date);
+    }
+
+    public function setTglakhirAttribute($date)
+    {
+        $this->attributes['tglakhir'] = Carbon::parse($date);
+    }
+
     public function scopeFuture($query)
     {
         $query->where('created_at', '>=', Carbon::today());

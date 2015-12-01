@@ -40,11 +40,16 @@ class Pegawai extends Model implements AuthenticatableContract,
 
     public function training()
     {
-        return $this->belongsToMany('App\Training');
+        return $this->belongsToMany('App\Training')->withTimestamps();
     }
 
     public function cuti()
     {
-        return $this->hasMany('App\Cuti')->withTimestamps();
+        return $this->hasMany('App\Cuti');
+    }
+
+    public function lembur()
+    {
+        return $this->hasMany('App\Lembur');
     }
 }

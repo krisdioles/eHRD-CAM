@@ -40,7 +40,7 @@ class CutiController extends Controller
     {
     	\Auth::user()->cuti()->create($request->all());
 
-        flash()->overlay('Cuti telah terdaftar!');
+        flash()->success('Cuti telah terdaftar!');
 
     	return redirect('cuti');
     }
@@ -54,7 +54,7 @@ class CutiController extends Controller
     {
         $cuti->update($request->all());
 
-        flash()->overlay('Cuti berhasil diubah!');
+        flash()->success('Cuti berhasil diubah!');
 
         return redirect('cuti');
     }
@@ -65,16 +65,15 @@ class CutiController extends Controller
         $cuti->delete();
 
         // redirect
-        flash()->overlay('Cuti berhasil dihapus!');
+        flash()->success('Cuti berhasil dihapus!');
         return redirect('cuti');
     }
 
-    public function accept(Cuti $cuti)
+    public function accept($idcuti)
     {
+        $cuti=Cuti::findOrFail($idcuti);
         $cuti->status = 'Accepted';
         $cuti->save();
-
-        flash()->overlay('Cuti telah diberikan!');
 
         return redirect('cuti');
     }

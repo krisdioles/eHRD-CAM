@@ -20,7 +20,7 @@ class LemburController extends Controller
     {
         if(\Auth::user()->idpegawai==1)
         {
-            $lembur = Lembur::oldest('tgllembur')->get();  
+            $lembur = Lembur::oldest('tgllembur')->get();
         }
         else
         {
@@ -109,8 +109,9 @@ class LemburController extends Controller
         return redirect('lembur');
     }
 
-    public function accept(Lembur $lembur)
+    public function accept($idlembur)
     {
+        $lembur=Lembur::findOrFail($idlembur);
         $lembur->status = 'Accepted';
         $lembur->save();
 

@@ -8,12 +8,12 @@
 
 <div class="form-group">
 	{!! Form::label('tglawal', 'Tanggal Awal : ') !!}
-	{!! Form::input('date', 'tglawal', date('Y-m-d'), ['class'=>'form-control']) !!}
+	{!! Form::input('date', 'tglawal', $cuti->tglawal->format('Y-m-d'), ['class'=>'form-control']) !!}
 </div>
 
 <div class="form-group">
 	{!! Form::label('tglakhir', 'Tanggal Akhir : ') !!}
-	{!! Form::input('date', 'tglakhir', date('Y-m-d'), ['class'=>'form-control']) !!}
+	{!! Form::input('date', 'tglakhir', $cuti->tglakhir->format('Y-m-d'), ['class'=>'form-control']) !!}
 </div>
 
 <div class="form-group">

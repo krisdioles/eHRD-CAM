@@ -3,7 +3,7 @@
 
 <div class="form-group">
 	{!! Form::label('tgllembur', 'Tanggal Lembur : ') !!}
-	{!! Form::input('date', 'tgllembur', date('Y-m-d'), ['class'=>'form-control']) !!}
+	{!! Form::input('date', 'tgllembur', $lembur->tgllembur->format('Y-m-d'), ['class'=>'form-control']) !!}
 </div>
 
 <div class="form-group">
