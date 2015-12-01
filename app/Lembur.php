@@ -24,6 +24,11 @@ class Lembur extends Model
      */
     protected $fillable = ['jangkawaktu', 'tgllembur', 'keterangan', 'pegawai_id', 'status'];
 
+    public function setTgllemburAttribute($date)
+    {
+        $this->attributes['tgllembur'] = Carbon::parse($date);
+    }
+
     public function pegawai()
     {
         return $this->belongsTo('App\Pegawai');

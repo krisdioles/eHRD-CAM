@@ -33,13 +33,23 @@ Route::get('absensi', function () {
     return view('pages/absensi');
 });
 
+Route::resource('absensi', 'AbsensiController');
+
 Route::resource('cuti', 'CutiController');
 Route::get('cuti/{idcuti}/accept', 'CutiController@accept');
 
-Route::resource('training', 'TrainingController');
-
 Route::resource('lembur', 'LemburController');
 Route::get('lembur/{idlembur}/accept', 'LemburController@accept');
+
+Route::resource('training', 'TrainingController');
+
+Route::resource('penilaian', 'PenilaianController');
+
+Route::resource('pelanggaran', 'PelanggaranController');
+
+Route::resource('penggajian', 'PenggajianController');
+
+Route::resource('phk', 'PhkController');
 
 Route::controllers([
 	'auth'=>'Auth\AuthController',

@@ -29,6 +29,12 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot($router);
 
         $router->model('cuti', 'App\Cuti');
+        $router->model('lembur', 'App\Lembur');
+        $router->model('absensi', 'App\Absensi');
+        $router->model('penilaian', 'App\Penilaian');
+        $router->model('penggajian', 'App\Penggajian');
+        $router->model('pelanggaran', 'App\Pelanggaran');
+        $router->model('phk', 'App\Phk');
         $router->model('training', 'App\Training');
     }
 
