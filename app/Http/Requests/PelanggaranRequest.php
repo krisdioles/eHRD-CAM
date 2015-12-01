@@ -13,7 +13,7 @@ class PelanggaranRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class PelanggaranRequest extends Request
     public function rules()
     {
         return [
-            //
+            'tglpelanggaran' => 'required|date',
+            'jenispelanggaran'   => 'required',
+            'sanksi'   => 'required',
+            'keterangan'   => 'required',
         ];
     }
 }

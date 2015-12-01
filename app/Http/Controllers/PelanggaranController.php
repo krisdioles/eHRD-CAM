@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Pelanggaran;
+use App\Http\Requests\PelanggaranRequest;
 
 class PelanggaranController extends Controller
 {
@@ -16,7 +18,21 @@ class PelanggaranController extends Controller
      */
     public function index()
     {
-        //
+        $pelanggaran = Pelanggaran::all();
+        $pegawai = \App\Pegawai::all();
+
+        return view('pages/pelanggaran/index', compact('pelanggaran', 'pegawai'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  pelanggaran  $pelanggaran
+     * @return Response
+     */
+    public function show(Pelanggaran $pelanggaran)
+    {
+        return view('pages/pelanggaran/show', compact('pelanggaran'));
     }
 
     /**
@@ -26,7 +42,9 @@ class PelanggaranController extends Controller
      */
     public function create()
     {
-        //
+        $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
+
+        return view('pages/pelanggaran/create', compact('pegawai'));
     }
 
     /**
@@ -35,53 +53,57 @@ class PelanggaranController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(PelanggaranRequest $request)
     {
-        //
-    }
+        \Auth::user()->pelanggaran()->create($request->all());
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
+        flash()->success('Pelanggaran telah terdaftar!');
+
+        return redirect('pelanggaran');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  pelanggaran  $pelanggaran
      * @return Response
      */
-    public function edit($id)
+    public function edit(Pelanggaran $pelanggaran)
     {
-        //
+        $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
+
+        return view('pages/pelanggaran/edit', compact('pelanggaran', 'pegawai'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  Request  $request
-     * @param  int  $id
+     * @param  pelanggaran  $pelanggaran
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(PelanggaranRequest $request, Pelanggaran $pelanggaran)
     {
-        //
+        $pelanggaran->update($request->all());
+
+        flash()->success('Pelanggaran berhasil diubah!');
+
+        return redirect('pelanggaran');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  pelanggaran  $pelanggaran
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Pelanggaran $pelanggaran)
     {
-        //
+        // delete
+        $pelanggaran->delete();
+
+        // redirect
+        flash()->success('Pelanggaran berhasil dihapus!');
+        return redirect('pelanggaran');
     }
 }

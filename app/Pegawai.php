@@ -62,4 +62,14 @@ class Pegawai extends Model implements AuthenticatableContract,
     {
         return $this->hasMany('App\Penilaian');
     }
+
+    public function pelanggaran()
+    {
+        return $this->hasMany('App\Pelanggaran');
+    }
+
+    public function phk()
+    {
+        return $this->hasMany('App\Phk');
+    }
 }
