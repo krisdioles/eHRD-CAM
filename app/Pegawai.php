@@ -52,4 +52,9 @@ class Pegawai extends Model implements AuthenticatableContract,
     {
         return $this->hasMany('App\Lembur');
     }
+
+    public function lembur()
+    {
+        return $this->hasMany('App\Penggajian');
+    }
 }

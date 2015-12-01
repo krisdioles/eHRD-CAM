@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Lembur extends Model
 {
@@ -27,6 +28,11 @@ class Lembur extends Model
     public function setTgllemburAttribute($date)
     {
         $this->attributes['tgllembur'] = Carbon::parse($date);
+    }
+
+    public function getTgllemburAttribute($date)
+    {
+        return new Carbon($date);
     }
 
     public function pegawai()

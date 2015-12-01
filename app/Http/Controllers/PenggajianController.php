@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Penggajian;
+use App\Http\Requests\CutiRequest;
 
 class PenggajianController extends Controller
 {
@@ -16,7 +18,27 @@ class PenggajianController extends Controller
      */
     public function index()
     {
-        //
+        if(\Auth::user()->idpegawai==1)
+        {
+            $penggajian = Penggajian::latest('tglpenggajian')->get();
+        }
+        else
+        {
+            $penggajian = \Auth::user()->penggajian;
+        }
+
+        return view('pages/penggajian/index', compact('penggajian'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $penggajian
+     * @return Response
+     */
+    public function show(Penggajian $penggajian)
+    {
+        return view('pages/penggajian/show', compact('penggajian'));
     }
 
     /**
@@ -26,7 +48,7 @@ class PenggajianController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages/penggajian/create');
     }
 
     /**
@@ -35,20 +57,13 @@ class PenggajianController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(PenggajianRequest $request)
     {
-        //
-    }
+        \Auth::user()->penggajian()->create($request->all());
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
+        flash()->overlay('Penggajian telah terdaftar!');
+
+        return redirect('penggajian');
     }
 
     /**
@@ -57,9 +72,9 @@ class PenggajianController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit($id)
+    public function edit(Penggajian $penggajian)
     {
-        //
+        return view('pages/penggajian/edit', compact('penggajian'));
     }
 
     /**
@@ -69,9 +84,13 @@ class PenggajianController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(PenggajianRequest $request, Penggajian $penggajian)
     {
-        //
+        $penggajian->update($request->all());
+
+        flash()->overlay('Penggajian berhasil diubah!');
+
+        return redirect('penggajian');
     }
 
     /**
@@ -80,8 +99,13 @@ class PenggajianController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Penggajian $penggajian)
     {
-        //
+        // delete
+        $penggajian->delete();
+
+        // redirect
+        flash()->overlay('Penggajian berhasil dihapus!');
+        return redirect('penggajian');
     }
 }

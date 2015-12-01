@@ -27,8 +27,8 @@ class TrainingRequest extends Request
             'namatraining'  => 'required|min:3',
             'tgltraining'   => 'required|date',
             'lokasi'        => 'required',
-            // 'anggaran'      => 'required|numeric',
-            // 'keterangan'    => '',
+            'anggaran'      => 'required|numeric',
+            //'keterangan'    => '',
         ];
     }
 }

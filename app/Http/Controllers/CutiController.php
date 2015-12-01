@@ -75,6 +75,8 @@ class CutiController extends Controller
         $cuti->status = 'Accepted';
         $cuti->save();
 
+        flash()->success('Cuti berhasil diberikan!');
+
         return redirect('cuti');
     }
 }

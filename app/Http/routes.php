@@ -29,10 +29,6 @@ Route::get('dashboard', 'PegawaiController@index');
 //     return view('auth/register');
 // });
 
-Route::get('absensi', function () {
-    return view('pages/absensi');
-});
-
 Route::resource('absensi', 'AbsensiController');
 
 Route::resource('cuti', 'CutiController');

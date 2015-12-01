@@ -30,9 +30,19 @@ class Cuti extends Model
         $this->attributes['tglawal'] = Carbon::parse($date);
     }
 
+    public function getTglawalAttribute($date)
+    {
+        return new Carbon($date);
+    }
+
     public function setTglakhirAttribute($date)
     {
         $this->attributes['tglakhir'] = Carbon::parse($date);
+    }
+
+    public function getTglakhirAttribute($date)
+    {
+        return new Carbon($date);
     }
 
     public function scopeFuture($query)
