@@ -10,12 +10,16 @@
           <ul class="nav nav-sidebar">
             <li class="{{ Request::segment(1) === 'training' ? 'active' : null }}"><a href="/eHRD-CAM/public/training">Training</a></li>
           </ul>
-          <ul class="nav nav-sidebar">
-            <li class="{{ Request::segment(1) === 'penilaian' ? 'active' : null }}"><a href="">Penilaian</a></li>
-            <li class="{{ Request::segment(1) === 'pelanggaran' ? 'active' : null }}"><a href="">Pelanggaran</a></li>
-            <li class="{{ Request::segment(1) === 'penggajian' ? 'active' : null }}"><a href="">Penggajian</a></li>
-            <li class="{{ Request::segment(1) === 'phk' ? 'active' : null }}"><a href="">PHK</a></li>
-          </ul>
+
+          @if(Auth::user()->idpegawai==1)
+            <ul class="nav nav-sidebar">
+              <li class="{{ Request::segment(1) === 'penilaian' ? 'active' : null }}"><a href="/eHRD-CAM/public/penilaian">Penilaian</a></li>
+              <li class="{{ Request::segment(1) === 'pelanggaran' ? 'active' : null }}"><a href="">Pelanggaran</a></li>
+              <li class="{{ Request::segment(1) === 'penggajian' ? 'active' : null }}"><a href="">Penggajian</a></li>
+              <li class="{{ Request::segment(1) === 'phk' ? 'active' : null }}"><a href="">PHK</a></li>
+            </ul>
+          @endif
+          
         </div>
       </div>
 </div>

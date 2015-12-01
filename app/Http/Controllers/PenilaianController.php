@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Penilaian;
+use App\Http\Requests\PenilaianRequest;
 
 class PenilaianController extends Controller
 {
@@ -16,7 +18,28 @@ class PenilaianController extends Controller
      */
     public function index()
     {
-        //
+        if(\Auth::user()->idpegawai==1)
+        {
+            $penilaian = Penilaian::all();
+            $pegawai = \App\Pegawai::all();
+        }
+        else
+        {
+            $penilaian = \Auth::user()->penilaian;
+        }
+
+        return view('pages/penilaian/index', compact('penilaian', 'pegawai'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  Penilaian  $penilaian
+     * @return Response
+     */
+    public function show(Penilaian $penilaian)
+    {
+        return view('pages/penilaian/show', compact('penilaian'));
     }
 
     /**
@@ -26,7 +49,7 @@ class PenilaianController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages/penilaian/create');
     }
 
     /**
@@ -35,53 +58,55 @@ class PenilaianController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(PenilaianRequest $request)
     {
-        //
-    }
+        \Auth::user()->penilaian()->create($request->all());
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
+        flash()->overlay('Penilaian telah terdaftar!');
+
+        return redirect('penilaian');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Penilaian  $penilaian
      * @return Response
      */
-    public function edit($id)
+    public function edit(Penilaian $penilaian)
     {
-        //
+        return view('pages/penilaian/edit', compact('penilaian'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  Request  $request
-     * @param  int  $id
+     * @param  Penilaian  $penilaian
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(PenilaianRequest $request, Penilaian $penilaian)
     {
-        //
+        $penilaian->update($request->all());
+
+        flash()->overlay('Penilaian berhasil diubah!');
+
+        return redirect('penilaian');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Penilaian  $penilaian
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Penilaian $penilaian)
     {
-        //
+        // delete
+        $penilaian->delete();
+
+        // redirect
+        flash()->overlay('Penilaian berhasil dihapus!');
+        return redirect('penilaian');
     }
 }
