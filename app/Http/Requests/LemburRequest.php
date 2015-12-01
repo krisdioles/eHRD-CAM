@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class CutiRequest extends Request
+class LemburRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,9 @@ class CutiRequest extends Request
     public function rules()
     {
         return [
-            'jeniscuti' => 'required|min:3',
-            'tglawal'   => 'required|date',
-            'tglakhir'   => 'required|date',
+            'jangkawaktu' => 'required|numeric',
+            'tgllembur'   => 'required|date',
+            'keterangan'   => 'required',
         ];
     }
 }

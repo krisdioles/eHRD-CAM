@@ -18,6 +18,7 @@ class CreateLemburTable extends Migration
          $table->timestamp('tgllembur');
 		 $table->integer('jangkawaktu');
 		 $table->string('keterangan');
+         $table->string('status');
          $table->timestamps();
 		 
 		 $table->foreign('pegawai_id')

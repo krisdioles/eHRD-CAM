@@ -38,6 +38,9 @@ Route::get('cuti/{idcuti}/accept', 'CutiController@accept');
 
 Route::resource('training', 'TrainingController');
 
+Route::resource('lembur', 'LemburController');
+Route::get('lembur/{idlembur}/accept', 'LemburController@accept');
+
 Route::controllers([
 	'auth'=>'Auth\AuthController',
 	'password'=>'Auth\PasswordController'
