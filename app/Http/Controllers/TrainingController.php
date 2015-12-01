@@ -34,7 +34,6 @@ class TrainingController extends Controller
     public function store(TrainingRequest $request)
     {
      	$training=Training::create($request->all());
-
         $training->pegawai()->attach($request->input('pegawai_list'));
 
         flash()->info('Training berhasil disimpan!');
@@ -52,6 +51,7 @@ class TrainingController extends Controller
     public function update(Training $training, TrainingRequest $request)
     {
         $training->update($request->all());
+        $training->pegawai()->sync($request->input('pegawai_list'));
 
         flash()->info('Training berhasil diubah!');
 
