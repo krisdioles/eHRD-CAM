@@ -20,7 +20,7 @@ class LemburController extends Controller
     {
         if(\Auth::user()->idpegawai==1)
         {
-            $lembur = Lembur::oldest('tgllembur')->get();
+            $lembur = Lembur::latest('tgllembur')->get();
         }
         else
         {

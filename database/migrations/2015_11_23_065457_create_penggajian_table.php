@@ -16,6 +16,7 @@ class CreatePenggajianTable extends Migration
          $table->increments('idpenggajian');
          $table->integer('pegawai_id')->unsigned();
          $table->timestamp('tglpenggajian');
+         $table->timestamp('periodepenggajian');
 		 $table->integer('biayabonus');
 		 $table->string('keteranganbonus');
 		 $table->integer('biayapotongan');

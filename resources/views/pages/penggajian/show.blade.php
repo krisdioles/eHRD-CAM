@@ -13,11 +13,13 @@
 @section('content')
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h1>{{ $cuti->jeniscuti }}</h1>
+    <h1>{{ $penggajian->pegawai->nama }}</h1>
 
-	<h3>{{ $cuti->pegawai->nama }}</h3>
-	<h3>{{ $cuti->tglawal->toDateString() }}</h3>
-	<h3>{{ $cuti->tglakhir->toDateString() }}</h3>
+	<h3>{{ $penggajian->pegawai->gajipokok }}</h3>
+	<h3>{{ $penggajian->pegawai->tunjangantetap }}</h3>
+	<h3>{{ $penggajian->biayabonus }}</h3>
+	<h3>{{ $penggajian->biayapotongan }}</h3>
+	<h3>{{ $penggajian->jumlahpenggajian }}</h3>
 </div>
 @endsection
 

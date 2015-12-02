@@ -15,11 +15,11 @@ class CutiController extends Controller
     {
         if(\Auth::user()->idpegawai==1)
         {
-            $cuti = Cuti::oldest('tglpengajuan')->future()->get();  
+            $cuti = Cuti::oldest('tglawal')->future()->get();  
         }
         else
         {
-            $cuti = \Auth::user()->cuti()->future1()->get();
+            $cuti = \Auth::user()->cuti;
         }
 
         return view('pages/cuti/index', compact('cuti'));

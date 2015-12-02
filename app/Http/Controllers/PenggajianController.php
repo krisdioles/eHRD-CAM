@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Penggajian;
-use App\Http\Requests\CutiRequest;
+use App\Http\Requests\PenggajianRequest;
 
 class PenggajianController extends Controller
 {
@@ -18,16 +18,10 @@ class PenggajianController extends Controller
      */
     public function index()
     {
-        if(\Auth::user()->idpegawai==1)
-        {
-            $penggajian = Penggajian::latest('tglpenggajian')->get();
-        }
-        else
-        {
-            $penggajian = \Auth::user()->penggajian;
-        }
+        $penggajian = Penggajian::latest('tglpenggajian')->get();
+        $pegawai = \App\Pegawai::all();
 
-        return view('pages/penggajian/index', compact('penggajian'));
+        return view('pages/penggajian/index', compact('penggajian', 'pegawai'));
     }
 
     /**
@@ -48,7 +42,9 @@ class PenggajianController extends Controller
      */
     public function create()
     {
-        return view('pages/penggajian/create');
+        $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
+
+        return view('pages/penggajian/create', compact('pegawai'));
     }
 
     /**
@@ -59,7 +55,7 @@ class PenggajianController extends Controller
      */
     public function store(PenggajianRequest $request)
     {
-        \Auth::user()->penggajian()->create($request->all());
+        $penggajian=Penggajian::create($request->all());
 
         flash()->overlay('Penggajian telah terdaftar!');
 
@@ -74,7 +70,9 @@ class PenggajianController extends Controller
      */
     public function edit(Penggajian $penggajian)
     {
-        return view('pages/penggajian/edit', compact('penggajian'));
+        $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
+
+        return view('pages/penggajian/edit', compact('penggajian', 'pegawai'));
     }
 
     /**

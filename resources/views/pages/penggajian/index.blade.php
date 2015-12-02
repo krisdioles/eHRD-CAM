@@ -12,17 +12,19 @@
         <tr>
           <th>#</th>
           <th>Nama Pegawai</th>
-          <th>Tanggal Awal</th>
-          <th>Tanggal Akhir</th>
-          <th>Status</th>
-
+          <th>Gaji Pokok</th>
+          <th>Tunjangan Pokok</th>
+          <th>Tanggal Penggajian</th>
+          <th>Periode Penggajian</th>
+          <th>Biaya Bonus</th>
+          <th>Keterangan Bonus</th>
+          <th>Biaya Potongan</th>
+          <th>Keterangan Potongan</th>
+          <th>Jumlah Penggajian</th>
+          <th>Keterangan</th>
+          
           @if(Auth::user()->idpegawai==1)
-            <th>Diajukan Oleh</th>
-          @endif
-
-          <th></th>
-
-          @if(Auth::user()->idpegawai!=1)
+            <th></th>
             <th></th>
           @endif
 
@@ -30,41 +32,39 @@
       </thead>
       <tbody>
 
-      @foreach($penggajian as $penggajian)
-        <tr height="2px">
-          <td>{{ $penggajian->idpenggajian }}</td>
-          <td><a href="{{ url('/penggajian', $penggajian->idpenggajian) }}">{{ $penggajian->jenispenggajian }}</td>
-          <td>{{ $penggajian->tglawal->toDateString() }}</td>
-          <td>{{ $penggajian->tglakhir->toDateString() }}</td>
-          <td>{{ $penggajian->status }}</td>
-
-          @if(Auth::user()->idpegawai!=1)
-            <td width="5">
-                <form action="{{ url('/penggajian/'.$penggajian->idpenggajian.'/edit') }}">
-                    <button class="btn-xs btn-link" type="submit">Edit</button>
-                </form>
-            </td>
-            <td width="5">
-                {!! Form::open(['method' => 'DELETE', 'route' => ['penggajian.destroy', $penggajian->idpenggajian]]) !!}
-                    <button class="btn-xs btn-link" type="submit">Delete</button>
-                {!! Form::close() !!}
-            </td>
-          @else
-            <td>{{ $penggajian->pegawai->nama }}</td>
-            <td width="5">
-                <form action="{{ url('/penggajian/'.$penggajian->idpenggajian.'/accept') }}">
-                    <button class="btn-xs btn-link" type="submit">Accept</button>
-                </form>
-            </td>
-          @endif
-
-        </tr>
+      @foreach($pegawai as $pegawai)
+          @foreach($pegawai->penggajian as $penggajian)
+            <tr>
+              <td>{{ $pegawai->idpegawai }}</td>
+              <td>{{ $pegawai->nama }}</td>
+              <td>{{ $pegawai->gajipokok }}</td>
+              <td>{{ $pegawai->tunjangantetap }}</td>
+              <td>{{ $penggajian->tglpenggajian->format('d-m-Y') }}</td>
+              <td>{{ $penggajian->periodepenggajian->format('F Y') }}</td>
+              <td>{{ $penggajian->biayabonus }}</td>
+              <td>{{ $penggajian->keteranganbonus }}</td>
+              <td>{{ $penggajian->biayapotongan }}</td>
+              <td>{{ $penggajian->keteranganpotongan }}</td>
+              <td>{{ $penggajian->jumlahpenggajian }}</td>
+              <td>{{ $penggajian->keterangan }}</td>
+              <td width="5">
+                  <form action="{{ url('/penggajian/'.$penggajian->idpenggajian.'/edit') }}">
+                      <button class="btn-xs btn-link" type="submit">Edit</button>
+                  </form>
+              </td>
+              <td width="5">
+                  {!! Form::open(['method' => 'DELETE', 'route' => ['penggajian.destroy', $penggajian->idpenggajian]]) !!}
+                      <button class="btn-xs btn-link" type="submit">Delete</button>
+                  {!! Form::close() !!}
+              </td>
+            </tr>
+          @endforeach        
       @endforeach
 
       </tbody>
     </table>
 
-    @if(Auth::user()->idpegawai!=1)
+    @if(Auth::user()->idpegawai==1)
       <a class="btn btn-default" href="{{ url('/penggajian/create') }}" role="button">Create</a>
     @endif
     

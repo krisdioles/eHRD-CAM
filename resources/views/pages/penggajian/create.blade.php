@@ -10,11 +10,11 @@
 
 @section('content')
 <div class="col-md-8 col-md-offset-2">
-	<h2 class="sub-header">Create Cuti</h2>
+	<h2 class="sub-header">Create Penggajian</h2>
 	<div class="form-group">
 
-		{!! Form::model($cuti=new \App\Cuti, ['url'=>'cuti']) !!}
-			@include('pages/cuti/_form', ['submitButtonText'=>'Add Cuti'])
+		{!! Form::model($penggajian=new \App\Penggajian, ['url'=>'penggajian']) !!}
+			@include('pages/penggajian/_form', ['submitButtonText'=>'Add Penggajian'])
 		{!! Form::close() !!}
 
 		@include('errors/list')

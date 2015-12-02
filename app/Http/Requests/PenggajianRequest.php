@@ -13,7 +13,7 @@ class PenggajianRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,13 @@ class PenggajianRequest extends Request
     public function rules()
     {
         return [
-            //
+            'tglpenggajian' => 'required|date',
+            'periodepenggajian'   => 'required|date',
+            'biayabonus'   => 'required|numeric',
+            'keteranganbonus'   => 'required',
+            'biayapotongan'   => 'required|numeric',
+            'keteranganpotongan'   => 'required',
+            'keterangan'   => 'required',
         ];
     }
 }

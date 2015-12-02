@@ -15,7 +15,7 @@
             <ul class="nav nav-sidebar">
               <li class="{{ Request::segment(1) === 'penilaian' ? 'active' : null }}"><a href="/eHRD-CAM/public/penilaian">Penilaian</a></li>
               <li class="{{ Request::segment(1) === 'pelanggaran' ? 'active' : null }}"><a href="/eHRD-CAM/public/pelanggaran">Pelanggaran</a></li>
-              <li class="{{ Request::segment(1) === 'penggajian' ? 'active' : null }}"><a href="">Penggajian</a></li>
+              <li class="{{ Request::segment(1) === 'penggajian' ? 'active' : null }}"><a href="/eHRD-CAM/public/penggajian">Penggajian</a></li>
               <li class="{{ Request::segment(1) === 'phk' ? 'active' : null }}"><a href="">PHK</a></li>
             </ul>
           @endif

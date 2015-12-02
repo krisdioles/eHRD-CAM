@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Penggajian extends Model
 {
@@ -15,14 +16,14 @@ class Penggajian extends Model
 
     protected $primaryKey = 'idpenggajian';
 
-    protected $dates = ['tglpenggajian'];
+    protected $dates = ['tglpenggajian', 'periodepenggajian'];
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['tglpenggajian', 'biayabonus', 'anggaran', 'keteranganbonus', 'biayapotongan', 'jumlahpenggajian'];
+    protected $fillable = ['tglpenggajian', 'periodepenggajian', 'biayabonus', 'anggaran', 'keteranganbonus', 'biayapotongan', 'jumlahpenggajian', 'keteranganpotongan', 'keterangan', 'pegawai_id'];
 
 
     public function setTglpenggajianAttribute($date)
@@ -30,7 +31,17 @@ class Penggajian extends Model
         $this->attributes['tglpenggajian'] = Carbon::parse($date);
     }
 
+    public function setPeriodepenggajianAttribute($date)
+    {
+        $this->attributes['periodepenggajian'] = Carbon::parse($date);
+    }
+
     public function getTglpenggajianAttribute($date)
+    {
+        return new Carbon($date);
+    }
+
+    public function getPeriodepenggajianAttribute($date)
     {
         return new Carbon($date);
     }

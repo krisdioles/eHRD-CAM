@@ -40,7 +40,7 @@ class CreateTrainingTable extends Migration
      */
     public function down()
     {
-        Schema::drop('training');
         Schema::drop('pegawai_training');
+        Schema::drop('training');  
     }
 }

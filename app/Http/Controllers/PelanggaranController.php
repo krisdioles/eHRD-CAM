@@ -18,7 +18,7 @@ class PelanggaranController extends Controller
      */
     public function index()
     {
-        $pelanggaran = Pelanggaran::all();
+        $pelanggaran = Pelanggaran::latest('tglpelanggaran')->get();
         $pegawai = \App\Pegawai::all();
 
         return view('pages/pelanggaran/index', compact('pelanggaran', 'pegawai'));
@@ -55,7 +55,7 @@ class PelanggaranController extends Controller
      */
     public function store(PelanggaranRequest $request)
     {
-        \Auth::user()->pelanggaran()->create($request->all());
+        $pelanggaran=Pelanggaran::create($request->all());
 
         flash()->success('Pelanggaran telah terdaftar!');
 
