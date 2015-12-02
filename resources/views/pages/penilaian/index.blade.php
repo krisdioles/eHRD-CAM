@@ -26,19 +26,16 @@
       </thead>
       <tbody>
 
-      @foreach($pegawai as $pegawai)
-        <tr>
-          <td>{{ $pegawai->idpegawai }}</td>
-          <td>{{ $pegawai->nama }}</td>
-
-          @foreach($pegawai->penilaian as $penilaian)
+          @foreach($penilaian as $penilaian)
+          <tr>
+            <td>{{ $penilaian->pegawai->idpegawai }}</td>
+            <td><a href="{{ url('/penilaian/'.$penilaian->pegawai->idpegawai.'/create') }}">{{ $penilaian->pegawai->nama }}</td>
             <td>{{ $penilaian->nilaikompetensi }}</td>
             <td>{{ $penilaian->nilaikedisiplinan }}</td>
             <td>{{ $penilaian->nilaiperilaku }}</td>
+            <td>{{ $penilaian->keterangan }}</td>
+          </tr>
           @endforeach
-
-        </tr>
-      @endforeach
 
       </tbody>
     </table>

@@ -57,11 +57,30 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return Pegawai::create([
+        $pegawai=Pegawai::create([
             'kodepegawai' => $data['kodepegawai'],
             'nama' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+        \App\Penilaian::create([
+            'pegawai_id' => $pegawai->idpegawai,
+            'nilaikompetensi' => '0',
+            'nilaikedisiplinan' => '0',
+            'nilaiperilaku' => '0',
+            'keterangan' => 'baru',
+        ]);
+
+        \App\Penggajian::create([
+            'pegawai_id' => $pegawai->idpegawai,
+            'biayabonus' => '0',
+            'keteranganbonus' => 'baru',
+            'biayapotongan' => '0',
+            'keteranganpotongan' => 'baru',
+            'keterangan' => 'baru',
+        ]);
+
+        return $pegawai;
     }
 }

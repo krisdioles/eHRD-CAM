@@ -18,17 +18,9 @@ class PenilaianController extends Controller
      */
     public function index()
     {
-        if(\Auth::user()->idpegawai==1)
-        {
-            $penilaian = Penilaian::all();
-            $pegawai = \App\Pegawai::all();
-        }
-        else
-        {
-            $penilaian = \Auth::user()->penilaian;
-        }
+        $penilaian = Penilaian::latest('created_at')->get();
 
-        return view('pages/penilaian/index', compact('penilaian', 'pegawai'));
+        return view('pages/penilaian/index', compact('penilaian'));
     }
 
     /**
@@ -47,9 +39,12 @@ class PenilaianController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function create(Penilaian $penilaian, $idpegawai)
     {
-        return view('pages/penilaian/create');
+        $pegawai=\App\Pegawai::all();
+        //dd(\App\Pegawai::find($idpegawai)->idpegawai);
+
+        return view('pages/penilaian/create', compact('penilaian', 'pegawai', 'idpegawai'));
     }
 
     /**
@@ -60,7 +55,7 @@ class PenilaianController extends Controller
      */
     public function store(PenilaianRequest $request)
     {
-        \Auth::user()->penilaian()->create($request->all());
+        $penilaian=Penilaian::create($request->all());
 
         flash()->overlay('Penilaian telah terdaftar!');
 

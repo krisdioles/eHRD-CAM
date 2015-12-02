@@ -1,8 +1,8 @@
-{!! Form::hidden('pegawai_id', Auth::user()->idpegawai) !!}
+{!! Form::hidden('pegawai_id', \App\Pegawai::find($idpegawai)->idpegawai) !!}
 
 <div class="form-group">
 	{!! Form::label('namapegawai', 'Nama Pegawai : ') !!}
-	<p class="form-control-static">{{ $penilaian->pegawai->nama }}</p>
+	<p class="form-control-static">{{ \App\Pegawai::find($idpegawai)->nama }}</p>
 </div>
 
 <div class="form-group">

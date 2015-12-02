@@ -39,7 +39,8 @@ Route::get('lembur/{idlembur}/accept', 'LemburController@accept');
 
 Route::resource('training', 'TrainingController');
 
-Route::resource('penilaian', 'PenilaianController');
+Route::get('penilaian/{idpegawai}/create', 'PenilaianController@create');
+Route::resource('penilaian', 'PenilaianController', ['except' => ['create']]);
 
 Route::resource('pelanggaran', 'PelanggaranController');
 

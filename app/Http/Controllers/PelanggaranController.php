@@ -19,9 +19,9 @@ class PelanggaranController extends Controller
     public function index()
     {
         $pelanggaran = Pelanggaran::latest('tglpelanggaran')->get();
-        $pegawai = \App\Pegawai::all();
+        
 
-        return view('pages/pelanggaran/index', compact('pelanggaran', 'pegawai'));
+        return view('pages/pelanggaran/index', compact('pelanggaran'));
     }
 
     /**

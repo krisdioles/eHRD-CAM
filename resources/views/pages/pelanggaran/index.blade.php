@@ -25,29 +25,27 @@
         </tr>
       </thead>
       <tbody>
-
-      @foreach($pegawai as $pegawai)
-          @foreach($pegawai->pelanggaran as $pelanggaran)
-            <tr>
-              <td>{{ $pegawai->idpegawai }}</td>
-              <td>{{ $pegawai->nama }}</td>
-              <td>{{ $pelanggaran->tglpelanggaran->toDateString() }}</td>
-              <td>{{ $pelanggaran->jenispelanggaran }}</td>
-              <td>{{ $pelanggaran->sanksi }}</td>
-              <td>{{ $pelanggaran->keterangan }}</td>
-              <td width="5">
-                  <form action="{{ url('/pelanggaran/'.$pelanggaran->idpelanggaran.'/edit') }}">
-                      <button class="btn-xs btn-link" type="submit">Edit</button>
-                  </form>
-              </td>
-              <td width="5">
-                  {!! Form::open(['method' => 'DELETE', 'route' => ['pelanggaran.destroy', $pelanggaran->idpelanggaran]]) !!}
-                      <button class="btn-xs btn-link" type="submit">Delete</button>
-                  {!! Form::close() !!}
-              </td>
-            </tr>
-          @endforeach        
-      @endforeach
+        
+        @foreach($pelanggaran as $pelanggaran)
+          <tr>
+            <td>{{ $pelanggaran->pegawai->idpegawai }}</td>
+            <td>{{ $pelanggaran->pegawai->nama }}</td>
+            <td>{{ $pelanggaran->tglpelanggaran->toDateString() }}</td>
+            <td>{{ $pelanggaran->jenispelanggaran }}</td>
+            <td>{{ $pelanggaran->sanksi }}</td>
+            <td>{{ $pelanggaran->keterangan }}</td>
+            <td width="5">
+                <form action="{{ url('/pelanggaran/'.$pelanggaran->idpelanggaran.'/edit') }}">
+                    <button class="btn-xs btn-link" type="submit">Edit</button>
+                </form>
+            </td>
+            <td width="5">
+                {!! Form::open(['method' => 'DELETE', 'route' => ['pelanggaran.destroy', $pelanggaran->idpelanggaran]]) !!}
+                    <button class="btn-xs btn-link" type="submit">Delete</button>
+                {!! Form::close() !!}
+            </td>
+          </tr>
+        @endforeach        
 
       </tbody>
     </table>

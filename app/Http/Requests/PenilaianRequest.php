@@ -13,7 +13,7 @@ class PenilaianRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class PenilaianRequest extends Request
     public function rules()
     {
         return [
-            //
+            'nilaikompetensi' => 'required|numeric',
+            'nilaikedisiplinan'   => 'required|numeric',
+            'nilaiperilaku'   => 'required|numeric',
+            'keterangan'   => 'required',
         ];
     }
 }
