@@ -17,12 +17,6 @@
           <th>Nilai Perilaku</th>
           <th>Keterangan</th>
           <th></th>
-          
-          @if(Auth::user()->idpegawai==1)
-            
-            <th></th>
-          @endif
-
         </tr>
       </thead>
       <tbody>
@@ -45,7 +39,7 @@
                 @else
                   <td></td>
                 @endunless
-                
+
               </tr>
           @endforeach
 
