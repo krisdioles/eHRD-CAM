@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Phk;
+use App\Http\Requests\PhkRequest;
 
 class PhkController extends Controller
 {
@@ -16,7 +18,20 @@ class PhkController extends Controller
      */
     public function index()
     {
-        //
+        $phk = phk::latest('tglphk')->get();
+        
+        return view('pages/phk/index', compact('phk'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  phk  $phk
+     * @return Response
+     */
+    public function show(Phk $phk)
+    {
+        return view('pages/phk/show', compact('phk'));
     }
 
     /**
@@ -26,7 +41,9 @@ class PhkController extends Controller
      */
     public function create()
     {
-        //
+        $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
+
+        return view('pages/phk/create', compact('pegawai'));
     }
 
     /**
@@ -35,53 +52,57 @@ class PhkController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(PhkRequest $request)
     {
-        //
-    }
+        $phk=Phk::create($request->all());
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
+        flash()->success('Phk telah terdaftar!');
+
+        return redirect('phk');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  phk  $phk
      * @return Response
      */
-    public function edit($id)
+    public function edit(Phk $phk)
     {
-        //
+        $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
+
+        return view('pages/phk/edit', compact('phk', 'pegawai'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  Request  $request
-     * @param  int  $id
+     * @param  phk  $phk
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(PhkRequest $request, Phk $phk)
     {
-        //
+        $phk->update($request->all());
+
+        flash()->success('Phk berhasil diubah!');
+
+        return redirect('phk');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  phk  $phk
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Phk $phk)
     {
-        //
+        // delete
+        $phk->delete();
+
+        // redirect
+        flash()->success('Phk berhasil dihapus!');
+        return redirect('phk');
     }
 }

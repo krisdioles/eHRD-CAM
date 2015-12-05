@@ -13,7 +13,7 @@ class PhkRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class PhkRequest extends Request
     public function rules()
     {
         return [
-            //
+            'tglphk' => 'required|date',
+            'jenisphk'   => 'required',
+            'nomorsurat'   => 'required',
+            'keterangan'   => 'required',
         ];
     }
 }
