@@ -18,9 +18,9 @@ class PenilaianController extends Controller
      */
     public function index()
     {
-        $penilaian = Penilaian::latest('created_at')->get();
+        $pegawai = \App\Pegawai::all();
 
-        return view('pages/penilaian/index', compact('penilaian'));
+        return view('pages/penilaian/index', compact('pegawai'));
     }
 
     /**
