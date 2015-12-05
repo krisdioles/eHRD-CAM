@@ -33,22 +33,22 @@
       <tbody>
 
       @foreach($pegawai as $pegawai)
-          @foreach($pegawai->penggajian as $penggajian)
+          {{-- @foreach($pegawai->penggajian as $penggajian) --}}
             <tr>
               <td>{{ $pegawai->idpegawai }}</td>
-              <td>{{ $pegawai->nama }}</td>
+              <td><a href="{{ url('/penilaian/'.$pegawai->idpegawai.'/create') }}">{{ $pegawai->nama }}</td>
               <td>{{ $pegawai->gajipokok }}</td>
               <td>{{ $pegawai->tunjangantetap }}</td>
-              <td>{{ $penggajian->tglpenggajian->format('d-m-Y') }}</td>
+              {{-- <td>{{ $penggajian->tglpenggajian->format('d-m-Y') }}</td>
               <td>{{ $penggajian->periodepenggajian->format('F Y') }}</td>
               <td>{{ $penggajian->biayabonus }}</td>
               <td>{{ $penggajian->keteranganbonus }}</td>
               <td>{{ $penggajian->biayapotongan }}</td>
               <td>{{ $penggajian->keteranganpotongan }}</td>
               <td>{{ $penggajian->jumlahpenggajian }}</td>
-              <td>{{ $penggajian->keterangan }}</td>
+              <td>{{ $penggajian->keterangan }}</td> --}}
               <td width="5">
-                  <form action="{{ url('/penggajian/'.$penggajian->idpenggajian.'/edit') }}">
+                  <form action="{{ url('/penggajian/'.$pegawai->idpegawai.'/edit') }}">
                       <button class="btn-xs btn-link" type="submit">Edit</button>
                   </form>
               </td>
@@ -58,7 +58,7 @@
                   {!! Form::close() !!}
               </td>
             </tr>
-          @endforeach        
+          {{-- @endforeach --}}
       @endforeach
 
       </tbody>

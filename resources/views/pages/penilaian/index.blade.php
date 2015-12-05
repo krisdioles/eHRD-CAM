@@ -16,9 +16,10 @@
           <th>Nilai Kedisiplinan</th>
           <th>Nilai Perilaku</th>
           <th>Keterangan</th>
+          <th></th>
           
           @if(Auth::user()->idpegawai==1)
-            <th></th>
+            
             <th></th>
           @endif
 
@@ -34,6 +35,17 @@
                 <td>{{ $pegawai->penilaian->last()->nilaikedisiplinan }}</td>
                 <td>{{ $pegawai->penilaian->last()->nilaiperilaku }}</td>
                 <td>{{ $pegawai->penilaian->last()->keterangan }}</td>
+                
+                @unless($pegawai->penilaian->last()==$pegawai->penilaian->first())
+                  <td width="5">
+                    {!! Form::open(['method' => 'DELETE', 'route' => ['penilaian.destroy', $pegawai->penilaian->last()->idpenilaian]]) !!}
+                        <button class="btn-xs btn-link" type="submit">Delete</button>
+                    {!! Form::close() !!}
+                  </td>
+                @else
+                  <td></td>
+                @endunless
+                
               </tr>
           @endforeach
 
