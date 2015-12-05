@@ -28,7 +28,7 @@
         
         @foreach($pelanggaran as $pelanggaran)
           <tr>
-            <td>{{ $pelanggaran->pegawai->idpegawai }}</td>
+            <td>{{ $pelanggaran->pegawai->kodepegawai }}</td>
             <td>{{ $pelanggaran->pegawai->nama }}</td>
             <td>{{ $pelanggaran->tglpelanggaran->toDateString() }}</td>
             <td>{{ $pelanggaran->jenispelanggaran }}</td>

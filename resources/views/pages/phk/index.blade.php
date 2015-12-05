@@ -28,7 +28,7 @@
         
         @foreach($phk as $phk)
           <tr>
-            <td>{{ $phk->pegawai->idpegawai }}</td>
+            <td>{{ $phk->pegawai->kodepegawai }}</td>
             <td>{{ $phk->pegawai->nama }}</td>
             <td>{{ $phk->tglphk->toDateString() }}</td>
             <td>{{ $phk->jenisphk }}</td>

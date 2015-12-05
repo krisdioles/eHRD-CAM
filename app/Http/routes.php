@@ -33,9 +33,11 @@ Route::resource('absensi', 'AbsensiController');
 
 Route::resource('cuti', 'CutiController');
 Route::get('cuti/{idcuti}/accept', 'CutiController@accept');
+Route::get('cuti/{idcuti}/decline', 'CutiController@decline');
 
 Route::resource('lembur', 'LemburController');
 Route::get('lembur/{idlembur}/accept', 'LemburController@accept');
+Route::get('lembur/{idlembur}/decline', 'LemburController@decline');
 
 Route::resource('training', 'TrainingController');
 

@@ -23,7 +23,7 @@
 
           @foreach($pegawai as $pegawai)
               <tr>
-                <td>{{ $pegawai->idpegawai }}</td>
+                <td>{{ $pegawai->kodepegawai }}</td>
                 <td><a href="{{ url('/penilaian/'.$pegawai->idpegawai.'/create') }}">{{ $pegawai->nama }}</td>
                 <td>{{ $pegawai->penilaian->last()->nilaikompetensi }}</td>
                 <td>{{ $pegawai->penilaian->last()->nilaikedisiplinan }}</td>

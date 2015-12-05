@@ -79,4 +79,15 @@ class CutiController extends Controller
 
         return redirect('cuti');
     }
+
+    public function decline($idcuti)
+    {
+        $cuti=Cuti::findOrFail($idcuti);
+        $cuti->status = 'Declined';
+        $cuti->save();
+
+        flash()->success('Cuti telah ditolak!');
+
+        return redirect('cuti');
+    }
 }

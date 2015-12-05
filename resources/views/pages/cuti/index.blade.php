@@ -21,10 +21,7 @@
           @endif
 
           <th></th>
-
-          @if(Auth::user()->idpegawai!=1)
-            <th></th>
-          @endif
+          <th></th>
 
         </tr>
       </thead>
@@ -54,6 +51,11 @@
             <td width="5">
                 <form action="{{ url('/cuti/'.$cuti->idcuti.'/accept') }}">
                     <button class="btn-xs btn-link" type="submit">Accept</button>
+                </form>
+            </td>
+            <td width="5">
+                <form action="{{ url('/cuti/'.$cuti->idcuti.'/decline') }}">
+                    <button class="btn-xs btn-link" type="submit">Decline</button>
                 </form>
             </td>
           @endif

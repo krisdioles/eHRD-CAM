@@ -34,7 +34,7 @@
 
       @foreach($pegawai as $pegawai)
             <tr>
-              <td>{{ $pegawai->idpegawai }}</td>
+              <td>{{ $pegawai->kodepegawai }}</td>
               <td><a href="{{ url('/penggajian/'.$pegawai->idpegawai.'/create') }}">{{ $pegawai->nama }}</td>
               <td>{{ $pegawai->gajipokok }}</td>
               <td>{{ $pegawai->tunjangantetap }}</td>
