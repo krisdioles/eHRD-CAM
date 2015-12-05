@@ -63,17 +63,6 @@ class PenilaianController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  Penilaian  $penilaian
-     * @return Response
-     */
-    public function edit(Penilaian $penilaian)
-    {
-        return view('pages/penilaian/edit', compact('penilaian'));
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  Request  $request

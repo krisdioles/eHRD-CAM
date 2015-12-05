@@ -18,7 +18,6 @@ class PenggajianController extends Controller
      */
     public function index()
     {
-        $penggajian = Penggajian::latest('tglpenggajian')->get();
         $pegawai = \App\Pegawai::all();
 
         return view('pages/penggajian/index', compact('penggajian', 'pegawai'));
@@ -40,11 +39,11 @@ class PenggajianController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function create(Penggajian $penggajian, $idpegawai)
     {
         $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
 
-        return view('pages/penggajian/create', compact('pegawai'));
+        return view('pages/penggajian/create', compact('pegawai', 'penggajian', 'idpegawai'));
     }
 
     /**
@@ -60,19 +59,6 @@ class PenggajianController extends Controller
         flash()->overlay('Penggajian telah terdaftar!');
 
         return redirect('penggajian');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit(Penggajian $penggajian)
-    {
-        $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
-
-        return view('pages/penggajian/edit', compact('penggajian', 'pegawai'));
     }
 
     /**

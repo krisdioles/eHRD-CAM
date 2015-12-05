@@ -40,11 +40,12 @@ Route::get('lembur/{idlembur}/accept', 'LemburController@accept');
 Route::resource('training', 'TrainingController');
 
 Route::get('penilaian/{idpegawai}/create', 'PenilaianController@create');
-Route::resource('penilaian', 'PenilaianController', ['except' => ['create']]);
+Route::resource('penilaian', 'PenilaianController', ['except' => ['create', 'edit']]);
 
 Route::resource('pelanggaran', 'PelanggaranController');
 
-Route::resource('penggajian', 'PenggajianController');
+Route::get('penggajian/{idpegawai}/create', 'PenggajianController@create');
+Route::resource('penggajian', 'PenggajianController', ['except'=>['create', 'edit']]);
 
 Route::resource('phk', 'PhkController');
 

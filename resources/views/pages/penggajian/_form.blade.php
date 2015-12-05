@@ -1,7 +1,8 @@
-<!-- Penggajian for Pegawai Form Input -->
+{!! Form::hidden('pegawai_id', \App\Pegawai::find($idpegawai)->idpegawai) !!}
+
 <div class="form-group">
 	{!! Form::label('namapegawai', 'Nama Pegawai : ') !!}
-	{!! Form::select('pegawai_id', $pegawai, null, ['class'=>'form-control']) !!}
+	<p class="form-control-static">{{ \App\Pegawai::find($idpegawai)->nama }}</p>
 </div>
 
 <div class="form-group">

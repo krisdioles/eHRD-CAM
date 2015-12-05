@@ -37,7 +37,8 @@
                     {!! Form::close() !!}
                   </td>
                 @else
-                  <td></td>
+                  <td width="5">
+                      <button class="btn-xs btn-link" type="submit" disabled="disabled">Delete</button>
                 @endunless
 
               </tr>

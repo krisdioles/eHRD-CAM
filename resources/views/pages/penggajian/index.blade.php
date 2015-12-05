@@ -33,32 +33,32 @@
       <tbody>
 
       @foreach($pegawai as $pegawai)
-          {{-- @foreach($pegawai->penggajian as $penggajian) --}}
             <tr>
               <td>{{ $pegawai->idpegawai }}</td>
-              <td><a href="{{ url('/penilaian/'.$pegawai->idpegawai.'/create') }}">{{ $pegawai->nama }}</td>
+              <td><a href="{{ url('/penggajian/'.$pegawai->idpegawai.'/create') }}">{{ $pegawai->nama }}</td>
               <td>{{ $pegawai->gajipokok }}</td>
               <td>{{ $pegawai->tunjangantetap }}</td>
-              {{-- <td>{{ $penggajian->tglpenggajian->format('d-m-Y') }}</td>
-              <td>{{ $penggajian->periodepenggajian->format('F Y') }}</td>
-              <td>{{ $penggajian->biayabonus }}</td>
-              <td>{{ $penggajian->keteranganbonus }}</td>
-              <td>{{ $penggajian->biayapotongan }}</td>
-              <td>{{ $penggajian->keteranganpotongan }}</td>
-              <td>{{ $penggajian->jumlahpenggajian }}</td>
-              <td>{{ $penggajian->keterangan }}</td> --}}
-              <td width="5">
-                  <form action="{{ url('/penggajian/'.$pegawai->idpegawai.'/edit') }}">
-                      <button class="btn-xs btn-link" type="submit">Edit</button>
-                  </form>
-              </td>
-              <td width="5">
-                  {!! Form::open(['method' => 'DELETE', 'route' => ['penggajian.destroy', $penggajian->idpenggajian]]) !!}
-                      <button class="btn-xs btn-link" type="submit">Delete</button>
-                  {!! Form::close() !!}
-              </td>
+              <td>{{ $pegawai->penggajian->last()->tglpenggajian->format('d-m-Y') }}</td>
+              <td>{{ $pegawai->penggajian->last()->periodepenggajian->format('F Y') }}</td>
+              <td>{{ $pegawai->penggajian->last()->biayabonus }}</td>
+              <td>{{ $pegawai->penggajian->last()->keteranganbonus }}</td>
+              <td>{{ $pegawai->penggajian->last()->biayapotongan }}</td>
+              <td>{{ $pegawai->penggajian->last()->keteranganpotongan }}</td>
+              <td>{{ $pegawai->penggajian->last()->jumlahpenggajian }}</td>
+              <td>{{ $pegawai->penggajian->last()->keterangan }}</td>
+
+              @unless($pegawai->penggajian->last()==$pegawai->penggajian->first())
+                  <td width="5">
+                    {!! Form::open(['method' => 'DELETE', 'route' => ['penggajian.destroy', $pegawai->penggajian->last()->idpenggajian]]) !!}
+                        <button class="btn-xs btn-link" type="submit">Delete</button>
+                    {!! Form::close() !!}
+                  </td>
+                @else
+                  <td width="5">
+                      <button class="btn-xs btn-link" type="submit" disabled="disabled">Delete</button>
+                @endunless
+
             </tr>
-          {{-- @endforeach --}}
       @endforeach
 
       </tbody>
