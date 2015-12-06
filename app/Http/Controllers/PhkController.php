@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Phk;
 use App\Http\Requests\PhkRequest;
+use yajra\Datatables\Datatables;
+use Carbon\Carbon;
 
 class PhkController extends Controller
 {
@@ -16,11 +18,26 @@ class PhkController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function getIndex()
     {
-        $phk = phk::latest('tglphk')->get();
+        //$phk = phk::latest('tglphk')->get();
         
-        return view('pages/phk/index', compact('phk'));
+        return view('pages/phk/index');
+    }
+
+    public function getData()
+    {
+        $phk = Phk::join('pegawai', 'phk.pegawai_id', '=', 'pegawai.idpegawai')
+            ->select(['phk.idphk', 'phk.nomorsurat', 'phk.tglphk', 'phk.jenisphk', 'phk.keterangan', 'pegawai.nama']);
+        
+        return Datatables::of($phk)
+            ->editColumn('tglphk', function ($phk) {
+                return $phk->tglphk ? with(new Carbon($phk->tglphk))->format('d-m-Y') : '';
+            })
+            ->addColumn('action', function ($phk) {
+                return view('pages.phk.action', compact('phk'))->render();
+            })
+            ->make(true);
     }
 
     /**

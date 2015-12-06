@@ -7,7 +7,7 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <h2 class="sub-header">PHK</h2>
   <div class="table-responsive">
-    <table class="table table-hover">
+    <table class="table table-hover" id="phk" cellspacing="0" width="100%">
       <thead>
         <tr>
           <th>#</th>
@@ -24,30 +24,6 @@
 
         </tr>
       </thead>
-      <tbody>
-        
-        @foreach($phk as $phk)
-          <tr>
-            <td>{{ $phk->pegawai->kodepegawai }}</td>
-            <td>{{ $phk->pegawai->nama }}</td>
-            <td>{{ $phk->tglphk->toDateString() }}</td>
-            <td>{{ $phk->jenisphk }}</td>
-            <td>{{ $phk->nomorsurat }}</td>
-            <td>{{ $phk->keterangan }}</td>
-            <td width="5">
-                <form action="{{ url('/phk/'.$phk->idphk.'/edit') }}">
-                    <button class="btn-xs btn-link" type="submit">Edit</button>
-                </form>
-            </td>
-            <td width="5">
-                {!! Form::open(['method' => 'DELETE', 'route' => ['phk.destroy', $phk->idphk]]) !!}
-                    <button class="btn-xs btn-link" type="submit">Delete</button>
-                {!! Form::close() !!}
-            </td>
-          </tr>
-        @endforeach        
-
-      </tbody>
     </table>
 
     @if(Auth::user()->idpegawai==1)
@@ -56,3 +32,25 @@
     
   </div>
 </div>
+@stop
+
+@push('scripts')
+  <script>
+  $(document).ready(function() {
+      $('#phk').DataTable({
+          processing: true,
+          serverSide: true,
+          ajax: '{!! route('phk.data') !!}',
+          columns: [
+              { data: 'idphk', name: 'phk.idphk' },
+              { data: 'nama', name: 'pegawai.nama' },
+              { data: 'tglphk', name: 'phk.tglphk' },
+              { data: 'jenisphk', name: 'phk.jenisphk' },
+              { data: 'nomorsurat', name: 'phk.nomorsurat' },
+              { data: 'keterangan', name: 'phk.keterangan' },
+              { data: 'action', name: 'action', orderable: false, searchable: false }
+          ]
+      });
+  });
+  </script>
+  @endpush

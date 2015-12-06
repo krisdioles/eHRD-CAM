@@ -42,7 +42,8 @@ Route::controller('pelanggaran', 'PelanggaranController', ['getData'  => 'pelang
 Route::get('penggajian/{idpegawai}/create', 'PenggajianController@create');
 Route::resource('penggajian', 'PenggajianController', ['except'=>['create', 'edit']]);
 
-Route::resource('phk', 'PhkController');
+Route::resource('phk', 'PhkController', ['except' => ['index', 'show']]);
+Route::controller('phk', 'PhkController', ['getData'  => 'phk.data','getIndex' => 'phk']);
 
 Route::controllers([
 	'auth'=>'Auth\AuthController',

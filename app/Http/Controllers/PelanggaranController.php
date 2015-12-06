@@ -27,15 +27,8 @@ class PelanggaranController extends Controller
 
     public function getData()
     {
-        if(\Auth::user()->idpegawai==1)
-        {
-            $pelanggaran = Pelanggaran::join('pegawai', 'pelanggaran.pegawai_id', '=', 'pegawai.idpegawai')
-                ->select(['pelanggaran.idpelanggaran', 'pelanggaran.tglpelanggaran', 'pelanggaran.jenispelanggaran', 'pelanggaran.keterangan', 'pelanggaran.sanksi', 'pegawai.nama']);   
-        }
-        else
-        {
-            $pelanggaran = \Auth::user()->pelanggaran;
-        }
+        $pelanggaran = Pelanggaran::join('pegawai', 'pelanggaran.pegawai_id', '=', 'pegawai.idpegawai')
+            ->select(['pelanggaran.idpelanggaran', 'pelanggaran.tglpelanggaran', 'pelanggaran.jenispelanggaran', 'pelanggaran.keterangan', 'pelanggaran.sanksi', 'pegawai.nama']);
         
         return Datatables::of($pelanggaran)
             ->editColumn('tglpelanggaran', function ($pelanggaran) {
