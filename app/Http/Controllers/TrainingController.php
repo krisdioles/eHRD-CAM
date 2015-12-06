@@ -9,18 +9,35 @@ use App\Training;
 use App\Pegawai;
 use Carbon\Carbon;
 use App\Http\Requests\TrainingRequest;
+use yajra\Datatables\Datatables;
 
 class TrainingController extends Controller
 {
-    public function index()
+    public function getIndex()
     {
-    	$training = Training::oldest('tgltraining')->future()->get();
+    	//$training = Training::oldest('tgltraining')->future()->get();
 
     	return view('pages/training/index', compact('training'));
     }
 
-    public function show(Training $training)
+    public function getData()
     {
+        $training = Training::oldest('tgltraining')->future()->get();
+        
+        return Datatables::of($training)
+            ->editColumn('tgltraining', function ($training) {
+                return $training->tgltraining ? with(new Carbon($training->tgltraining))->format('d-m-Y') : '';
+            })
+            ->addColumn('action', function ($training) {
+                return view('pages.training.action', compact('training'))->render();
+            })
+            ->make(true);
+    }
+
+    public function show($idtraining)
+    {
+        $training=Training::findOrFail($idtraining);
+
         return view('pages/training/show', compact('training'));
     }
 

@@ -29,7 +29,9 @@ Route::get('lembur/{idlembur}/decline', 'LemburController@decline');
 Route::resource('lembur', 'LemburController', ['except' => ['index', 'show']]);
 Route::controller('lembur', 'LemburController', ['getData'  => 'lembur.data', 'getIndex' => 'lembur']);
 
-Route::resource('training', 'TrainingController');
+Route::get('training/{idtraining}/show', 'TrainingController@show');
+Route::resource('training', 'TrainingController', ['except' => ['index', 'show']]);
+Route::controller('training', 'TrainingController', ['getData'  => 'training.data','getIndex' => 'training']);
 
 Route::get('penilaian/{idpegawai}/create', 'PenilaianController@create');
 Route::resource('penilaian', 'PenilaianController', ['except' => ['create', 'edit']]);
