@@ -21,7 +21,6 @@
           @endif
 
           <th></th>
-          <th></th>
 
         </tr>
       </thead>
@@ -50,6 +49,7 @@
               { data: 'status', name: 'lembur.status' },
               { data: 'keterangan', name: 'lembur.keterangan' },
               { data: 'nama', name: 'pegawai.nama' },
+              { data: 'action', name: 'action', orderable: false, searchable: false }
           ]
       });
   });

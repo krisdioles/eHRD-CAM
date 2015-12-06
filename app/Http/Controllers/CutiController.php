@@ -34,23 +34,14 @@ class CutiController extends Controller
         {
             $cuti = Cuti::join('pegawai', 'cuti.pegawai_id', '=', 'pegawai.idpegawai')
                 ->select(['cuti.idcuti', 'cuti.jeniscuti', 'cuti.tglawal', 'cuti.tglakhir', 'cuti.status', 'pegawai.nama'])
-                ->future()->get();
-
-            return Datatables::of($cuti)
-            ->editColumn('tglawal', function ($cuti) {
-                return $cuti->tglawal ? with(new Carbon($cuti->tglawal))->format('d-m-Y') : '';
-            })
-            ->editColumn('tglakhir', function ($cuti) {
-                return $cuti->tglakhir ? with(new Carbon($cuti->tglakhir))->format('d-m-Y') : '';
-            })
-            ->make(true);
-    
+                ->future()->get();    
         }
         else
         {
             $cuti = \Auth::user()->cuti;
+        }
 
-            return Datatables::of($cuti)
+        return Datatables::of($cuti)
             ->editColumn('tglawal', function ($cuti) {
                 return $cuti->tglawal ? with(new Carbon($cuti->tglawal))->format('d-m-Y') : '';
             })
@@ -61,7 +52,6 @@ class CutiController extends Controller
                 return view('pages.cuti.action', compact('cuti'))->render();
             })
             ->make(true);
-        }
     }
 
         

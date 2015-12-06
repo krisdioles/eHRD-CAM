@@ -50,6 +50,7 @@
               { data: 'tglakhir', name: 'cuti.tglakhir' },
               { data: 'status', name: 'cuti.status' },
               { data: 'nama', name: 'pegawai.nama' },
+              { data: 'action', name: 'action', orderable: false, searchable: false }
           ]
       });
   });

@@ -37,21 +37,14 @@ class LemburController extends Controller
         if(\Auth::user()->idpegawai==1)
         {
             $lembur = Lembur::join('pegawai', 'lembur.pegawai_id', '=', 'pegawai.idpegawai')
-                ->select(['lembur.idlembur', 'lembur.tgllembur', 'lembur.jangkawaktu', 'lembur.keterangan', 'lembur.status', 'pegawai.nama'])
-                ->future()->get();
-
-            return Datatables::of($lembur)
-            ->editColumn('tgllembur', function ($lembur) {
-                return $lembur->tgllembur ? with(new Carbon($lembur->tgllembur))->format('d-m-Y') : '';
-            })
-            ->make(true);
-    
+                ->select(['lembur.idlembur', 'lembur.tgllembur', 'lembur.jangkawaktu', 'lembur.keterangan', 'lembur.status', 'pegawai.nama']);   
         }
         else
         {
             $lembur = \Auth::user()->lembur;
-
-            return Datatables::of($lembur)
+        }
+        
+        return Datatables::of($lembur)
             ->editColumn('tgllembur', function ($lembur) {
                 return $lembur->tgllembur ? with(new Carbon($lembur->tgllembur))->format('d-m-Y') : '';
             })
@@ -59,7 +52,6 @@ class LemburController extends Controller
                 return view('pages.lembur.action', compact('lembur'))->render();
             })
             ->make(true);
-        }
     }
 
     /**
