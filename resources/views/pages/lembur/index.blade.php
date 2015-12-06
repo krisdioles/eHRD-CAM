@@ -7,7 +7,7 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <h2 class="sub-header">Lembur</h2>
   <div class="table-responsive">
-    <table class="table table-hover">
+    <table class="table table-hover" id="lembur" cellspacing="0" width="100%">
       <thead>
         <tr>
           <th>#</th>
@@ -25,45 +25,6 @@
 
         </tr>
       </thead>
-      <tbody>
-
-      @foreach($lembur as $lembur)
-        <tr height="2px">
-          <td>{{ $lembur->idlembur }}</td>
-          <td><a href="{{ url('/lembur', $lembur->idlembur) }}">{{ $lembur->tgllembur->toDateString() }}</td>
-          <td>{{ $lembur->jangkawaktu }}</td>
-          <td>{{ $lembur->status }}</td>
-          <td>{{ $lembur->keterangan }}</td>
-
-          @if(Auth::user()->idpegawai!=1)
-            <td width="5">
-                <form action="{{ url('/lembur/'.$lembur->idlembur.'/edit') }}">
-                    <button class="btn-xs btn-link" type="submit">Edit</button>
-                </form>
-            </td>
-            <td width="5">
-                {!! Form::open(['method' => 'DELETE', 'route' => ['lembur.destroy', $lembur->idlembur]]) !!}
-                    <button class="btn-xs btn-link" type="submit">Delete</button>
-                {!! Form::close() !!}
-            </td>
-          @else
-            <td>{{ $lembur->pegawai->nama }}</td>
-            <td width="5">
-                <form action="{{ url('/lembur/'.$lembur->idlembur.'/accept') }}">
-                    <button class="btn-xs btn-link" type="submit">Accept</button>
-                </form>
-            </td><td>{{ $lembur->pegawai->nama }}</td>
-            <td width="5">
-                <form action="{{ url('/lembur/'.$lembur->idlembur.'/decline') }}">
-                    <button class="btn-xs btn-link" type="submit">Decline</button>
-                </form>
-            </td>
-          @endif
-
-        </tr>
-      @endforeach
-
-      </tbody>
     </table>
 
     @if(Auth::user()->idpegawai!=1)
@@ -72,3 +33,46 @@
     
   </div>
 </div>
+@stop
+
+@if(Auth::user()->idpegawai==1)
+  @push('scripts')
+  <script>
+  $(document).ready(function() {
+      $('#lembur').DataTable({
+          processing: true,
+          serverSide: true,
+          ajax: '{!! route('lembur.data') !!}',
+          columns: [
+              { data: 'idlembur', name: 'lembur.idlembur' },
+              { data: 'tgllembur', name: 'lembur.tgllembur' },
+              { data: 'jangkawaktu', name: 'lembur.jangkawaktu' },
+              { data: 'status', name: 'lembur.status' },
+              { data: 'keterangan', name: 'lembur.keterangan' },
+              { data: 'nama', name: 'pegawai.nama' },
+          ]
+      });
+  });
+  </script>
+  @endpush
+@else
+  @push('scripts')
+  <script>
+  $(document).ready(function() {
+      $('#lembur').DataTable({
+          processing: true,
+          serverSide: true,
+          ajax: '{!! route('lembur.data') !!}',
+          columns: [
+              { data: 'idlembur', name: '.idlembur' },
+              { data: 'tgllembur', name: 'tgllembur' },
+              { data: 'jangkawaktu', name: 'jangkawaktu' },
+              { data: 'status', name: 'status' },
+              { data: 'keterangan', name: 'keterangan' },
+              { data: 'action', name: 'action', orderable: false, searchable: false }
+          ]
+      });
+  });
+  </script>
+  @endpush
+@endif

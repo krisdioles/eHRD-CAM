@@ -23,10 +23,10 @@
 
   <body>
     @include('partials.nav')
-    
-    @include('flash::message')
 
     @yield('content')
+
+    @include('flash::message')
 
     @yield('spjs')
 

@@ -20,15 +20,12 @@ Route::controller('dashboard', 'PegawaiController', [
 Route::resource('absensi', 'AbsensiController');
 
 Route::resource('cuti', 'CutiController', ['except' => ['index', 'show']]);
-//Route::get('cuti/{idcuti}/edit', 'CutiController@edit');
-Route::controller('cuti', 'CutiController', [
-	'getData'  => 'cuti.data',
-	'getIndex' => 'cuti',
-	]);
+Route::controller('cuti', 'CutiController', ['getData'  => 'cuti.data','getIndex' => 'cuti']);
 Route::get('cuti/{idcuti}/accept', 'CutiController@accept');
 Route::get('cuti/{idcuti}/decline', 'CutiController@decline');
 
-Route::resource('lembur', 'LemburController');
+Route::resource('lembur', 'LemburController', ['except' => ['index', 'show']]);
+Route::controller('lembur', 'LemburController', ['getData'  => 'lembur.data', 'getIndex' => 'lembur']);
 Route::get('lembur/{idlembur}/accept', 'LemburController@accept');
 Route::get('lembur/{idlembur}/decline', 'LemburController@decline');
 

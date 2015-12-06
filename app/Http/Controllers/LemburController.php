@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Lembur;
 use App\Http\Requests\LemburRequest;
+use yajra\Datatables\Datatables;
+use Carbon\Carbon;
 
 class LemburController extends Controller
 {
@@ -16,18 +18,48 @@ class LemburController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function getIndex()
+    {
+        // if(\Auth::user()->idpegawai==1)
+        // {
+        //     $lembur = Lembur::latest('tgllembur')->get();
+        // }
+        // else
+        // {
+        //     $lembur = \Auth::user()->lembur;
+        // }
+
+        return view('pages/lembur/index', compact('lembur'));
+    }
+
+    public function getData()
     {
         if(\Auth::user()->idpegawai==1)
         {
-            $lembur = Lembur::latest('tgllembur')->get();
+            $lembur = Lembur::join('pegawai', 'lembur.pegawai_id', '=', 'pegawai.idpegawai')
+                ->select(['lembur.idlembur', 'lembur.tgllembur', 'lembur.jangkawaktu', 'lembur.keterangan', 'lembur.status', 'pegawai.nama'])
+                ->future()->get();
+
+            return Datatables::of($lembur)
+            ->editColumn('tgllembur', function ($lembur) {
+                return $lembur->tgllembur ? with(new Carbon($lembur->tgllembur))->format('d-m-Y') : '';
+            })
+            ->make(true);
+    
         }
         else
         {
             $lembur = \Auth::user()->lembur;
-        }
 
-        return view('pages/lembur/index', compact('lembur'));
+            return Datatables::of($lembur)
+            ->editColumn('tgllembur', function ($lembur) {
+                return $lembur->tgllembur ? with(new Carbon($lembur->tgllembur))->format('d-m-Y') : '';
+            })
+            ->addColumn('action', function ($lembur) {
+                return view('pages.lembur.action', compact('lembur'))->render();
+            })
+            ->make(true);
+        }
     }
 
     /**
