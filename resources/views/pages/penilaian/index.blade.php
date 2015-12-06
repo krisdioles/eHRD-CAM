@@ -7,7 +7,7 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <h2 class="sub-header">Penilaian</h2>
   <div class="table-responsive">
-    <table class="table table-hover">
+    <table class="table table-hover" id="penilaian" cellspacing="0" width="100%">
       <thead>
         <tr>
           <th>#</th>
@@ -19,32 +19,6 @@
           <th></th>
         </tr>
       </thead>
-      <tbody>
-
-          @foreach($pegawais as $pegawai)
-              <tr>
-                <td>{{ $pegawai->kodepegawai }}</td>
-                <td><a href="{{ url('/penilaian/'.$pegawai->idpegawai.'/create') }}">{{ $pegawai->nama }}</td>
-                <td>{{ $pegawai->penilaian->last()->nilaikompetensi }}</td>
-                <td>{{ $pegawai->penilaian->last()->nilaikedisiplinan }}</td>
-                <td>{{ $pegawai->penilaian->last()->nilaiperilaku }}</td>
-                <td>{{ $pegawai->penilaian->last()->keterangan }}</td>
-                
-                @unless($pegawai->penilaian->last()==$pegawai->penilaian->first())
-                  <td width="5">
-                    {!! Form::open(['method' => 'DELETE', 'route' => ['penilaian.destroy', $pegawai->penilaian->last()->idpenilaian]]) !!}
-                        <button class="btn-xs btn-link" type="submit">Delete</button>
-                    {!! Form::close() !!}
-                  </td>
-                @else
-                  <td width="5">
-                      <button class="btn-xs btn-link" type="submit" disabled="disabled">Delete</button>
-                @endunless
-
-              </tr>
-          @endforeach
-
-      </tbody>
     </table>
 
     @if(Auth::user()->idpegawai==1)
@@ -53,3 +27,26 @@
     
   </div>
 </div>
+@stop
+
+@push('scripts')
+  <script>
+  $(document).ready(function() {
+      $('#penilaian').DataTable({
+          processing: true,
+          serverSide: true,
+          ajax: '{!! route('penilaian.data') !!}',
+          columns: [
+              { data: 'idpenilaian', name: 'penilaian.idpenilaian' },
+              { data: 'nama', name: 'pegawai.nama' },
+              //{ data: 'tglpenilaian', name: 'penilaian.tglpenilaian' },
+              { data: 'nilaikompetensi', name: 'penilaian.nilaikompetensi' },
+              { data: 'nilaikedisiplinan', name: 'penilaian.nilaikedisiplinan' },
+              { data: 'nilaiperilaku', name: 'penilaian.nilaiperilaku' },
+              { data: 'keterangan', name: 'penilaian.keterangan' },
+              { data: 'action', name: 'action', orderable: false, searchable: false }
+          ]
+      });
+  });
+  </script>
+  @endpush

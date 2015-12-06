@@ -34,7 +34,8 @@ Route::resource('training', 'TrainingController', ['except' => ['index', 'show']
 Route::controller('training', 'TrainingController', ['getData'  => 'training.data','getIndex' => 'training']);
 
 Route::get('penilaian/{idpegawai}/create', 'PenilaianController@create');
-Route::resource('penilaian', 'PenilaianController', ['except' => ['create', 'edit']]);
+Route::resource('penilaian', 'PenilaianController', ['except' => ['create', 'edit', 'index', 'show']]);
+Route::controller('penilaian', 'PenilaianController', ['getData'  => 'penilaian.data','getIndex' => 'penilaian']);
 
 Route::resource('pelanggaran', 'PelanggaranController', ['except' => ['index', 'show']]);
 Route::controller('pelanggaran', 'PelanggaranController', ['getData'  => 'pelanggaran.data','getIndex' => 'pelanggaran']);

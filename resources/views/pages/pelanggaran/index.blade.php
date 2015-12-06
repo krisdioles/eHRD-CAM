@@ -17,7 +17,6 @@
           <th>Sanksi</th>
           <th>Keterangan</th>
           <th></th>
-
         </tr>
       </thead>
     </table>

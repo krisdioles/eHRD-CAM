@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Penilaian;
 use App\Http\Requests\PenilaianRequest;
 use yajra\Datatables\Datatables;
+use Carbon\Carbon;
 
 class PenilaianController extends Controller
 {
@@ -17,12 +18,30 @@ class PenilaianController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function getIndex()
     {
-        $pegawais = \App\Pegawai::all();
+        //$pegawais = \App\Pegawai::all();
         // $pegawais->setPath('penilaian');
+        //dd(\App\Pegawai::first()->penilaian->last());
 
-        return view('pages/penilaian/index', compact('pegawais'));
+        return view('pages/penilaian/index');
+    }
+
+    public function getData()
+    {
+        //$penilaian = \App\Pegawai::first()->penilaian->last();
+        $penilaian = Penilaian::join('pegawai', 'penilaian.pegawai_id', '=', 'pegawai.idpegawai')
+            ->select(['penilaian.idpenilaian', 'penilaian.tglpenilaian', 'penilaian.nilaikompetensi', 'penilaian.nilaikedisiplinan', 'penilaian.nilaiperilaku', 'penilaian.keterangan', 'pegawai.nama'])
+            ;
+                
+        return Datatables::of($penilaian)
+            ->editColumn('tglpenilaian', function ($penilaian) {
+                return $penilaian->tglpenilaian ? with(new Carbon($penilaian->tglpenilaian))->format('d-m-Y') : '';
+            })
+            ->addColumn('action', function ($penilaian) {
+                return view('pages.penilaian.action', compact('penilaian'))->render();
+            })
+            ->make(true);
     }
 
     /**
