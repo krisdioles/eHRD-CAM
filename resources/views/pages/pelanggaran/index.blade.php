@@ -7,7 +7,7 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <h2 class="sub-header">Pelanggaran</h2>
   <div class="table-responsive">
-    <table class="table table-hover">
+    <table class="table table-hover" id="pelanggaran" cellspacing="0" width="100%">
       <thead>
         <tr>
           <th>#</th>
@@ -16,38 +16,10 @@
           <th>Jenis Pelanggaran</th>
           <th>Sanksi</th>
           <th>Keterangan</th>
-          
-          @if(Auth::user()->idpegawai==1)
-            <th></th>
-            <th></th>
-          @endif
+          <th></th>
 
         </tr>
       </thead>
-      <tbody>
-        
-        @foreach($pelanggaran as $pelanggaran)
-          <tr>
-            <td>{{ $pelanggaran->pegawai->kodepegawai }}</td>
-            <td>{{ $pelanggaran->pegawai->nama }}</td>
-            <td>{{ $pelanggaran->tglpelanggaran->toDateString() }}</td>
-            <td>{{ $pelanggaran->jenispelanggaran }}</td>
-            <td>{{ $pelanggaran->sanksi }}</td>
-            <td>{{ $pelanggaran->keterangan }}</td>
-            <td width="5">
-                <form action="{{ url('/pelanggaran/'.$pelanggaran->idpelanggaran.'/edit') }}">
-                    <button class="btn-xs btn-link" type="submit">Edit</button>
-                </form>
-            </td>
-            <td width="5">
-                {!! Form::open(['method' => 'DELETE', 'route' => ['pelanggaran.destroy', $pelanggaran->idpelanggaran]]) !!}
-                    <button class="btn-xs btn-link" type="submit">Delete</button>
-                {!! Form::close() !!}
-            </td>
-          </tr>
-        @endforeach        
-
-      </tbody>
     </table>
 
     @if(Auth::user()->idpegawai==1)
@@ -56,3 +28,25 @@
     
   </div>
 </div>
+@stop
+
+@push('scripts')
+  <script>
+  $(document).ready(function() {
+      $('#pelanggaran').DataTable({
+          processing: true,
+          serverSide: true,
+          ajax: '{!! route('pelanggaran.data') !!}',
+          columns: [
+              { data: 'idpelanggaran', name: 'pelanggaran.idpelanggaran' },
+              { data: 'nama', name: 'pegawai.nama' },
+              { data: 'tglpelanggaran', name: 'pelanggaran.tglpelanggaran' },
+              { data: 'jenispelanggaran', name: 'pelanggaran.jenispelanggaran' },
+              { data: 'sanksi', name: 'pelanggaran.sanksi' },
+              { data: 'keterangan', name: 'pelanggaran.keterangan' },
+              { data: 'action', name: 'action', orderable: false, searchable: false }
+          ]
+      });
+  });
+  </script>
+  @endpush

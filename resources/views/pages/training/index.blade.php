@@ -16,12 +16,6 @@
           <th>Tanggal Training</th>
           <th>Anggaran</th>
           <th></th>
-
-          @if(Auth::user()->idpegawai==1)
-            <th></th>
-            
-          @endif
-          
         </tr>
       </thead>
     </table>

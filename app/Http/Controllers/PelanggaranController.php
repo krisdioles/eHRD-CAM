@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Pelanggaran;
 use App\Http\Requests\PelanggaranRequest;
+use yajra\Datatables\Datatables;
+use Carbon\Carbon;
 
 class PelanggaranController extends Controller
 {
@@ -16,12 +18,33 @@ class PelanggaranController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function getIndex()
     {
-        $pelanggaran = Pelanggaran::latest('tglpelanggaran')->get();
+        //$pelanggaran = Pelanggaran::latest('tglpelanggaran')->get();
         
+        return view('pages/pelanggaran/index');
+    }
 
-        return view('pages/pelanggaran/index', compact('pelanggaran'));
+    public function getData()
+    {
+        if(\Auth::user()->idpegawai==1)
+        {
+            $pelanggaran = Pelanggaran::join('pegawai', 'pelanggaran.pegawai_id', '=', 'pegawai.idpegawai')
+                ->select(['pelanggaran.idpelanggaran', 'pelanggaran.tglpelanggaran', 'pelanggaran.jenispelanggaran', 'pelanggaran.keterangan', 'pelanggaran.sanksi', 'pegawai.nama']);   
+        }
+        else
+        {
+            $pelanggaran = \Auth::user()->pelanggaran;
+        }
+        
+        return Datatables::of($pelanggaran)
+            ->editColumn('tglpelanggaran', function ($pelanggaran) {
+                return $pelanggaran->tglpelanggaran ? with(new Carbon($pelanggaran->tglpelanggaran))->format('d-m-Y') : '';
+            })
+            ->addColumn('action', function ($pelanggaran) {
+                return view('pages.pelanggaran.action', compact('pelanggaran'))->render();
+            })
+            ->make(true);
     }
 
     /**
