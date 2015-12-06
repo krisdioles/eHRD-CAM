@@ -8,23 +8,63 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Cuti;
 use App\Http\Requests\CutiRequest;
+use yajra\Datatables\Datatables;
+use Carbon\Carbon;
 
 class CutiController extends Controller
 {
-    public function index()
+    public function getIndex()
+    {
+        // if(\Auth::user()->idpegawai==1)
+        // {
+        //     $cuti = Cuti::oldest('tglawal')->future()->get();  
+        // }
+        // else
+        // {
+        //     $cuti = \Auth::user()->cuti;
+        // }
+
+        return view('pages/cuti/index');
+    	
+    }
+
+    public function getData()
     {
         if(\Auth::user()->idpegawai==1)
         {
-            $cuti = Cuti::oldest('tglawal')->future()->get();  
+            $cuti = Cuti::join('pegawai', 'cuti.pegawai_id', '=', 'pegawai.idpegawai')
+                ->select(['cuti.idcuti', 'cuti.jeniscuti', 'cuti.tglawal', 'cuti.tglakhir', 'cuti.status', 'pegawai.nama'])
+                ->future()->get();
+
+            return Datatables::of($cuti)
+            ->editColumn('tglawal', function ($cuti) {
+                return $cuti->tglawal ? with(new Carbon($cuti->tglawal))->format('d-m-Y') : '';
+            })
+            ->editColumn('tglakhir', function ($cuti) {
+                return $cuti->tglakhir ? with(new Carbon($cuti->tglakhir))->format('d-m-Y') : '';
+            })
+            ->make(true);
+    
         }
         else
         {
             $cuti = \Auth::user()->cuti;
-        }
 
-        return view('pages/cuti/index', compact('cuti'));
-    	
+            return Datatables::of($cuti)
+            ->editColumn('tglawal', function ($cuti) {
+                return $cuti->tglawal ? with(new Carbon($cuti->tglawal))->format('d-m-Y') : '';
+            })
+            ->editColumn('tglakhir', function ($cuti) {
+                return $cuti->tglakhir ? with(new Carbon($cuti->tglakhir))->format('d-m-Y') : '';
+            })
+            ->addColumn('action', function ($cuti) {
+                return view('pages.cuti.action', compact('cuti'))->render();
+            })
+            ->make(true);
+        }
     }
+
+        
 
     public function show(Cuti $cuti)
     {
@@ -47,6 +87,9 @@ class CutiController extends Controller
 
     public function edit(Cuti $cuti)
     {
+        //dd($idcuti);
+        //$cuti=Cuti::findOrFail($idcuti);
+
         return view('pages/cuti/edit', compact('cuti'));
     }
 
@@ -61,6 +104,8 @@ class CutiController extends Controller
 
     public function destroy(Cuti $cuti)
     {
+        //$cuti=Cuti::findOrFail($idcuti);
+
         // delete
         $cuti->delete();
 

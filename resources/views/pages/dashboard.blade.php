@@ -32,7 +32,7 @@
 
           <h2 class="sub-header">Pegawai</h2>
           <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-hover" id="dashboard" cellspacing="0" width="100%">
               <thead>
                 <tr>
                   <th>#</th>
@@ -42,19 +42,25 @@
                   <th>Tanggal Lahir</th>
                 </tr>
               </thead>
-              <tbody>
-
-                @foreach($peg as $pegawai)
-                <tr>
-                  <td>{{ $pegawai->idpegawai }}</td>
-                  <td>{{ $pegawai->nama }}</td>
-                  <td>ipsum</td>
-                  <td>{{ $pegawai->email }}</td>
-                  <td>sit</td>
-                </tr>
-                @endforeach
-                
-              </tbody>
             </table>
           </div>
-        </div>
+</div>
+@stop
+
+@push('scripts')
+<script>
+$(document).ready(function() {
+    $('#dashboard').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: '{!! route('dashboard.data') !!}',
+        columns: [
+            { data: 'idpegawai', name: 'idpegawai' },
+            { data: 'nama', name: 'nama' },
+            { data: 'alamat', name: 'alamat' },
+            { data: 'email', name: 'email' }
+        ]
+    });
+});
+</script>
+@endpush

@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Penilaian;
 use App\Http\Requests\PenilaianRequest;
+use yajra\Datatables\Datatables;
 
 class PenilaianController extends Controller
 {
@@ -18,9 +19,10 @@ class PenilaianController extends Controller
      */
     public function index()
     {
-        $pegawai = \App\Pegawai::all();
+        $pegawais = \App\Pegawai::all();
+        // $pegawais->setPath('penilaian');
 
-        return view('pages/penilaian/index', compact('pegawai'));
+        return view('pages/penilaian/index', compact('pegawais'));
     }
 
     /**

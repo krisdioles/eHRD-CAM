@@ -7,7 +7,7 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <h2 class="sub-header">Cuti</h2>
   <div class="table-responsive">
-    <table class="table table-hover">
+    <table class="table table-hover" id="cuti" cellspacing="0" width="100%">
       <thead>
         <tr>
           <th>#</th>
@@ -21,49 +21,10 @@
           @endif
 
           <th></th>
-          <th></th>
 
         </tr>
       </thead>
-      <tbody>
-
-      @foreach($cuti as $cuti)
-        <tr height="2px">
-          <td>{{ $cuti->idcuti }}</td>
-          <td><a href="{{ url('/cuti', $cuti->idcuti) }}">{{ $cuti->jeniscuti }}</td>
-          <td>{{ $cuti->tglawal->toDateString() }}</td>
-          <td>{{ $cuti->tglakhir->toDateString() }}</td>
-          <td>{{ $cuti->status }}</td>
-
-          @if(Auth::user()->idpegawai!=1)
-            <td width="5">
-                <form action="{{ url('/cuti/'.$cuti->idcuti.'/edit') }}">
-                    <button class="btn-xs btn-link" type="submit">Edit</button>
-                </form>
-            </td>
-            <td width="5">
-                {!! Form::open(['method' => 'DELETE', 'route' => ['cuti.destroy', $cuti->idcuti]]) !!}
-                    <button class="btn-xs btn-link" type="submit">Delete</button>
-                {!! Form::close() !!}
-            </td>
-          @else
-            <td>{{ $cuti->pegawai->nama }}</td>
-            <td width="5">
-                <form action="{{ url('/cuti/'.$cuti->idcuti.'/accept') }}">
-                    <button class="btn-xs btn-link" type="submit">Accept</button>
-                </form>
-            </td>
-            <td width="5">
-                <form action="{{ url('/cuti/'.$cuti->idcuti.'/decline') }}">
-                    <button class="btn-xs btn-link" type="submit">Decline</button>
-                </form>
-            </td>
-          @endif
-
-        </tr>
-      @endforeach
-
-      </tbody>
+      
     </table>
 
     @if(Auth::user()->idpegawai!=1)
@@ -72,3 +33,46 @@
     
   </div>
 </div>
+@stop
+
+@if(Auth::user()->idpegawai==1)
+  @push('scripts')
+  <script>
+  $(document).ready(function() {
+      $('#cuti').DataTable({
+          processing: true,
+          serverSide: true,
+          ajax: '{!! route('cuti.data') !!}',
+          columns: [
+              { data: 'idcuti', name: 'cuti.idcuti' },
+              { data: 'jeniscuti', name: 'cuti.jeniscuti' },
+              { data: 'tglawal', name: 'cuti.tglawal' },
+              { data: 'tglakhir', name: 'cuti.tglakhir' },
+              { data: 'status', name: 'cuti.status' },
+              { data: 'nama', name: 'pegawai.nama' },
+          ]
+      });
+  });
+  </script>
+  @endpush
+@else
+  @push('scripts')
+  <script>
+  $(document).ready(function() {
+      $('#cuti').DataTable({
+          processing: true,
+          serverSide: true,
+          ajax: '{!! route('cuti.data') !!}',
+          columns: [
+              { data: 'idcuti', name: '.idcuti' },
+              { data: 'jeniscuti', name: 'jeniscuti' },
+              { data: 'tglawal', name: 'tglawal' },
+              { data: 'tglakhir', name: 'tglakhir' },
+              { data: 'status', name: 'status' },
+              { data: 'action', name: 'action', orderable: false, searchable: false }
+          ]
+      });
+  });
+  </script>
+  @endpush
+@endif

@@ -21,7 +21,7 @@
       </thead>
       <tbody>
 
-          @foreach($pegawai as $pegawai)
+          @foreach($pegawais as $pegawai)
               <tr>
                 <td>{{ $pegawai->kodepegawai }}</td>
                 <td><a href="{{ url('/penilaian/'.$pegawai->idpegawai.'/create') }}">{{ $pegawai->nama }}</td>

@@ -139,6 +139,7 @@ return [
         Illuminate\Html\HtmlServiceProvider::class,
 
         Laracasts\Flash\FlashServiceProvider::class,
+        yajra\Datatables\DatatablesServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -199,6 +200,7 @@ return [
         'Form'      => Illuminate\Html\FormFacade::class,
         'Html'      => Illuminate\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
+        'Datatables' => yajra\Datatables\Datatables::class,
 
     ],
 

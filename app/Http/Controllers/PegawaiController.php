@@ -7,13 +7,17 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Pegawai;
+use yajra\Datatables\Datatables;
 
 class PegawaiController extends Controller
 {
-    public function index()
+    public function getIndex()
     {
-    	$peg = Pegawai::all();
+    	return view('pages/dashboard');
+    }
 
-    	return view('pages/dashboard', compact('peg'));
+    public function getData()
+    {
+        return Datatables::of(Pegawai::select('*'))->make(true);
     }
 }

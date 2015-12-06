@@ -10,28 +10,21 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-// if(Auth::guest())
-// {
-// 	Route::get('', function () {
-//     	return view('auth/login');
-// 	});
-// }
-
-Route::get('', 'PegawaiController@index');
-Route::get('dashboard', 'PegawaiController@index');
-
-// Route::get('login', function () {
-//     return view('auth/login');
-// });
-
-// Route::get('register', function () {
-//     return view('auth/register');
-// });
+Route::get('', 'PegawaiController@getIndex');
+//Route::get('dashboard', 'PegawaiController@index');
+Route::controller('dashboard', 'PegawaiController', [
+	'getData'  => 'dashboard.data',
+	'getIndex' => 'dashboard',
+	]);
 
 Route::resource('absensi', 'AbsensiController');
 
-Route::resource('cuti', 'CutiController');
+Route::resource('cuti', 'CutiController', ['except' => ['index', 'show']]);
+//Route::get('cuti/{idcuti}/edit', 'CutiController@edit');
+Route::controller('cuti', 'CutiController', [
+	'getData'  => 'cuti.data',
+	'getIndex' => 'cuti',
+	]);
 Route::get('cuti/{idcuti}/accept', 'CutiController@accept');
 Route::get('cuti/{idcuti}/decline', 'CutiController@decline');
 
