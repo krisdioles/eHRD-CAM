@@ -10,6 +10,7 @@ use App\Penilaian;
 use App\Http\Requests\PenilaianRequest;
 use yajra\Datatables\Datatables;
 use Carbon\Carbon;
+use DB;
 
 class PenilaianController extends Controller
 {
@@ -29,10 +30,14 @@ class PenilaianController extends Controller
 
     public function getData()
     {
-        //$penilaian = \App\Pegawai::first()->penilaian->last();
-        $penilaian = Penilaian::join('pegawai', 'penilaian.pegawai_id', '=', 'pegawai.idpegawai')
+        $penilaian = DB::table('pegawai')->join('penilaian', 'penilaian.pegawai_id', '=', 'pegawai.idpegawai')
             ->select(['penilaian.idpenilaian', 'penilaian.tglpenilaian', 'penilaian.nilaikompetensi', 'penilaian.nilaikedisiplinan', 'penilaian.nilaiperilaku', 'penilaian.keterangan', 'pegawai.nama'])
-            ;
+            ->where('penilaian.idpenilaian', '=', function($query){
+                $query->selectRaw('max(penilaian.idpenilaian)')
+                    ->from('penilaian')
+                    ->whereRaw('penilaian.pegawai_id = pegawai.idpegawai');
+                }
+            );
                 
         return Datatables::of($penilaian)
             ->editColumn('tglpenilaian', function ($penilaian) {
@@ -107,11 +112,19 @@ class PenilaianController extends Controller
      */
     public function destroy(Penilaian $penilaian)
     {
-        // delete
-        $penilaian->delete();
 
-        // redirect
-        flash()->overlay('Penilaian berhasil dihapus!');
+        $pegawai = \App\Pegawai::findOrFail($penilaian->pegawai_id);
+        //dd($pegawai->penilaian->last());
+
+        if($pegawai->penilaian->last()!=$pegawai->penilaian->first())
+        {
+            // delete
+            $penilaian->delete();
+
+            // redirect
+            flash()->overlay('Penilaian berhasil dihapus!');
+        }
+
         return redirect('penilaian');
     }
 }
