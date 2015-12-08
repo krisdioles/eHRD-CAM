@@ -11,6 +11,7 @@
       <thead>
         <tr>
           <th>#</th>
+          <th>#</th>
           <th>Nama Pegawai</th>
           <th>Nilai Kompetensi</th>
           <th>Nilai Kedisiplinan</th>
@@ -19,12 +20,7 @@
           <th></th>
         </tr>
       </thead>
-    </table>
-
-    @if(Auth::user()->idpegawai==1)
-      <a class="btn btn-default" href="{{ url('/penilaian/create') }}" role="button">Create</a>
-    @endif
-    
+    </table>    
   </div>
 </div>
 @stop
@@ -38,8 +34,8 @@
           ajax: '{!! route('penilaian.data') !!}',
           columns: [
               { data: 'idpenilaian', name: 'penilaian.idpenilaian' },
+              { data: 'idpegawai', name: 'pegawai.idpegawai' },
               { data: 'nama', name: 'pegawai.nama' },
-              //{ data: 'tglpenilaian', name: 'penilaian.tglpenilaian' },
               { data: 'nilaikompetensi', name: 'penilaian.nilaikompetensi' },
               { data: 'nilaikedisiplinan', name: 'penilaian.nilaikedisiplinan' },
               { data: 'nilaiperilaku', name: 'penilaian.nilaiperilaku' },

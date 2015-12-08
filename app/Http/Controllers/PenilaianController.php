@@ -31,14 +31,14 @@ class PenilaianController extends Controller
     public function getData()
     {
         $penilaian = DB::table('pegawai')->join('penilaian', 'penilaian.pegawai_id', '=', 'pegawai.idpegawai')
-            ->select(['penilaian.idpenilaian', 'penilaian.tglpenilaian', 'penilaian.nilaikompetensi', 'penilaian.nilaikedisiplinan', 'penilaian.nilaiperilaku', 'penilaian.keterangan', 'pegawai.nama'])
+            ->selectRaw('*')
             ->where('penilaian.idpenilaian', '=', function($query){
                 $query->selectRaw('max(penilaian.idpenilaian)')
                     ->from('penilaian')
                     ->whereRaw('penilaian.pegawai_id = pegawai.idpegawai');
                 }
             );
-                
+    
         return Datatables::of($penilaian)
             ->editColumn('tglpenilaian', function ($penilaian) {
                 return $penilaian->tglpenilaian ? with(new Carbon($penilaian->tglpenilaian))->format('d-m-Y') : '';
@@ -83,7 +83,7 @@ class PenilaianController extends Controller
     {
         $penilaian=Penilaian::create($request->all());
 
-        flash()->overlay('Penilaian telah terdaftar!');
+        flash()->success('Penilaian telah terdaftar!');
 
         return redirect('penilaian');
     }
@@ -99,7 +99,7 @@ class PenilaianController extends Controller
     {
         $penilaian->update($request->all());
 
-        flash()->overlay('Penilaian berhasil diubah!');
+        flash()->success('Penilaian berhasil diubah!');
 
         return redirect('penilaian');
     }
@@ -114,17 +114,18 @@ class PenilaianController extends Controller
     {
 
         $pegawai = \App\Pegawai::findOrFail($penilaian->pegawai_id);
-        //dd($pegawai->penilaian->last());
+        
 
         if($pegawai->penilaian->last()!=$pegawai->penilaian->first())
         {
             // delete
             $penilaian->delete();
 
-            // redirect
-            flash()->overlay('Penilaian berhasil dihapus!');
+            flash()->success('Penilaian berhasil dihapus!');
         }
+        flash()->overlay('Penilaian tidak bisa dihapus!');
 
+        // redirect
         return redirect('penilaian');
     }
 }

@@ -41,7 +41,8 @@ Route::resource('pelanggaran', 'PelanggaranController', ['except' => ['index', '
 Route::controller('pelanggaran', 'PelanggaranController', ['getData'  => 'pelanggaran.data','getIndex' => 'pelanggaran']);
 
 Route::get('penggajian/{idpegawai}/create', 'PenggajianController@create');
-Route::resource('penggajian', 'PenggajianController', ['except'=>['create', 'edit']]);
+Route::resource('penggajian', 'PenggajianController', ['except'=>['create', 'edit', 'index', 'show']]);
+Route::controller('penggajian', 'PenggajianController', ['getData'  => 'penggajian.data','getIndex' => 'penggajian']);
 
 Route::resource('phk', 'PhkController', ['except' => ['index', 'show']]);
 Route::controller('phk', 'PhkController', ['getData'  => 'phk.data','getIndex' => 'phk']);

@@ -8,6 +8,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Penggajian;
 use App\Http\Requests\PenggajianRequest;
+use yajra\Datatables\Datatables;
+use Carbon\Carbon;
+use DB;
 
 class PenggajianController extends Controller
 {
@@ -16,11 +19,35 @@ class PenggajianController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function getIndex()
     {
-        $pegawai = \App\Pegawai::all();
+        //$pegawai = \App\Pegawai::all();
 
-        return view('pages/penggajian/index', compact('penggajian', 'pegawai'));
+        return view('pages/penggajian/index');
+    }
+
+    public function getData()
+    {
+        $penggajian = DB::table('pegawai')->join('penggajian', 'penggajian.pegawai_id', '=', 'pegawai.idpegawai')
+            ->selectRaw('*, pegawai.gajipokok + pegawai.tunjangantetap + penggajian.biayabonus - penggajian.biayapotongan AS jumlahpenggajian')
+            ->where('penggajian.idpenggajian', '=', function($query){
+                $query->selectRaw('max(penggajian.idpenggajian)')
+                    ->from('penggajian')
+                    ->whereRaw('penggajian.pegawai_id = pegawai.idpegawai');
+                }
+            );
+    
+        return Datatables::of($penggajian)
+            ->editColumn('tglpenggajian', function ($penggajian) {
+                return $penggajian->tglpenggajian ? with(new Carbon($penggajian->tglpenggajian))->format('d-m-Y') : '';
+            })
+            ->editColumn('periodepenggajian', function ($penggajian) {
+                return $penggajian->periodepenggajian ? with(new Carbon($penggajian->periodepenggajian))->format('F Y') : '';
+            })
+            ->addColumn('action', function ($penggajian) {
+                return view('pages.penggajian.action', compact('penggajian'))->render();
+            })
+            ->make(true);
     }
 
     /**

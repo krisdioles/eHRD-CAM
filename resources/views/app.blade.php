@@ -41,7 +41,7 @@
     
 
     <script>
-        //$('#flash-overlay-modal').modal('show');
+        $('#flash-overlay-modal').modal('show');
         $('div.alert').not('.alert-important').delay(2000).slideUp(300);
     </script>
     @stack('scripts')
