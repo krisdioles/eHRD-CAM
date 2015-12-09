@@ -77,7 +77,7 @@ class CutiController extends Controller
 
     public function edit(Cuti $cuti)
     {
-        //dd($idcuti);
+        //dd($cuti);
         //$cuti=Cuti::findOrFail($idcuti);
 
         return view('pages/cuti/edit', compact('cuti'));

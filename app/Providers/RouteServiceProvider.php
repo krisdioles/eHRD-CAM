@@ -28,6 +28,7 @@ class RouteServiceProvider extends ServiceProvider
 
         parent::boot($router);
 
+        $router->model('pegawai', 'App\Pegawai');
         $router->model('cuti', 'App\Cuti');
         $router->model('lembur', 'App\Lembur');
         $router->model('absensi', 'App\Absensi');

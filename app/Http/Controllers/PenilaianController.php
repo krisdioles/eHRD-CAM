@@ -123,7 +123,10 @@ class PenilaianController extends Controller
 
             flash()->success('Penilaian berhasil dihapus!');
         }
-        flash()->overlay('Penilaian tidak bisa dihapus!');
+        else
+        {
+            flash()->overlay('Penilaian tidak bisa dihapus!');
+        }
 
         // redirect
         return redirect('penilaian');

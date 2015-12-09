@@ -12,9 +12,10 @@
 */
 Route::get('', 'PegawaiController@getIndex');
 //Route::get('dashboard', 'PegawaiController@index');
-Route::controller('dashboard', 'PegawaiController', [
-	'getData'  => 'dashboard.data',
-	'getIndex' => 'dashboard',
+Route::resource('pegawai', 'PegawaiController', ['except' => ['index', 'show']]);
+Route::controller('pegawai', 'PegawaiController', [
+	'getData'  => 'pegawai.data',
+	'getIndex' => 'pegawai',
 	]);
 
 Route::resource('absensi', 'AbsensiController');

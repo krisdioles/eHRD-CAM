@@ -1,4 +1,4 @@
-{!! Form::hidden('pegawai_id', \App\Pegawai::find($idpegawai)->idpegawai) !!}
+-{!! Form::hidden('pegawai_id', \App\Pegawai::find($idpegawai)->idpegawai) !!}
 
 <div class="form-group">
 	{!! Form::label('namapegawai', 'Nama Pegawai : ') !!}

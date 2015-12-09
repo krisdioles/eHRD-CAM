@@ -112,11 +112,22 @@ class PenggajianController extends Controller
      */
     public function destroy(Penggajian $penggajian)
     {
-        // delete
-        $penggajian->delete();
+        $pegawai = \App\Pegawai::findOrFail($penggajian->pegawai_id);
+        
+
+        if($pegawai->penggajian->last()!=$pegawai->penggajian->first())
+        {
+            // delete
+            $penggajian->delete();
+
+            flash()->overlay('Penggajian berhasil dihapus!');
+        }
+        else
+        {
+            flash()->overlay('Penggajian tidak bisa dihapus!');
+        }
 
         // redirect
-        flash()->overlay('Penggajian berhasil dihapus!');
         return redirect('penggajian');
     }
 }

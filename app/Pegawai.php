@@ -24,6 +24,8 @@ class Pegawai extends Model implements AuthenticatableContract,
 
     protected $primaryKey = 'idpegawai';
 
+    protected $dates = ['tgllahir'];
+
     /**
      * The attributes that are mass assignable.
      *
