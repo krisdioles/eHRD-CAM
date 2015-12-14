@@ -55,8 +55,10 @@ class PenilaianController extends Controller
      * @param  Penilaian  $penilaian
      * @return Response
      */
-    public function show(Penilaian $penilaian)
+    public function show($idpenilaian)
     {
+        $penilaian=Penilaian::findOrFail($idpenilaian);
+        
         return view('pages/penilaian/show', compact('penilaian'));
     }
 

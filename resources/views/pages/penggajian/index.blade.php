@@ -7,22 +7,15 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <h2 class="sub-header">Penggajian</h2>
   <div class="table-responsive">
-    <table class="table table-hover" id="penggajian" cellspacing="0" width="50%">
+    <table class="table table-hover" id="penggajian" cellspacing="0" width="100%">
       <thead>
         <tr>
           <th>#</th>
           <th>Nama Pegawai</th>
-          <th>Gaji Pokok</th>
-          <th>Tunjangan Pokok</th>
           <th>Tanggal Penggajian</th>
           <th>Periode Penggajian</th>
-          <th>Biaya Bonus</th>
-          <th>Keterangan Bonus</th>
-          <th>Biaya Potongan</th>
-          <th>Keterangan Potongan</th>
           <th>Jumlah Penggajian</th>
-          <th>Keterangan</th>
-          <th width="15%"></th>
+          <th width="17%"></th>
 
         </tr>
       </thead>
@@ -47,16 +40,9 @@
           columns: [
               { data: 'idpenggajian', name: 'penggajian.idpenggajian' },
               { data: 'nama', name: 'pegawai.nama' },
-              { data: 'gajipokok', name: 'pegawai.gajipokok' },
-              { data: 'tunjangantetap', name: 'pegawai.tunjangantetap' },
               { data: 'tglpenggajian', name: 'penggajian.tglpenggajian' },
               { data: 'periodepenggajian', name: 'penggajian.periodepenggajian' },
-              { data: 'biayabonus', name: 'penggajian.biayabonus' },
-              { data: 'keteranganbonus', name: 'penggajian.keteranganbonus' },
-              { data: 'biayapotongan', name: 'penggajian.biayapotongan' },
-              { data: 'keteranganpotongan', name: 'penggajian.keteranganpotongan' },
               { data: 'jumlahpenggajian', name: 'jumlahpenggajian' },
-              { data: 'keterangan', name: 'penggajian.keterangan' },
               { data: 'action', name: 'action', orderable: false, searchable: false }
           ]
       });

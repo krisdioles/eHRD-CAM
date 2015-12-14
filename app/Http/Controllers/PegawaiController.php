@@ -39,11 +39,11 @@ class PegawaiController extends Controller
         return view('pages/pegawai/edit', compact('pegawai'));
     }
 
-    public function update(Pegawai $pegawai, PegawaiRequest $request)
+    public function update(Pegawai $pegawai, Request $request)
     {
         $pegawai->update($request->all());
 
-        flash()->success('pegawai berhasil diubah!');
+        flash()->success('Pegawai berhasil diubah!');
 
         return redirect('pegawai');
     }

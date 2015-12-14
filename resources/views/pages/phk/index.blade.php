@@ -16,11 +16,7 @@
           <th>Jenis PHK</th>
           <th>Nomor Surat</th>
           <th>Keterangan</th>
-          
-          @if(Auth::user()->idpegawai==1)
-            <th></th>
-            <th></th>
-          @endif
+          <th></th>
 
         </tr>
       </thead>

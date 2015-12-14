@@ -1,3 +1,9 @@
+<div class="form-group">
+	<form action="{{ url('/cuti/'.$cuti->idcuti.'/show') }}">
+	    <button class="btn-xs btn-link" type="submit">Show</button>
+	</form>
+</div>
+
 @if(Auth::user()->idpegawai!=1)
 	@unless($cuti->status=='Accepted'||$cuti->status=='Declined')
 	<div class="form-group">

@@ -60,8 +60,10 @@ class LemburController extends Controller
      * @param  int  $lembur
      * @return Response
      */
-    public function show(Lembur $lembur)
+    public function show($idlembur)
     {
+        $lembur=Lembur::findOrFail($idlembur);
+
         return view('pages/lembur/show', compact('lembur'));
     }
 

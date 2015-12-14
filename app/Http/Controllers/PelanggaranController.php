@@ -46,8 +46,10 @@ class PelanggaranController extends Controller
      * @param  pelanggaran  $pelanggaran
      * @return Response
      */
-    public function show(Pelanggaran $pelanggaran)
+    public function show($idpelanggaran)
     {
+        $pelanggaran=Pelanggaran::findOrFail($idpelanggaran);
+        
         return view('pages/pelanggaran/show', compact('pelanggaran'));
     }
 

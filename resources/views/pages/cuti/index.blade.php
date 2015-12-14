@@ -20,7 +20,7 @@
             <th>Diajukan Oleh</th>
           @endif
 
-          <th width="10%"></th>
+          <th width="17%"></th>
 
         </tr>
       </thead>

@@ -56,8 +56,10 @@ class PenggajianController extends Controller
      * @param  int  $penggajian
      * @return Response
      */
-    public function show(Penggajian $penggajian)
+    public function show($idpenggajian)
     {
+        $penggajian=Penggajian::findOrFail($idpenggajian);
+        
         return view('pages/penggajian/show', compact('penggajian'));
     }
 

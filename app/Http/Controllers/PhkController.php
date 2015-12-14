@@ -46,8 +46,10 @@ class PhkController extends Controller
      * @param  phk  $phk
      * @return Response
      */
-    public function show(Phk $phk)
+    public function show($idphk)
     {
+        $phk=Phk::findOrFail($idphk);
+
         return view('pages/phk/show', compact('phk'));
     }
 

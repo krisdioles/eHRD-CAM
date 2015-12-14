@@ -1,3 +1,9 @@
+<div class="form-group">
+	<form action="{{ url('/lembur/'.$lembur->idlembur.'/show') }}">
+	    <button class="btn-xs btn-link" type="submit">Show</button>
+	</form>
+</div>
+
 @if(Auth::user()->idpegawai!=1)
 	@unless($lembur->status=='Accepted'||$lembur->status=='Declined')
 	<div class="form-group">

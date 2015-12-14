@@ -54,10 +54,10 @@ class CutiController extends Controller
             ->make(true);
     }
 
-        
-
-    public function show(Cuti $cuti)
+    public function show($idcuti)
     {
+        $cuti=Cuti::findOrFail($idcuti);
+
         return view('pages/cuti/show', compact('cuti'));
     }
 
