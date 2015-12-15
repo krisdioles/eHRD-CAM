@@ -15,10 +15,11 @@ class CreateAbsensiTable extends Migration
         Schema::create('absensi', function(Blueprint $table){
         $table->increments('idabsensi');
         $table->integer('pegawai_id')->unsigned();
-		$table->timestamp('tglabsen');
         $table->timestamp('waktumasuk');
 		$table->timestamp('waktupulang');
-		$table->string('status');
+		$table->string('statusmasuk');
+        $table->string('statuspulang');
+        $table->string('keterangan');
         $table->rememberToken();
         $table->timestamps();
 		 

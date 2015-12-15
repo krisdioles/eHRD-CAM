@@ -7,6 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
@@ -79,6 +80,12 @@ class AuthController extends Controller
             'biayapotongan' => '0',
             'keteranganpotongan' => 'baru',
             'keterangan' => 'baru',
+        ]);
+
+        \App\Absensi::create([
+            'pegawai_id' => $pegawai->idpegawai,
+            'waktumasuk' => Carbon::create('2000', '1', '1'),
+            'waktupulang' => Carbon::create('2000', '1', '1'),
         ]);
 
         return $pegawai;
