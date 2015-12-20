@@ -55,6 +55,12 @@
                   }
               },
               {
+                  extend: 'csvFlash',
+                  exportOptions: {
+                      columns: ':visible'
+                  }
+              },
+              {
                   extend: 'excelFlash',
                   exportOptions: {
                       columns: ':visible'

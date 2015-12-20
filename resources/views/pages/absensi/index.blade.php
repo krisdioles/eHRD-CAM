@@ -44,6 +44,12 @@
                     }
                 },
                 {
+                    extend: 'csvFlash',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
                     extend: 'excelFlash',
                     exportOptions: {
                         columns: ':visible'
@@ -58,7 +64,7 @@
                 'colvis',
             ],
             columnDefs: [{
-                targets: 0,
+                targets: 6,
                 visible: false
             }],
             processing: true,
