@@ -34,7 +34,7 @@
   <script>
   $(document).ready(function() {
       $('#phk').DataTable({
-          dom: 'Bfrtip',
+          dom: 'Bfrtlip',
           buttons: [
               {
                   extend: 'print',

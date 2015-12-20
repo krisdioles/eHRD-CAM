@@ -29,7 +29,7 @@
   <script>
   $(document).ready(function() {
       $('#penilaian').DataTable({
-          dom: 'Bfrtip',
+          dom: 'Bfrtlip',
           buttons: [
               {
                   extend: 'print',

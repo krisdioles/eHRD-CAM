@@ -33,7 +33,7 @@
 <script>
 $(document).ready(function() {
     $('#pegawai').DataTable({
-        dom: 'Bfrtip',
+        dom: 'Bfrtlip',
         buttons: [
             {
                 extend: 'print',
@@ -62,7 +62,6 @@ $(document).ready(function() {
             'colvis',
         ],
         columnDefs: [{
-            targets: 0,
             visible: false
         }],
         processing: true,

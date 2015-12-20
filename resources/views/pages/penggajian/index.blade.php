@@ -34,7 +34,7 @@
   <script>
   $(document).ready(function() {
       $('#penggajian').DataTable({
-          dom: 'Bfrtip',
+          dom: 'Bfrtlip',
           buttons: [
               {
                   extend: 'print',

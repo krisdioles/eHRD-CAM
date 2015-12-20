@@ -33,7 +33,7 @@
   <script>
   $(document).ready(function() {
       $('#pelanggaran').DataTable({
-          dom: 'Bfrtip',
+          dom: 'Bfrtlip',
           buttons: [
               {
                   extend: 'print',

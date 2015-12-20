@@ -39,7 +39,7 @@
   <script>
   $(document).ready(function() {
       $('#lembur').DataTable({
-          dom: 'Bfrtip',
+          dom: 'Bfrtlip',
           buttons: [
               {
                   extend: 'print',

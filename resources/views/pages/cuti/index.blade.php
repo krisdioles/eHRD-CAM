@@ -40,7 +40,7 @@
   <script>
   $(document).ready(function() {
       $('#cuti').DataTable({
-          dom: 'Bfrtip',
+          dom: 'Bfrtlip',
           buttons: [
               {
                   extend: 'print',
