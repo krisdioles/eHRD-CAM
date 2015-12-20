@@ -29,6 +29,38 @@
     <script>
     $(document).ready(function() {
         $('#absensi').DataTable({
+            dom: 'Bfrtlip',
+            buttons: [
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'copyFlash',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'excelFlash',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'pdfFlash',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                'colvis',
+            ],
+            columnDefs: [{
+                targets: 0,
+                visible: false
+            }],
             processing: true,
             serverSide: true,
             ajax: '{!! route('absensi.data') !!}',
@@ -51,19 +83,19 @@
       <h2 class="sub-header">Absensi</h2>
 
       <div class="col-md-3 col-md-offset-3" align="right">
-        <a class="btn btn-default" href="{{ url('/absensi/masuk') }}" role="button">Masuk</a>
+        <a class="btn btn-success btn-lg" href="{{ url('/absensi/masuk') }}" role="button">Masuk</a>
       </div>
 
       <div class="col-md-3" align="left">
-        <a class="btn btn-default disabled" href="{{ url('/absensi/pulang') }}" role="button">Pulang</a>
+        <a class="btn btn-danger btn-lg disabled" href="{{ url('/absensi/pulang') }}" role="button">Pulang</a>
       </div>
     </div>
   @else
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
       <h2 class="sub-header">Absensi</h2>
 
-      <a class="btn btn-default disabled" href="{{ url('/absensi/masuk') }}" role="button">Masuk</a>
-      <a class="btn btn-default" href="{{ url('/absensi/pulang') }}" role="button">Pulang</a>
+      <a class="btn btn-success btn-lg disabled" href="{{ url('/absensi/masuk') }}" role="button">Masuk</a>
+      <a class="btn btn-danger btn-lg" href="{{ url('/absensi/pulang') }}" role="button">Pulang</a>
     </div>
   @endif
 @endif
