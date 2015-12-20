@@ -39,6 +39,38 @@
   <script>
   $(document).ready(function() {
       $('#lembur').DataTable({
+          dom: 'Bfrtip',
+          buttons: [
+              {
+                  extend: 'print',
+                  exportOptions: {
+                      columns: ':visible'
+                  }
+              },
+              {
+                  extend: 'copyFlash',
+                  exportOptions: {
+                      columns: ':visible'
+                  }
+              },
+              {
+                  extend: 'excelFlash',
+                  exportOptions: {
+                      columns: ':visible'
+                  }
+              },
+              {
+                  extend: 'pdfFlash',
+                  exportOptions: {
+                      columns: ':visible'
+                  }
+              },
+              'colvis',
+          ],
+          columnDefs: [{
+              targets: 0,
+              visible: false
+          }],
           processing: true,
           serverSide: true,
           ajax: '{!! route('lembur.data') !!}',

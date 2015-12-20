@@ -31,6 +31,9 @@ class AbsensiController extends Controller
             ->editColumn('waktupulang', function ($pegawai) {
                 return $pegawai->waktupulang ? with(new Carbon($pegawai->waktupulang)) : '';
             })
+            ->editColumn('waktumasuk', function ($pegawai) {
+                return $pegawai->waktumasuk ? with(new Carbon($pegawai->waktumasuk)) : '';
+            })
             ->make(true);
     }
 

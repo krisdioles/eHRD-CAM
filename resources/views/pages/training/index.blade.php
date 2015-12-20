@@ -15,7 +15,7 @@
           <th>Lokasi</th>
           <th>Tanggal Training</th>
           <th>Anggaran</th>
-          <th width="15%"></th>
+          <th width="17%"></th>
         </tr>
       </thead>
     </table>

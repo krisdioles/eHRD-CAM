@@ -50,8 +50,13 @@
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
       <h2 class="sub-header">Absensi</h2>
 
-      <a class="btn btn-default" href="{{ url('/absensi/masuk') }}" role="button">Masuk</a>
-      <a class="btn btn-default disabled" href="{{ url('/absensi/pulang') }}" role="button">Pulang</a>
+      <div class="col-md-3 col-md-offset-3" align="right">
+        <a class="btn btn-default" href="{{ url('/absensi/masuk') }}" role="button">Masuk</a>
+      </div>
+
+      <div class="col-md-3" align="left">
+        <a class="btn btn-default disabled" href="{{ url('/absensi/pulang') }}" role="button">Pulang</a>
+      </div>
     </div>
   @else
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
