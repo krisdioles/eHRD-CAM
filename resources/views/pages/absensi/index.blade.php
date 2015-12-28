@@ -78,7 +78,17 @@
                 { data: 'statusmasuk', name: 'absensi.statusmasuk' },
                 { data: 'statuspulang', name: 'absensi.statuspulang' },
                 { data: 'keterangan', name: 'absensi.keterangan' },
-            ]
+            ],
+            initComplete: function () {
+                this.api().columns().every(function () {
+                    var column = this;
+                    var input = document.createElement("input");
+                    $(input).appendTo($(column.footer()).empty())
+                    .on('change', function () {
+                        column.search($(this).val(), false, false, true).draw();
+                    });
+                });
+            },
         });
     });
     </script>

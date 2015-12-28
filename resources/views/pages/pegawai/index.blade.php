@@ -22,6 +22,17 @@
                     <th></th>
                   </tr>
                 </thead>
+                
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Nama</th>
+                        <th>Alamat</th>
+                        <th>Email</th>
+                        <th>Tanggal Lahir</th>
+                        <th></th>
+                    </tr>
+                </tfoot>
               </table>
             </div>
         </div>
@@ -32,7 +43,13 @@
 @push('scripts')
 <script>
 $(document).ready(function() {
-    $('#pegawai').DataTable({
+    // Setup - add a text input to each footer cell
+    $('#pegawai tfoot th').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+    } );
+
+    var table = $('#pegawai').DataTable({
         dom: 'Bfrtlip',
         buttons: [
             {
@@ -83,6 +100,19 @@ $(document).ready(function() {
         ],
         
     });
+    // Apply the search
+    table.columns().every( function () {
+        var that = this;
+ 
+        $( 'input', this.footer() ).on( 'keyup change', function () {
+            if ( that.search() !== this.value ) {
+                that
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
+    
 });
 </script>
 @endpush
