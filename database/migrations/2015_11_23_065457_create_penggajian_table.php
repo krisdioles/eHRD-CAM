@@ -22,7 +22,10 @@ class CreatePenggajianTable extends Migration
 		 $table->integer('biayapotongan');
 		 $table->string('keteranganpotongan');
 		 $table->integer('jumlahpenggajian');
-		 $table->string('keterangan');
+		 $table->string('carabayar');
+         $table->string('norekening');
+         $table->string('namarekening');
+         $table->string('namabank');
          $table->timestamps();
 		 
 		 $table->foreign('pegawai_id')

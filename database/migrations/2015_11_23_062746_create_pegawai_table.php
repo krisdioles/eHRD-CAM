@@ -21,9 +21,15 @@ class CreatePegawaiTable extends Migration
         $table->string('email');
         $table->string('alamat');
         $table->string('jeniskelamin');
+        $table->integer('telepon');
         $table->date('tgllahir');
+        $table->string('agama');
+        $table->string('statuskawin');
+        $table->string('pendidikanterakhir');
+        $table->string('jabatan');
         $table->integer('gajipokok');
         $table->integer('tunjangantetap');
+        $table->string('statusaktif');
         $table->rememberToken();
         $table->timestamps();
         });

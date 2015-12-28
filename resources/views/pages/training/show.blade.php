@@ -13,19 +13,28 @@
 @section('content')
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h1>{{ $training->namatraining }}</h1>
+	<h2 class="sub-header">Training Detail</h2>
 
-	<h3>{{ $training->lokasi }}</h3>
-	<h3>{{ $training->tgltraining->toDateString() }}</h3>
-	
-	@unless($training->pegawai->isEmpty())
-		<h5>Peserta Training : </h5>
-		<ul>
+	<div class="col-md-3">
+		<h4><strong>Nama Training</strong></h4>
+		<h4><strong>Lokasi</strong></h4>
+		<h4><strong>Tanggal Training</strong></h4>
+		
+		<h4><strong>Anggaran</strong></h4>
+		<h4><strong>Peserta Training</strong></h4>
+	</div>
+
+	<div class="col-md-3">
+	    <h4>{{ $training->namatraining }}</h4>
+		<h4>{{ $training->lokasi }}</h4>
+		<h4>{{ $training->tgltraining->toDateString() }}</h4>
+		<h4>Rp {{ $training->anggaran }}</h4>
+		@unless($training->pegawai->isEmpty())
 			@foreach ($training->pegawai as $pegawai)
-				<li>{{ $pegawai->nama }}</li>
+				<h4>{{ $pegawai->nama }}</h4>
 			@endforeach
-		</ul>
-	@endunless
+		@endunless
+	</div>
 </div>
 @endsection
 

@@ -16,8 +16,10 @@ class CreateTrainingTable extends Migration
             $table->increments('idtraining');
     		$table->string('namatraining');
             $table->timestamp('tgltraining');
+            $table->string('nomorsurat');
     		$table->integer('anggaran');
     		$table->string('lokasi');
+            $table->string('penyelenggara');
     		$table->string('keterangan');
             $table->timestamps();
         });
