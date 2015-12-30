@@ -74,6 +74,82 @@
 						</div>
 
 						<div class="form-group">
+							<label class="col-md-4 control-label">Alamat</label>
+							<div class="col-md-6">
+								<textarea class="form-control" name="alamat" value="{{ old('alamat') }}" rows="3"></textarea>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">Jenis Kelamin</label>
+							<div class="col-md-6">
+								<label class="radio-inline">
+								  <input type="radio" name="jeniskelamin" id="pria" value="pria"> Pria
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="jeniskelamin" id="wanita" value="wanita"> Wanita
+								</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">Telepon</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="telepon" value="{{ old('telepon') }}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">Tanggal Lahir</label>
+							<div class="col-md-6">
+								<input type="date" class="form-control" name="tgllahir" value="{{ old('tgllahir') }}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">Agama</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="agama" value="{{ old('agama') }}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">Status Kawin</label>
+							<div class="col-md-6">
+								<label class="radio-inline">
+								  <input type="radio" name="statuskawin" id="sudahkawin" value="sudahkawin"> Sudah Kawin
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="statuskawin" id="belumkawin" value="belumkawin"> Belum Kawin
+								</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">Pendidikan Terakhir</label>
+							<div class="col-md-6">
+								<label class="radio-inline">
+								  <input type="radio" name="pendidikanterakhir" id="smp" value="smp"> SMP
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="pendidikanterakhir" id="sma" value="sma"> SMA
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="pendidikanterakhir" id="d" value="d"> D1/D2/D3
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="pendidikanterakhir" id="s1" value="s1"> S1
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="pendidikanterakhir" id="s2" value="s2"> S2
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="pendidikanterakhir" id="s3" value="s3"> S3
+								</label>
+							</div>
+						</div>
+
+						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-primary">
 									Register

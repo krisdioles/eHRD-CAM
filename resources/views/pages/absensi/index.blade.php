@@ -94,24 +94,30 @@
     </script>
     @endpush
 @else
-  @if(\Carbon\Carbon::now()->day!=\Auth::user()->absensi->last()->waktumasuk->day)
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-      <h2 class="sub-header">Absensi</h2>
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <h2 class="sub-header">Absensi</h2>
+
+    @if(\Carbon\Carbon::now()->day!=\Auth::user()->absensi->last()->waktumasuk->day)
+      
+        <div class="col-md-3 col-md-offset-3" align="right">
+          <a class="btn btn-success btn-lg" href="{{ url('/absensi/masuk') }}" role="button">Masuk</a>
+        </div>
+
+        <div class="col-md-3" align="left">
+          <a class="btn btn-danger btn-lg disabled" href="{{ url('/absensi/pulang') }}" role="button">Pulang</a>
+        </div>
+      
+    @else
 
       <div class="col-md-3 col-md-offset-3" align="right">
-        <a class="btn btn-success btn-lg" href="{{ url('/absensi/masuk') }}" role="button">Masuk</a>
+        <a class="btn btn-success btn-lg disabled" href="{{ url('/absensi/masuk') }}" role="button">Masuk</a>
       </div>
 
       <div class="col-md-3" align="left">
-        <a class="btn btn-danger btn-lg disabled" href="{{ url('/absensi/pulang') }}" role="button">Pulang</a>
+        <a class="btn btn-danger btn-lg" href="{{ url('/absensi/pulang') }}" role="button">Pulang</a>
       </div>
-    </div>
-  @else
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-      <h2 class="sub-header">Absensi</h2>
 
-      <a class="btn btn-success btn-lg disabled" href="{{ url('/absensi/masuk') }}" role="button">Masuk</a>
-      <a class="btn btn-danger btn-lg" href="{{ url('/absensi/pulang') }}" role="button">Pulang</a>
-    </div>
-  @endif
+    @endif
+
+  </div>
 @endif

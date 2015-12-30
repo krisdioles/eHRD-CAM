@@ -47,6 +47,13 @@ class AuthController extends Controller
             'email' => 'required|email|max:255|unique:pegawai',
             'password' => 'required|confirmed|min:6',
             'kodepegawai' => 'required',
+            'alamat' => 'required',
+            'jeniskelamin' => 'required',
+            'telepon' => 'required|numeric',
+            'tgllahir' => 'required|date',
+            'agama' => 'required',
+            'statuskawin' => 'required',
+            'pendidikanterakhir' => 'required',
         ]);
     }
 
@@ -63,6 +70,14 @@ class AuthController extends Controller
             'nama' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'alamat' => $data['alamat'],
+            'telepon' => $data['telepon'],
+            'jeniskelamin' => $data['jeniskelamin'],
+            'tgllahir' => $data['tgllahir'],
+            'agama' => $data['agama'],
+            'statuskawin' => $data['statuskawin'],
+            'pendidikanterakhir' => $data['pendidikanterakhir'],
+            'statusaktif' => 'aktif',
         ]);
 
         \App\Penilaian::create([
@@ -79,11 +94,11 @@ class AuthController extends Controller
             'keteranganbonus' => 'baru',
             'biayapotongan' => '0',
             'keteranganpotongan' => 'baru',
-            'keterangan' => 'baru',
         ]);
 
         \App\Absensi::create([
             'pegawai_id' => $pegawai->idpegawai,
+            'tglabsen' => Carbon::now(),
             'waktumasuk' => Carbon::create('2000', '1', '1'),
             'waktupulang' => Carbon::create('2000', '1', '1'),
         ]);

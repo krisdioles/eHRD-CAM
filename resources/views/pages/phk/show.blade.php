@@ -13,11 +13,22 @@
 @section('content')
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h1>{{ $phk->pegawai->nama }}</h1>
+	<h2 class="sub-header">PHK Detail</h2>
 
-	<h3>{{ $phk->tglphk }}</h3>
-	<h3>{{ $phk->jenisphk }}</h3>
-	<h3>{{ $phk->nomorsurat }}</h3>
+	<div class="col-md-3">
+		<h4><strong>Nama Pegawai</strong></h4>
+		<h4><strong>Tanggal PHK</strong></h4>
+		<h4><strong>Jenis PHK</strong></h4>
+		<h4><strong>Nomor Surat</strong></h4>
+		<h4><strong>Keterangan</strong></h4>
+	</div>
+
+	<div class="col-md-3">
+	    <h4>{{ $phk->pegawai->nama }}</h4>
+		<h4>{{ $phk->tglphk->format('d-m-Y') }}</h4>
+		<h4>{{ $phk->jenisphk }}</h4>
+		<h4>{{ $phk->nomorsurat }}</h4>
+		<h4>{{ $phk->keterangan }}</h4>
 </div>
 @endsection
 

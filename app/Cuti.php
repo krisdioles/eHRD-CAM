@@ -23,7 +23,16 @@ class Cuti extends Model
      *
      * @var array
      */
-    protected $fillable = ['jeniscuti', 'tglpengajuan', 'tglawal', 'tglakhir', 'nomorsurat', 'status', 'pegawai_id'];
+    protected $fillable = [
+    'jeniscuti', 
+    'alamatcuti',
+    'tglpengajuan', 
+    'tglawal', 
+    'tglakhir', 
+    'nomorsurat', 
+    'status', 
+    'pegawai_id'
+    ];
 
     public function setTglawalAttribute($date)
     {

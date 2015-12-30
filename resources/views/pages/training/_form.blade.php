@@ -9,6 +9,11 @@
 </div>
 
 <div class="form-group">
+	{!! Form::label('nomorsurat', 'Nomor Surat : ') !!}
+	{!! Form::text('nomorsurat', null, ['class'=>'form-control']) !!}
+</div>
+
+<div class="form-group">
 	{!! Form::label('lokasi', 'Lokasi : ') !!}
 	{!! Form::text('lokasi', null, ['class'=>'form-control']) !!}
 </div>
@@ -16,6 +21,11 @@
 <div class="form-group">
 	{!! Form::label('anggaran', 'Anggaran : ') !!}
 	{!! Form::text('anggaran', null, ['class'=>'form-control']) !!}
+</div>
+
+<div class="form-group">
+	{!! Form::label('penyelenggara', 'Penyelenggara : ') !!}
+	{!! Form::text('penyelenggara', null, ['class'=>'form-control']) !!}
 </div>
 
 <!-- Pegawai for Training Form Input -->

@@ -38,8 +38,23 @@
 
 <!-- Keterangan Form Input -->
 <div class="form-group">
-	{!! Form::label('keterangan', 'Keterangan : ') !!}
-	{!! Form::textarea('keterangan', null, ['class'=>'form-control', 'rows'=>'3']) !!}
+	{!! Form::label('carabayar', 'Cara Bayar : ') !!}
+	{!! Form::textarea('carabayar', null, ['class'=>'form-control', 'rows'=>'3']) !!}
+</div>
+
+<div class="form-group">
+	{!! Form::label('namabank', 'Nama Bank : ') !!}
+	{!! Form::textarea('namabank', null, ['class'=>'form-control', 'rows'=>'3']) !!}
+</div>
+
+<div class="form-group">
+	{!! Form::label('norekening', 'Nomor Rekening : ') !!}
+	{!! Form::textarea('norekening', null, ['class'=>'form-control', 'rows'=>'3']) !!}
+</div>
+
+<div class="form-group">
+	{!! Form::label('namarekening', 'Atas Nama : ') !!}
+	{!! Form::textarea('namarekening', null, ['class'=>'form-control', 'rows'=>'3']) !!}
 </div>
 
 <div class="form-group">

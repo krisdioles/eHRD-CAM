@@ -23,7 +23,21 @@ class Penggajian extends Model
      *
      * @var array
      */
-    protected $fillable = ['tglpenggajian', 'periodepenggajian', 'biayabonus', 'anggaran', 'keteranganbonus', 'biayapotongan', 'jumlahpenggajian', 'keteranganpotongan', 'keterangan', 'pegawai_id'];
+    protected $fillable = [
+        'tglpenggajian', 
+        'periodepenggajian', 
+        'biayabonus', 
+        'anggaran', 
+        'keteranganbonus', 
+        'biayapotongan', 
+        'jumlahpenggajian', 
+        'keteranganpotongan', 
+        'carabayar',
+        'norekening',
+        'namarekening',
+        'namabank',
+        'pegawai_id'
+    ];
 
 
     public function setTglpenggajianAttribute($date)

@@ -31,7 +31,24 @@ class Pegawai extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['kodepegawai', 'password', 'nama', 'email', 'role', 'alamat', 'jeniskelamin', 'tgllahir', 'gajipokok', 'tunjangantetap'];
+    protected $fillable = [
+        'kodepegawai', 
+        'password', 
+        'nama', 
+        'email', 
+        'role', 
+        'alamat', 
+        'jeniskelamin', 
+        'tgllahir', 
+        'gajipokok', 
+        'tunjangantetap',
+        'agama',
+        'telepon',
+        'statuskawin',
+        'pendidikanterakhir',
+        'jabatan',
+        'statusaktif'
+    ];
 
     /**
      * The attributes excluded from the model's JSON form.

@@ -23,7 +23,15 @@ class Training extends Model
      *
      * @var array
      */
-    protected $fillable = ['namatraining', 'lokasi', 'anggaran', 'tgltraining', 'keterangan'];
+    protected $fillable = [
+        'namatraining', 
+        'lokasi', 
+        'nomorsurat',
+        'anggaran', 
+        'tgltraining', 
+        'keterangan',
+        'penyelenggara',
+    ];
 
     public function scopeFuture($query)
     {

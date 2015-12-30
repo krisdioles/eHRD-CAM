@@ -13,13 +13,31 @@
 @section('content')
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h1>{{ $penggajian->pegawai->nama }}</h1>
+	<h2 class="sub-header">Penggajian Detail</h2>
 
-	<h3>{{ $penggajian->pegawai->gajipokok }}</h3>
-	<h3>{{ $penggajian->pegawai->tunjangantetap }}</h3>
-	<h3>{{ $penggajian->biayabonus }}</h3>
-	<h3>{{ $penggajian->biayapotongan }}</h3>
-	<h3>{{ $penggajian->jumlahpenggajian }}</h3>
+	<div class="col-md-3">
+		<h4><strong>Nama Pegawai</strong></h4>
+		<h4><strong>Tanggal Penggajian</strong></h4>
+		<h4><strong>Periode Penggajian</strong></h4>
+		<h4><strong>Gaji Pokok</strong></h4>
+		<h4><strong>Tunjangan Tetap</strong></h4>
+		<h4><strong>Biaya Bonus</strong></h4>
+		<h4><strong>Biaya Potongan</strong></h4>
+		<h4><strong>Jumlah Penggajian</strong></h4>
+		<h4><strong>Keterangan</strong></h4>
+	</div>
+
+	<div class="col-md-3">
+	    <h4>{{ $penggajian->pegawai->nama }}</h4>
+	    <h4>{{ $penggajian->tglpenggajian->format('d-m-Y') }}</h4>
+	    <h4>{{ $penggajian->periodepenggajian->format('F Y') }}</h4>
+		<h4>{{ $penggajian->pegawai->gajipokok }}</h4>
+		<h4>{{ $penggajian->pegawai->tunjangantetap }}</h4>
+		<h4>{{ $penggajian->biayabonus }}</h4>
+		<h4>{{ $penggajian->biayapotongan }}</h4>
+		<h4>{{ $penggajian->jumlahpenggajian }}</h4>
+		<h4>{{ $penggajian->keterangan }}</h4>
+	</div>
 </div>
 @endsection
 
