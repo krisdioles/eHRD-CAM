@@ -99,8 +99,8 @@ class AuthController extends Controller
         \App\Absensi::create([
             'pegawai_id' => $pegawai->idpegawai,
             'tglabsen' => Carbon::now(),
-            'waktumasuk' => Carbon::create('2000', '1', '1'),
-            'waktupulang' => Carbon::create('2000', '1', '1'),
+            'waktumasuk' => Carbon::create('1000', '0', '0'),
+            'waktupulang' => Carbon::create('1000', '0', '0'),
         ]);
 
         return $pegawai;

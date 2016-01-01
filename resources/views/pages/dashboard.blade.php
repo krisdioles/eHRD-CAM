@@ -20,7 +20,7 @@
               <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-6">
           <h3 class="sub-header"><strong>{{ \Auth::user()->nama }}</strong></h3>
           <h4>Kode Pegawai : {{ \Auth::user()->kodepegawai }}</h4>
           <h4>Email : {{ \Auth::user()->email }}</h4>
