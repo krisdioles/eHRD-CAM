@@ -23,7 +23,7 @@ class Lembur extends Model
      *
      * @var array
      */
-    protected $fillable = ['jangkawaktu', 'tgllembur', 'keterangan', 'pegawai_id', 'status'];
+    protected $fillable = ['jangkawaktu', 'tgllembur', 'keterangan', 'pegawai_id', 'status', 'nomorspkl'];
 
     public function setTgllemburAttribute($date)
     {

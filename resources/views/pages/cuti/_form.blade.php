@@ -17,8 +17,19 @@
 </div>
 
 <div class="form-group">
+	{!! Form::label('nomorsurat', 'Nomor Surat : ') !!}
+	{!! Form::text('nomorsurat', null, ['class'=>'form-control']) !!}
+</div>
+
+<div class="form-group">
 	{!! Form::label('alamatcuti', 'Alamat Cuti : ') !!}
-	{!! Form::text('alamatcuti', null, ['class'=>'form-control']) !!}
+	{!! Form::textarea('alamatcuti', null, ['class'=>'form-control']) !!}
+</div>
+
+
+<div class="form-group">
+	{!! Form::label('keterangan', 'Keterangan : ') !!}
+	{!! Form::textarea('keterangan', null, ['class'=>'form-control']) !!}
 </div>
 
 <div class="form-group">

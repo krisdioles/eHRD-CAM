@@ -13,11 +13,23 @@
 @section('content')
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h1>{{ $lembur->tgllembur }}</h1>
+	<h2 class="sub-header">Lembur Detail</h2>
 
-	<h3>{{ $lembur->pegawai->nama }}</h3>
-	<h3>{{ $lembur->jangkawaktu }}</h3>
-	<h3>{{ $lembur->keterangan }}</h3>
+	<div class="col-md-3">
+		<h4><strong>Nama Pegawai</strong></h4>
+		<h4><strong>Tanggal Lembur</strong></h4>
+		<h4><strong>Jangka Waktu</strong></h4>
+		<h4><strong>Nomor SPKL</strong></h4>
+		<h4><strong>Keterangan</strong></h4>
+	</div>
+
+	<div class="col-md-3">
+	    <h4>{{ $lembur->pegawai->nama }}</h4>
+		<h4>{{ $lembur->tgllembur->toDateString() }}</h4>
+		<h4>{{ $lembur->jangkawaktu }}</h4>
+		<h4>{{ $lembur->nomorspkl }}</h4>
+		<h4>{{ $lembur->keterangan }}</h4>
+	</div>
 </div>
 @endsection
 

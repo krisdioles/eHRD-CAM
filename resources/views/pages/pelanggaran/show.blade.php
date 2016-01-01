@@ -30,6 +30,7 @@
 		<h4>{{ $pelanggaran->jenispelanggaran }}</h4>
 		<h4>{{ $pelanggaran->sanksi }}</h4>
 		<h4>{{ $pelanggaran->keterangan }}</h4>
+	</div>
 </div>
 @endsection
 

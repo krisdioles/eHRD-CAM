@@ -5,62 +5,98 @@
 @section('content')
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
+    <h2 class="page-header">Dashboard</h2>
 
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>
+    {{-- <div class="col-md-3">
+      <h4><strong>Nama Pegawai</strong></h4>
+      <h4><strong>Kode pegawai</strong></h4>
+      <h4><strong>Email</strong></h4>
+      <h4><strong>Alamat</strong></h4>
+      <h4><strong>Agama</strong></h4>
+    </div> --}}
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+        </div>
 
-          <h2 class="sub-header">Pegawai</h2>
-          <div class="table-responsive">
-            <table class="table table-hover" id="dashboard" cellspacing="0" width="100%">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Nama</th>
-                  <th>Alamat</th>
-                  <th>Email</th>
-                  <th>Tanggal Lahir</th>
-                </tr>
-              </thead>
-            </table>
-          </div>
+        <div class="col-md-3">
+          <h3 class="sub-header"><strong>{{ \Auth::user()->nama }}</strong></h3>
+          <h4>Kode Pegawai : {{ \Auth::user()->kodepegawai }}</h4>
+          <h4>Email : {{ \Auth::user()->email }}</h4>
+          <h4>Alamat : {{ \Auth::user()->alamat }}</h4>
+          <h4>Agama : {{ \Auth::user()->agama }}</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <span style="font-size:4em;" class="glyphicon glyphicon-alert" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">26</div>
+                        <div>Training Baru untuk Anda!</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <span style="font-size:4em;" class="glyphicon glyphicon-alert" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">26</div>
+                        <div>Cuti Anda Telah Diterima!</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <span style="font-size:4em;" class="glyphicon glyphicon-alert" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">26</div>
+                        <div>Lembur Anda Telah Diterima!</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+      </div>
+    </div>
 </div>
 @stop
-
-@push('scripts')
-<script>
-$(document).ready(function() {
-    $('#dashboard').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: '{!! route('dashboard.data') !!}',
-        columns: [
-            { data: 'idpegawai', name: 'idpegawai' },
-            { data: 'nama', name: 'nama' },
-            { data: 'alamat', name: 'alamat' },
-            { data: 'email', name: 'email' }
-        ]
-    });
-});
-</script>
-@endpush

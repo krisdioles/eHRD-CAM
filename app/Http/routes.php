@@ -11,12 +11,13 @@
 |
 */
 Route::get('', 'PegawaiController@getIndex');
-//Route::get('dashboard', 'PegawaiController@index');
 Route::resource('pegawai', 'PegawaiController', ['except' => ['index', 'show']]);
 Route::controller('pegawai', 'PegawaiController', [
 	'getData'  => 'pegawai.data',
 	'getIndex' => 'pegawai',
 	]);
+
+Route::get('dashboard', 'DashboardController@index');
 
 Route::get('absensi/masuk', 'AbsensiController@masuk');
 Route::get('absensi/pulang', 'AbsensiController@pulang');

@@ -2,7 +2,7 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="{{ Request::segment(1) === 'dashboard' ? 'active' : null }}"><a href="/eHRD-CAM/public/pegawai">Overview</a></li>
+            <li class="{{ Request::segment(1) === 'dashboard' ? 'active' : null }}"><a href="/eHRD-CAM/public/dashboard">Overview</a></li>
             <li class="{{ Request::segment(1) === 'absensi' ? 'active' : null }}"><a href="/eHRD-CAM/public/absensi">Absensi</a></li>
             <li class="{{ Request::segment(1) === 'cuti' ? 'active' : null }}"><a href="/eHRD-CAM/public/cuti">Cuti</a></li>
             <li class="{{ Request::segment(1) === 'lembur' ? 'active' : null }}"><a href="/eHRD-CAM/public/lembur">Lembur</a></li>

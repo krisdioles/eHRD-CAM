@@ -6,37 +6,39 @@
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h2 class="sub-header">Pegawai</h2>
-    <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading">Daftar Pegawai</div>
-        <div class="panel-body">
-            <div class="table-responsive">
-              <table class="table table-striped" id="pegawai" cellspacing="0" width="100%">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Nama</th>
-                    <th>Alamat</th>
-                    <th>Email</th>
-                    <th>Tanggal Lahir</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                
-                <tfoot>
-                    <tr>
+    <div class="col-md-12 col-md-offset-0">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Daftar Pegawai</div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                  <table class="table table-striped" id="pegawai" cellspacing="0" width="100%">
+                    <thead>
+                      <tr>
                         <th>#</th>
                         <th>Nama</th>
                         <th>Alamat</th>
                         <th>Email</th>
                         <th>Tanggal Lahir</th>
                         <th></th>
-                    </tr>
-                </tfoot>
-              </table>
+                      </tr>
+                    </thead>
+                    
+                    <tfoot>
+                        <tr>
+                            <th>#</th>
+                            <th>Nama</th>
+                            <th>Alamat</th>
+                            <th>Email</th>
+                            <th>Tanggal Lahir</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                  </table>
+                </div>
             </div>
         </div>
-        </div>
+    </div>
 </div>
 @stop
 

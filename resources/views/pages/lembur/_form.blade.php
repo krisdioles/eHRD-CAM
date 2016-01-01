@@ -11,6 +11,11 @@
 	{!! Form::text('jangkawaktu', null, ['class'=>'form-control']) !!}
 </div>
 
+<div class="form-group">
+	{!! Form::label('nomorspkl', 'Nomor SPKL : ') !!}
+	{!! Form::text('nomorspkl', null, ['class'=>'form-control']) !!}
+</div>
+
 <!-- Keterangan Form Input -->
 <div class="form-group">
 	{!! Form::label('keterangan', 'Keterangan : ') !!}

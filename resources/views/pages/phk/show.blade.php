@@ -21,6 +21,8 @@
 		<h4><strong>Jenis PHK</strong></h4>
 		<h4><strong>Nomor Surat</strong></h4>
 		<h4><strong>Keterangan</strong></h4>
+		<br><br>
+		<a class="btn btn-default" href="/eHRD-CAM/public/phk" role="button">Back</a>
 	</div>
 
 	<div class="col-md-3">
@@ -29,6 +31,8 @@
 		<h4>{{ $phk->jenisphk }}</h4>
 		<h4>{{ $phk->nomorsurat }}</h4>
 		<h4>{{ $phk->keterangan }}</h4>
+	</div>
+
 </div>
 @endsection
 
