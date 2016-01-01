@@ -27,6 +27,7 @@
       </div>
       <div class="modal-body">
         Apakah anda yakin untuk menghapus data ini?
+        {{ $pelanggaran->idpelanggaran }}
       </div>
       <div class="modal-footer">
       	<div class="form-group">

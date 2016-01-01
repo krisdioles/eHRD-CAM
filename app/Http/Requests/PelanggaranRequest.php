@@ -27,7 +27,6 @@ class PelanggaranRequest extends Request
             'tglpelanggaran' => 'required|date',
             'jenispelanggaran'   => 'required',
             'sanksi'   => 'required',
-            'keterangan'   => 'required',
         ];
     }
 }

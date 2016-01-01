@@ -26,7 +26,6 @@ class LemburRequest extends Request
         return [
             'jangkawaktu' => 'required|numeric',
             'tgllembur'   => 'required|date',
-            'keterangan'   => 'required',
         ];
     }
 }

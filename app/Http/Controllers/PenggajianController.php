@@ -84,7 +84,9 @@ class PenggajianController extends Controller
     public function store(PenggajianRequest $request)
     {
         $penggajian=Penggajian::create($request->all());
-
+        $penggajian->jumlahpenggajian=\Auth::user()->gajipokok + \Auth::user()->gajipokok + $penggajian->biayabonus - $penggajian->biayapotongan;
+        $penggajian->save();
+        //dd($penggajian->jumlahpenggajian);
         flash()->overlay('Penggajian telah terdaftar!');
 
         return redirect('penggajian');
@@ -115,7 +117,7 @@ class PenggajianController extends Controller
     public function destroy(Penggajian $penggajian)
     {
         $pegawai = \App\Pegawai::findOrFail($penggajian->pegawai_id);
-        
+        dd($penggajian);
 
         if($pegawai->penggajian->last()!=$pegawai->penggajian->first())
         {

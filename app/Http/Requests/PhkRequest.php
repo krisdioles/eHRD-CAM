@@ -27,7 +27,6 @@ class PhkRequest extends Request
             'tglphk' => 'required|date',
             'jenisphk'   => 'required',
             'nomorsurat'   => 'required',
-            'keterangan'   => 'required',
         ];
     }
 }

@@ -27,10 +27,7 @@ class PenggajianRequest extends Request
             'tglpenggajian' => 'required|date',
             'periodepenggajian'   => 'required|date',
             'biayabonus'   => 'required|numeric',
-            'keteranganbonus'   => 'required',
             'biayapotongan'   => 'required|numeric',
-            'keteranganpotongan'   => 'required',
-            'keterangan'   => 'required',
         ];
     }
 }

@@ -17,7 +17,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="/eHRD-CAM/public/images/{{ \Auth::user()->kodepegawai }}.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <img src="/eHRD-CAM/public/images/{{ \Auth::user()->kodepegawai }}.jpg" width="200" height="200" class="img-responsive" alt="Mohon Upload Foto Anda">
         </div>
 
         <div class="col-md-6">

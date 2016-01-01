@@ -27,7 +27,6 @@ class PenilaianRequest extends Request
             'nilaikompetensi' => 'required|numeric',
             'nilaikedisiplinan'   => 'required|numeric',
             'nilaiperilaku'   => 'required|numeric',
-            'keterangan'   => 'required',
         ];
     }
 }
