@@ -2,10 +2,10 @@
 
 @section('spcss')
 	<!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/dashboard.css" rel="stylesheet">
+    <link href="../../css/dashboard.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -67,5 +67,5 @@
 @endsection
 
 @section('spjs')
-	<script src="../js/bootstrap.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
 @endsection

@@ -10,7 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('', 'PegawaiController@getIndex');
+Route::get('', 'DashboardController@index');
 Route::resource('pegawai', 'PegawaiController', ['except' => ['index', 'show']]);
 Route::controller('pegawai', 'PegawaiController', [
 	'getData'  => 'pegawai.data',

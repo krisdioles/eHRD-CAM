@@ -17,12 +17,23 @@ class TrainingController extends Controller
     {
     	//$training = Training::oldest('tgltraining')->future()->get();
 
-    	return view('pages/training/index', compact('training'));
+    	return view('pages/training/index');
     }
 
     public function getData()
     {
-        $training = Training::oldest('tgltraining')->future()->get();
+        if(\Auth::user()->idpegawai==1)
+        {
+            $training = Training::oldest('tgltraining')->future()->get();
+        }
+        else
+        {
+            $training = Training::select('*')
+                ->join('pegawai_training', 'training.idtraining', '=', 'pegawai_training.training_id')
+                ->where('pegawai_training.pegawai_id', '=', \Auth::user()->idpegawai)
+                ->get();
+        }
+        //dd($training);
         
         return Datatables::of($training)
             ->editColumn('tgltraining', function ($training) {

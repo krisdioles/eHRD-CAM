@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use DB;
 
 class DashboardController extends Controller
 {
@@ -16,8 +17,14 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        //dd(\Auth::user()->nama);
-        return view('pages/dashboard');
+        $cuti = \Auth::user()->cuti->where('status', 'Pending')->where('pegawai_id', \Auth::user()->idpegawai)->count();
+
+        $lembur = \Auth::user()->lembur->where('status', 'Pending')->where('pegawai_id', \Auth::user()->idpegawai)->count();
+
+        $training = \Auth::user()->training->count();
+
+        //dd($training);
+        return view('pages/dashboard', compact('cuti', 'lembur', 'training'));
     }
 
     /**

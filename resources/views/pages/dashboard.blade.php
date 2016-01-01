@@ -17,7 +17,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <img src="/eHRD-CAM/public/images/{{ \Auth::user()->kodepegawai }}.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
         </div>
 
         <div class="col-md-6">
@@ -39,12 +39,12 @@
                         <span style="font-size:4em;" class="glyphicon glyphicon-alert" aria-hidden="true"></span>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">26</div>
-                        <div>Training Baru untuk Anda!</div>
+                        <span class="badge">{{ $training }}</span>
+                        <div><br>Training Baru untuk Anda!</div>
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="/eHRD-CAM/public/training">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
@@ -61,12 +61,12 @@
                         <span style="font-size:4em;" class="glyphicon glyphicon-alert" aria-hidden="true"></span>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">26</div>
-                        <div>Cuti Anda Telah Diterima!</div>
+                        <span class="badge">{{ $cuti }}</span>
+                        <div><br>Cuti Anda Telah Diterima!</div>
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="/eHRD-CAM/public/cuti">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
@@ -83,12 +83,12 @@
                         <span style="font-size:4em;" class="glyphicon glyphicon-alert" aria-hidden="true"></span>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">26</div>
-                        <div>Lembur Anda Telah Diterima!</div>
+                        <span class="badge">{{ $lembur }}</span>
+                        <div><br>Lembur Anda Telah Diterima!</div>
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="/eHRD-CAM/public/lembur">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>

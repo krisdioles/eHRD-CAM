@@ -43,6 +43,13 @@ class PegawaiController extends Controller
     {
         $pegawai->update($request->all());
 
+        $imageName = $pegawai->kodepegawai . '.' . 
+            $request->file('foto')->getClientOriginalExtension();
+
+        $request->file('foto')->move(
+            base_path() . '/public/images/', $imageName
+        );
+
         flash()->success('Pegawai berhasil diubah!');
 
         return redirect('pegawai');

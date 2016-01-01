@@ -18,6 +18,7 @@ class CreatePegawaiTable extends Migration
         $table->string('kodepegawai');
         $table->string('role');
         $table->string('nama');
+        $table->string('foto');
         $table->string('email');
         $table->string('alamat');
         $table->string('jeniskelamin');

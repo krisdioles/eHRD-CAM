@@ -40,7 +40,7 @@ class CutiController extends Controller
         {
             $cuti = \Auth::user()->cuti;
         }
-
+        
         return Datatables::of($cuti)
             ->editColumn('tglawal', function ($cuti) {
                 return $cuti->tglawal ? with(new Carbon($cuti->tglawal))->format('d-m-Y') : '';

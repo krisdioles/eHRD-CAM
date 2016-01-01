@@ -62,7 +62,7 @@ class AbsensiController extends Controller
 
     public function pulang()
     {
-        $absensi=\Auth::user()->absensi->first();
+        $absensi=\Auth::user()->absensi->last();
         //dd(\Auth::user()->absensi->first()->waktumasuk->hour);
         $absensi->waktupulang=Carbon::now();
 

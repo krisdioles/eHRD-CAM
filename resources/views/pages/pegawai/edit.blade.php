@@ -13,7 +13,7 @@
 	<h2 class="sub-header">Edit Pegawai : {!! $pegawai->nama !!}</h2>
 	<div class="form-group">
 		
-		{!! Form::model($pegawai, ['method' => 'PATCH' ,'url'=>'pegawai/'.$pegawai->idpegawai]) !!}
+		{!! Form::model($pegawai, ['method' => 'PATCH' ,'url'=>'pegawai/'.$pegawai->idpegawai, 'files' => true]) !!}
 			@include('pages/pegawai/_form', ['submitButtonText'=>'Update pegawai'])
 		{!! Form::close() !!}
 

@@ -11,6 +11,19 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 trait ResetsPasswords
 {
     /**
+     * The Guard implementation.
+     *
+     * @var Guard
+     */
+    protected $auth;
+    /**
+     * The password broker implementation.
+     *
+     * @var PasswordBroker
+     */
+    protected $passwords;
+
+    /**
      * Display the form to request a password reset link.
      *
      * @return \Illuminate\Http\Response
@@ -128,6 +141,6 @@ trait ResetsPasswords
             return $this->redirectPath;
         }
 
-        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
     }
 }
