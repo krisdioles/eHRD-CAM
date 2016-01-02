@@ -8,7 +8,10 @@
 
 <div class="form-group">
 	{!! Form::label('jangkawaktu', 'Jangka Waktu : ') !!}
-	{!! Form::text('jangkawaktu', null, ['class'=>'form-control']) !!}
+	<div class="input-group">
+		{!! Form::text('jangkawaktu', null, ['class'=>'form-control']) !!}
+		<div class="input-group-addon">Jam</div>
+	</div>
 </div>
 
 <div class="form-group">

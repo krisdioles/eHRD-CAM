@@ -16,26 +16,35 @@
 
 	<h2 class="sub-header">PHK Detail</h2>
 
-	<div class="col-md-3">
-		<h4><strong>Nama Pegawai</strong></h4>
-		<h4><strong>Tanggal PHK</strong></h4>
-		<h4><strong>Jenis PHK</strong></h4>
-		<h4><strong>Nomor Surat</strong></h4>
-		<h4><strong>Keterangan</strong></h4>
-		<br><br>
-		<a class="btn btn-default" href="/eHRD-CAM/public/phk" role="button">Back</a>
-	</div>
-
 	<div class="col-md-9">
-	    <h4>{{ $phk->pegawai->nama }}</h4>
-		<h4>{{ $phk->tglphk->format('d-m-Y') }}</h4>
-		<h4>{{ $phk->jenisphk }}</h4>
-		<h4>{{ $phk->nomorsurat }}</h4>
-		@if($phk->keterangan!=NULL)
-			<h4>{{ $phk->keterangan }}</h4>
-		@else
-			<h4>-</h4>
-		@endif
+		<div class="table-responsive">
+			<table cellspacing="10" style="width:400px; border-collapse: separate; border-spacing: 15px;">
+				<tr>
+					<td><strong>Nama Pegawai</strong></td>
+					<td>{{ $phk->pegawai->nama }}</td>
+				</tr>
+				<tr>
+					<td><strong>Tanggal PHK</strong></td>
+					<td>{{ $phk->tglphk->toDateString() }}</td>
+				</tr>
+				<tr>
+					<td><strong>Jenis PHK</strong></td>
+					<td>{{ $phk->jenisphk }}</td>
+				</tr>
+				<tr>
+					<td><strong>Nomor Surat</strong></td>
+					<td>{{ $phk->nomorsurat }}</td>
+				</tr>
+				<tr>
+					<td><strong>Keterangan</strong></td>
+					@if($phk->keterangan!=NULL)
+						<td>{{ $phk->keterangan }}</td>
+					@else
+						<td>-</td>
+					@endif
+				</tr>
+			</table>
+		</div>
 	</div>
 
 	<div class="col-md-4 col-md-push-4">

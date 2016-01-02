@@ -15,7 +15,6 @@
           <th>Tanggal Lembur</th>
           <th>Jangka Waktu</th>
           <th>Status</th>
-          <th>Keterangan</th>
 
           @if(Auth::user()->idpegawai==1)
             <th>Diajukan Oleh</th>
@@ -86,7 +85,6 @@
               { data: 'tgllembur', name: 'lembur.tgllembur' },
               { data: 'jangkawaktu', name: 'lembur.jangkawaktu' },
               { data: 'status', name: 'lembur.status' },
-              { data: 'keterangan', name: 'lembur.keterangan' },
               { data: 'nama', name: 'pegawai.nama' },
               { data: 'action', name: 'action', orderable: false, searchable: false }
           ]
@@ -107,7 +105,6 @@
               { data: 'tgllembur', name: 'tgllembur' },
               { data: 'jangkawaktu', name: 'jangkawaktu' },
               { data: 'status', name: 'status' },
-              { data: 'keterangan', name: 'keterangan' },
               { data: 'action', name: 'action', orderable: false, searchable: false }
           ]
       });

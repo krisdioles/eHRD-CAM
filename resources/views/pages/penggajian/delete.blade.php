@@ -16,32 +16,51 @@
 
 	<h2 class="sub-header">Penggajian Detail</h2>
 
-	<div class="col-md-3">
-		<h4><strong>Nama Pegawai</strong></h4>
-		<h4><strong>Tanggal Penggajian</strong></h4>
-		<h4><strong>Periode Penggajian</strong></h4>
-		<h4><strong>Gaji Pokok</strong></h4>
-		<h4><strong>Tunjangan Tetap</strong></h4>
-		<h4><strong>Biaya Bonus</strong></h4>
-		<h4><strong>Biaya Potongan</strong></h4>
-		<h4><strong>Jumlah Penggajian</strong></h4>
-		<h4><strong>Keterangan</strong></h4>
-	</div>
-
 	<div class="col-md-9">
-	    <h4>{{ $penggajian->pegawai->nama }}</h4>
-	    <h4>{{ $penggajian->tglpenggajian->format('d-m-Y') }}</h4>
-	    <h4>{{ $penggajian->periodepenggajian->format('F Y') }}</h4>
-		<h4>{{ $penggajian->pegawai->gajipokok }}</h4>
-		<h4>{{ $penggajian->pegawai->tunjangantetap }}</h4>
-		<h4>{{ $penggajian->biayabonus }}</h4>
-		<h4>{{ $penggajian->biayapotongan }}</h4>
-		<h4>{{ $penggajian->jumlahpenggajian }}</h4>
-		@if($penggajian->keterangan!=NULL)
-			<h4>{{ $penggajian->keterangan }}</h4>
-		@else
-			<h4>-</h4>
-		@endif
+		<div class="table-responsive">
+			<table cellspacing="10" style="width:400px; border-collapse: separate; border-spacing: 15px;">
+				<tr>
+					<td><strong>Nama Pegawai</strong></td>
+					<td>{{ $penggajian->pegawai->nama }}</td>
+				</tr>
+				<tr>
+					<td><strong>Tanggal Penggajian</strong></td>
+					<td>{{ $penggajian->tglpenggajian->format('d-m-Y') }}</td>
+				</tr>
+				<tr>
+					<td><strong>Periode Penggajian</strong></td>
+					<td>{{ $penggajian->periodepenggajian->format('F Y') }}</td>
+				</tr>
+				<tr>
+					<td><strong>Gaji Pokok</strong></td>
+					<td>{{ $penggajian->pegawai->gajipokok }}</td>
+				</tr>
+				<tr>
+					<td><strong>Tunjangan Tetap</strong></td>
+					<td>{{ $penggajian->pegawai->tunjangantetap }}</td>
+				</tr>
+				<tr>
+					<td><strong>Biaya Bonus</strong></td>
+					<td>{{ $penggajian->biayabonus }}</td>
+				</tr>
+				<tr>
+					<td><strong>Biaya Potongan</strong></td>
+					<td>{{ $penggajian->biayapotongan }}</td>
+				</tr>
+				<tr>
+					<td><strong>Jumlah Penggajian</strong></td>
+					<td>{{ $penggajian->jumlahpenggajian }}</td>
+				</tr>
+				<tr>
+					<td><strong>Keterangan</strong></td>
+					@if($penggajian->keterangan!=NULL)
+						<td>{{ $penggajian->keterangan }}</td>
+					@else
+						<td>-</td>
+					@endif
+				</tr>
+			</table>
+		</div>
 	</div>
 
 	<div class="col-md-4 col-md-push-4">

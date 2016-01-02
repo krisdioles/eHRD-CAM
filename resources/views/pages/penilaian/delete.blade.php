@@ -16,24 +16,35 @@
 
 	<h2 class="sub-header">Penilaian Detail</h2>
 
-	<div class="col-md-3">
-		<h4><strong>Nama Pegawai</strong></h4>
-		<h4><strong>Nilai Kompetensi</strong></h4>
-		<h4><strong>Nilai Kedisiplinan</strong></h4>
-		<h4><strong>Nilai Perilaku</strong></h4>
-		<h4><strong>Keterangan</strong></h4>
-	</div>
-
 	<div class="col-md-9">
-	    <h4>{{ $penilaian->pegawai->nama }}</h4>
-	    <h4>{{ $penilaian->nilaikompetensi }}</h4>
-		<h4>{{ $penilaian->nilaikedisiplinan }}</h4>
-		<h4>{{ $penilaian->nilaiperilaku }}</h4>
-		@if($penilaian->keterangan!=NULL)
-			<h4>{{ $penilaian->keterangan }}</h4>
-		@else
-			<h4>-</h4>
-		@endif
+		<div class="table-responsive">
+			<table cellspacing="10" style="width:400px; border-collapse: separate; border-spacing: 15px;">
+				<tr>
+					<td><strong>Nama Pegawai</strong></td>
+					<td>{{ $penilaian->pegawai->nama }}</td>
+				</tr>
+				<tr>
+					<td><strong>Nilai Kompetensi</strong></td>
+					<td>{{ $penilaian->nilaikompetensi }}</td>
+				</tr>
+				<tr>
+					<td><strong>Nilai Kedisiplinan</strong></td>
+					<td>{{ $penilaian->nilaikedisiplinan }}</td>
+				</tr>
+				<tr>
+					<td><strong>Nilai Perilaku</strong></td>
+					<td>{{ $penilaian->nilaiperilaku }}</td>
+				</tr>
+				<tr>
+					<td><strong>Keterangan</strong></td>
+					@if($penilaian->keterangan!=NULL)
+						<td>{{ $penilaian->keterangan }}</td>
+					@else
+						<td>-</td>
+					@endif
+				</tr>
+			</table>
+		</div>
 	</div>
 
 	<div class="col-md-4 col-md-push-4">

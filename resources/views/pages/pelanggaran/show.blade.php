@@ -16,20 +16,33 @@
 
 	<h2 class="sub-header">Pelanggaran Detail</h2>
 
-	<div class="col-md-3">
-		<h4><strong>Nama Pegawai</strong></h4>
-		<h4><strong>Tanggal Pelanggaran</strong></h4>
-		<h4><strong>Jenis Pelanggarean</strong></h4>
-		<h4><strong>Sanksi</strong></h4>
-		<h4><strong>Keterangan</strong></h4>
-	</div>
-
-	<div class="col-md-3">
-	    <h4>{{ $pelanggaran->pegawai->nama }}</h4>
-		<h4>{{ $pelanggaran->tglpelanggaran->toDateString() }}</h4>
-		<h4>{{ $pelanggaran->jenispelanggaran }}</h4>
-		<h4>{{ $pelanggaran->sanksi }}</h4>
-		<h4>{{ $pelanggaran->keterangan }}</h4>
+	<div class="col-md-9">
+		<div class="table-responsive">
+			<table cellspacing="10" style="width:400px; border-collapse: separate; border-spacing: 15px;">
+				<tr>
+					<td><strong>Nama Pegawai</strong></td>
+					<td>{{ $pelanggaran->pegawai->nama }}</td>
+				</tr>
+				<tr>
+					<td><strong>Tanggal Pelanggaran</strong></td>
+					<td>{{ $pelanggaran->tglpelanggaran->toDateString() }}</td>
+				</tr>
+				<tr>
+					<td><strong>Jenis Pelanggaran</strong></td>
+					<td>{{ $pelanggaran->jenispelanggaran }}</td>
+				</tr>
+				<tr>
+					<td><strong>Sanksi</strong></td>
+					<td>{{ $pelanggaran->sanksi }}</td>
+				</tr>
+				<tr>
+					<td><strong>Keterangan</strong></td>
+					<td>{{ $pelanggaran->keterangan }}</td>
+				</tr>
+			</table>
+			<br>
+			<a class="btn btn-default" href="/eHRD-CAM/public/pelanggaran" role="button">Kembali</a>
+		</div>
 	</div>
 </div>
 @endsection

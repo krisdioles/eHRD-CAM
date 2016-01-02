@@ -16,10 +16,10 @@
                     <thead>
                       <tr>
                         <th>#</th>
+                        <th>Kode Pegawai</th>
                         <th>Nama</th>
-                        <th>Alamat</th>
-                        <th>Email</th>
-                        <th>Tanggal Lahir</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Jabatan</th>
                         <th></th>
                       </tr>
                     </thead>
@@ -27,10 +27,10 @@
                     <tfoot>
                         <tr>
                             <th>#</th>
+                            <th>Kode Pegawai</th>
                             <th>Nama</th>
-                            <th>Alamat</th>
-                            <th>Email</th>
-                            <th>Tanggal Lahir</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Jabatan</th>
                             <th></th>
                         </tr>
                     </tfoot>
@@ -94,10 +94,10 @@ $(document).ready(function() {
         ajax: '{!! route('pegawai.data') !!}',
         columns: [
             { data: 'idpegawai', name: 'idpegawai' },
+            { data: 'kodepegawai', name: 'kodepegawai' },
             { data: 'nama', name: 'nama' },
-            { data: 'alamat', name: 'alamat' },
-            { data: 'email', name: 'email' },
-            { data: 'tgllahir', name: 'tgllahir'},
+            { data: 'jeniskelamin', name: 'jeniskelamin' },
+            { data: 'jabatan', name: 'jabatan' },
             { data: 'action', name: 'action', orderable: false, searchable: false }
         ],
         

@@ -33,12 +33,18 @@
 
 <div class="form-group">
 	{!! Form::label('gajipokok', 'Gaji Pokok : ') !!}
-	{!! Form::text('gajipokok', null, ['class'=>'form-control']) !!}
+	<div class="input-group">
+		<div class="input-group-addon">Rp. </div>
+		{!! Form::text('gajipokok', null, ['class'=>'form-control']) !!}
+	</div>
 </div>
 
 <div class="form-group">
 	{!! Form::label('tunjangantetap', 'Tunjangan Tetap : ') !!}
-	{!! Form::text('tunjangantetap', null, ['class'=>'form-control']) !!}
+	<div class="input-group">
+		<div class="input-group-addon">Rp. </div>
+		{!! Form::text('tunjangantetap', null, ['class'=>'form-control']) !!}
+	</div>
 </div>
 
 <div class="form-group">
