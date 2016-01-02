@@ -62,6 +62,13 @@ class PenilaianController extends Controller
         return view('pages/penilaian/show', compact('penilaian'));
     }
 
+    public function delete($idpenilaian)
+    {
+        $penilaian=Penilaian::findOrFail($idpenilaian);
+        
+        return view('pages/penilaian/delete', compact('penilaian'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

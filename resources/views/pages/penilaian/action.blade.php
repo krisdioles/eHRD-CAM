@@ -12,8 +12,8 @@
 
 <!-- Button trigger modal -->
 <div class="form-group">
-	<form>
-		<button type="button" class="btn-xs btn-link" data-toggle="modal" data-target="#deleteModal">Delete</button>
+	<form action="{{ url('/penilaian/'.$penilaian->idpenilaian.'/delete') }}">
+	    <button class="btn-xs btn-link" type="submit">Delete</button>
 	</form>
 </div>
 

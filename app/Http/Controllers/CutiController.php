@@ -34,7 +34,7 @@ class CutiController extends Controller
         {
             $cuti = Cuti::join('pegawai', 'cuti.pegawai_id', '=', 'pegawai.idpegawai')
                 ->select(['cuti.idcuti', 'cuti.jeniscuti', 'cuti.tglawal', 'cuti.tglakhir', 'cuti.status', 'pegawai.nama'])
-                ->future()->get();    
+                ->get();    
         }
         else
         {
@@ -59,6 +59,13 @@ class CutiController extends Controller
         $cuti=Cuti::findOrFail($idcuti);
 
         return view('pages/cuti/show', compact('cuti'));
+    }
+
+    public function delete($idcuti)
+    {
+        $cuti=Cuti::findOrFail($idcuti);
+        
+        return view('pages/cuti/delete', compact('cuti'));
     }
 
     public function create()

@@ -53,6 +53,13 @@ class PhkController extends Controller
         return view('pages/phk/show', compact('phk'));
     }
 
+    public function delete($idphk)
+    {
+        $phk=Phk::findOrFail($idphk);
+        
+        return view('pages/phk/delete', compact('phk'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

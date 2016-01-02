@@ -67,6 +67,13 @@ class LemburController extends Controller
         return view('pages/lembur/show', compact('lembur'));
     }
 
+    public function delete($idlembur)
+    {
+        $lembur=Lembur::findOrFail($idlembur);
+        
+        return view('pages/lembur/delete', compact('lembur'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

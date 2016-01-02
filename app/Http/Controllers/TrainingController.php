@@ -24,7 +24,7 @@ class TrainingController extends Controller
     {
         if(\Auth::user()->idpegawai==1)
         {
-            $training = Training::oldest('tgltraining')->future()->get();
+            $training = Training::oldest('tgltraining')->get();
         }
         else
         {
@@ -50,6 +50,13 @@ class TrainingController extends Controller
         $training=Training::findOrFail($idtraining);
 
         return view('pages/training/show', compact('training'));
+    }
+
+    public function delete($idtraining)
+    {
+        $training=Training::findOrFail($idtraining);
+        
+        return view('pages/training/delete', compact('training'));
     }
 
     public function create()

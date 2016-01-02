@@ -13,10 +13,9 @@
 
 <!-- Button trigger modal -->
 <div class="form-group">
-	<form>
-		<button type="button" class="btn-xs btn-link" data-toggle="modal" data-target="#deleteModal">Delete</button>
-	</form>
-</div>
+	<form action="{{ url('/training/'.$training->idtraining.'/delete') }}">
+	    <button class="btn-xs btn-link" type="submit">Delete</button>
+	</form></div>
 
 <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel">

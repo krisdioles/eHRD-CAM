@@ -53,6 +53,13 @@ class PelanggaranController extends Controller
         return view('pages/pelanggaran/show', compact('pelanggaran'));
     }
 
+    public function delete($idpelanggaran)
+    {
+        $pelanggaran=Pelanggaran::findOrFail($idpelanggaran);
+        
+        return view('pages/pelanggaran/delete', compact('pelanggaran'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

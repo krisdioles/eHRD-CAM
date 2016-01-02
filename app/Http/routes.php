@@ -27,34 +27,41 @@ Route::controller('absensi', 'AbsensiController', ['getData'  => 'absensi.data',
 Route::get('cuti/{idcuti}/accept', 'CutiController@accept');
 Route::get('cuti/{idcuti}/decline', 'CutiController@decline');
 Route::get('cuti/{idcuti}/show', 'CutiController@show');
+Route::get('cuti/{idcuti}/delete', 'CutiController@delete');
 Route::resource('cuti', 'CutiController', ['except' => ['index', 'show']]);
 Route::controller('cuti', 'CutiController', ['getData'  => 'cuti.data', 'getIndex' => 'cuti']);
 
 Route::get('lembur/{idlembur}/accept', 'LemburController@accept');
 Route::get('lembur/{idlembur}/decline', 'LemburController@decline');
 Route::get('lembur/{idlembur}/show', 'LemburController@show');
+Route::get('lembur/{idlembur}/delete', 'LemburController@delete');
 Route::resource('lembur', 'LemburController', ['except' => ['index', 'show']]);
 Route::controller('lembur', 'LemburController', ['getData'  => 'lembur.data', 'getIndex' => 'lembur']);
 
 Route::get('training/{idtraining}/show', 'TrainingController@show');
+Route::get('training/{idtraining}/delete', 'TrainingController@delete');
 Route::resource('training', 'TrainingController', ['except' => ['index', 'show']]);
 Route::controller('training', 'TrainingController', ['getData'  => 'training.data', 'getIndex' => 'training']);
 
 Route::get('penilaian/{idpegawai}/create', 'PenilaianController@create');
 Route::get('penilaian/{idpenilaian}/show', 'PenilaianController@show');
+Route::get('penilaian/{idpenilaian}/delete', 'PenilaianController@delete');
 Route::resource('penilaian', 'PenilaianController', ['except' => ['create', 'edit', 'index', 'show']]);
 Route::controller('penilaian', 'PenilaianController', ['getData'  => 'penilaian.data', 'getIndex' => 'penilaian']);
 
 Route::get('pelanggaran/{idpelanggaran}/show', 'PelanggaranController@show');
+Route::get('pelanggaran/{idpelanggaran}/delete', 'PelanggaranController@delete');
 Route::resource('pelanggaran', 'PelanggaranController', ['except' => ['index', 'show']]);
 Route::controller('pelanggaran', 'PelanggaranController', ['getData'  => 'pelanggaran.data', 'getIndex' => 'pelanggaran']);
 
 Route::get('penggajian/{idpegawai}/create', 'PenggajianController@create');
 Route::get('penggajian/{idpenggajian}/show', 'PenggajianController@show');
+Route::get('penggajian/{idpenggajian}/delete', 'PenggajianController@delete');
 Route::resource('penggajian', 'PenggajianController', ['except'=>['create', 'edit', 'index', 'show']]);
 Route::controller('penggajian', 'PenggajianController', ['getData'  => 'penggajian.data', 'getIndex' => 'penggajian']);
 
 Route::get('phk/{idphk}/show', 'PhkController@show');
+Route::get('phk/{idphk}/delete', 'PhkController@delete');
 Route::resource('phk', 'PhkController', ['except' => ['index', 'show']]);
 Route::controller('phk', 'PhkController', ['getData'  => 'phk.data', 'getIndex' => 'phk']);
 

@@ -63,6 +63,13 @@ class PenggajianController extends Controller
         return view('pages/penggajian/show', compact('penggajian'));
     }
 
+    public function delete($idpenggajian)
+    {
+        $penggajian=Penggajian::findOrFail($idpenggajian);
+        
+        return view('pages/penggajian/delete', compact('penggajian'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
