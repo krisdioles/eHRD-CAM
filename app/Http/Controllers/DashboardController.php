@@ -17,9 +17,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $cuti = \Auth::user()->cuti->where('status', 'Pending')->where('pegawai_id', \Auth::user()->idpegawai)->count();
+        $cuti = \Auth::user()->cuti->where('status', 'Accepted')->where('pegawai_id', \Auth::user()->idpegawai)->count();
 
-        $lembur = \Auth::user()->lembur->where('status', 'Pending')->where('pegawai_id', \Auth::user()->idpegawai)->count();
+        $lembur = \Auth::user()->lembur->where('status', 'Accepted')->where('pegawai_id', \Auth::user()->idpegawai)->count();
 
         $training = \Auth::user()->training->count();
 
