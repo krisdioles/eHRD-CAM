@@ -26,7 +26,7 @@ class PegawaiRequest extends Request
         return [
             'nama'   => 'required',
             'alamat'   => 'required',
-            'foto'   => 'required|mimes:jpg',
+            'foto'   => 'required|mimes:jpg,png,jpeg',
         ];
     }
 }

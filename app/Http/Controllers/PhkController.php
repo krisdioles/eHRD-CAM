@@ -82,6 +82,10 @@ class PhkController extends Controller
     {
         $phk=Phk::create($request->all());
 
+        $pegawai=$phk->pegawai;
+        $pegawai->statusaktif='Tidak Aktif';
+        $pegawai->save();
+
         flash()->success('Phk telah terdaftar!');
 
         return redirect('phk');

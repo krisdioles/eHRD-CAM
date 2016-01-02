@@ -40,3 +40,4 @@ class DashboardController extends Controller
 
         return view('pages/dashboard/upload', compact('pegawai'));
     }
+}
