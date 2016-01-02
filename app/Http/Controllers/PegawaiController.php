@@ -52,7 +52,15 @@ class PegawaiController extends Controller
 
         flash()->success('Pegawai berhasil diubah!');
 
-        return redirect('pegawai');
+        if(\Auth::user()->idpegawai==1)
+        {
+            return redirect('pegawai');
+        }
+        else
+        {
+            return redirect('dashboard');
+        }
+        
     }
 
     public function destroy(Pegawai $pegawai)

@@ -17,7 +17,8 @@ Route::controller('pegawai', 'PegawaiController', [
 	'getIndex' => 'pegawai',
 	]);
 
-Route::get('dashboard', 'DashboardController@index');
+Route::get('dashboard/upload', 'DashboardController@upload');
+Route::resource('dashboard', 'DashboardController', ['only' => ['index']]);
 
 Route::get('absensi/masuk', 'AbsensiController@masuk');
 Route::get('absensi/pulang', 'AbsensiController@pulang');

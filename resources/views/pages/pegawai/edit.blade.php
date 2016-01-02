@@ -14,7 +14,7 @@
 	<div class="form-group">
 		
 		{!! Form::model($pegawai, ['method' => 'PATCH' ,'url'=>'pegawai/'.$pegawai->idpegawai, 'files' => true]) !!}
-			@include('pages/pegawai/_form', ['submitButtonText'=>'Update pegawai'])
+			@include('pages/pegawai/_form', ['submitButtonText'=>'Update Pegawai'])
 		{!! Form::close() !!}
 
 		@include('errors/list')
