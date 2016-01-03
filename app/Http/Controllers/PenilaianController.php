@@ -30,14 +30,18 @@ class PenilaianController extends Controller
 
     public function getData()
     {
-        $penilaian = DB::table('pegawai')->join('penilaian', 'penilaian.pegawai_id', '=', 'pegawai.idpegawai')
-            ->selectRaw('*')
-            ->where('penilaian.idpenilaian', '=', function($query){
-                $query->selectRaw('max(penilaian.idpenilaian)')
-                    ->from('penilaian')
-                    ->whereRaw('penilaian.pegawai_id = pegawai.idpegawai');
-                }
-            );
+        // $penilaian = DB::table('pegawai')->join('penilaian', 'penilaian.pegawai_id', '=', 'pegawai.idpegawai')
+        //     ->selectRaw('*')
+        //     ->where('penilaian.idpenilaian', '=', function($query){
+        //         $query->selectRaw('max(penilaian.idpenilaian)')
+        //             ->from('penilaian')
+        //             ->whereRaw('penilaian.pegawai_id = pegawai.idpegawai');
+        //         }
+        //     );
+
+        $penilaian=Penilaian::select('*')
+                ->join('pegawai', 'penilaian.pegawai_id', '=', 'pegawai.idpegawai')
+                ->get();
     
         return Datatables::of($penilaian)
             ->editColumn('tglpenilaian', function ($penilaian) {
@@ -74,9 +78,9 @@ class PenilaianController extends Controller
      *
      * @return Response
      */
-    public function create(Penilaian $penilaian, $idpegawai)
+    public function create(Penilaian $penilaian)
     {
-        $pegawai=\App\Pegawai::all();
+        $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
         //dd(\App\Pegawai::find($idpegawai)->idpegawai);
 
         return view('pages/penilaian/create', compact('penilaian', 'pegawai', 'idpegawai'));
@@ -95,6 +99,19 @@ class PenilaianController extends Controller
         flash()->success('Penilaian telah terdaftar!');
 
         return redirect('penilaian');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  penilaian  $penilaian
+     * @return Response
+     */
+    public function edit(Penilaian $penilaian)
+    {
+        $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
+        
+        return view('pages/penilaian/edit', compact('penilaian', 'pegawai'));
     }
 
     /**

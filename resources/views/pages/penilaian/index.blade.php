@@ -21,6 +21,11 @@
         </tr>
       </thead>
     </table>    
+
+    @if(Auth::user()->idpegawai==1)
+      <a class="btn btn-default" href="{{ url('/penilaian/create') }}" role="button">Create</a>
+    @endif
+
   </div>
 </div>
 @stop

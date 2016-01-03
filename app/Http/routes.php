@@ -49,10 +49,9 @@ Route::get('training/{idtraining}/delete', 'TrainingController@delete');
 Route::resource('training', 'TrainingController', ['except' => ['index', 'show']]);
 Route::controller('training', 'TrainingController', ['getData'  => 'training.data', 'getIndex' => 'training']);
 
-Route::get('penilaian/{idpegawai}/create', 'PenilaianController@create');
 Route::get('penilaian/{idpenilaian}/show', 'PenilaianController@show');
 Route::get('penilaian/{idpenilaian}/delete', 'PenilaianController@delete');
-Route::resource('penilaian', 'PenilaianController', ['except' => ['create', 'edit', 'index', 'show']]);
+Route::resource('penilaian', 'PenilaianController', ['except' => ['index', 'show']]);
 Route::controller('penilaian', 'PenilaianController', ['getData'  => 'penilaian.data', 'getIndex' => 'penilaian']);
 
 Route::get('pelanggaran/{idpelanggaran}/show', 'PelanggaranController@show');
