@@ -11,15 +11,26 @@
         <table class="table table-hover" id="absensi" cellspacing="0" width="100%">
           <thead>
             <tr>
-              <th>#</th>
-              <th>Nama Pegawai</th>
-              <th>Waktu Masuk</th>
-              <th>Waktu Pulang</th>
-              <th>Status Masuk</th>
-              <th>Status Pulang</th>
-              <th></th>
+                <th>#</th>
+                <th>Nama Pegawai</th>
+                <th>Waktu Masuk</th>
+                <th>Waktu Pulang</th>
+                <th>Status Masuk</th>
+                <th>Status Pulang</th>
+                <th></th>
             </tr>
           </thead>
+          <tfoot>
+            <tr>
+                <th>#</th>
+                <th>Nama Pegawai</th>
+                <th>Waktu Masuk</th>
+                <th>Waktu Pulang</th>
+                <th>Status Masuk</th>
+                <th>Status Pulang</th>
+              <th></th>
+            </tr>
+          </tfoot>
         </table>    
       </div>
     </div>
@@ -28,7 +39,13 @@
     @push('scripts')
     <script>
     $(document).ready(function() {
-        $('#absensi').DataTable({
+        // Setup - add a text input to each footer cell
+        $('#absensi tfoot th').each( function () {
+            var title = $(this).text();
+            $(this).html( '<input type="text" />' );
+        } );
+
+        var table = $('#absensi').DataTable({
             dom: 'Bfrtlip',
             buttons: [
                 {
@@ -80,16 +97,18 @@
                 { data: 'statuspulang', name: 'absensi.statuspulang' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ],
-            initComplete: function () {
-                this.api().columns().every(function () {
-                    var column = this;
-                    var input = document.createElement("input");
-                    $(input).appendTo($(column.footer()).empty())
-                    .on('change', function () {
-                        column.search($(this).val(), false, false, true).draw();
-                    });
-                });
-            },
+        });
+        // Apply the search
+        table.columns().every( function () {
+            var that = this;
+       
+            $( 'input', this.footer() ).on( 'keyup change', function () {
+                if ( that.search() !== this.value ) {
+                    that
+                        .search( this.value )
+                        .draw();
+                }
+            });
         });
     });
     </script>

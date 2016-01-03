@@ -17,9 +17,21 @@
           <th>Nilai Kedisiplinan</th>
           <th>Nilai Perilaku</th>
           <th>Keterangan</th>
-          <th></th>
+          <th width="17%"></th>
         </tr>
       </thead>
+      <tfoot>
+        <tr>
+          <th>#</th>
+          <th>#</th>
+          <th>Nama Pegawai</th>
+          <th>Nilai Kompetensi</th>
+          <th>Nilai Kedisiplinan</th>
+          <th>Nilai Perilaku</th>
+          <th>Keterangan</th>
+          <th width="17%"></th>
+        </tr>
+      </tfoot>
     </table>    
 
     @if(Auth::user()->idpegawai==1)
@@ -33,7 +45,13 @@
 @push('scripts')
   <script>
   $(document).ready(function() {
-      $('#penilaian').DataTable({
+    // Setup - add a text input to each footer cell
+    $('#penilaian tfoot th').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input type="text" />' );
+    } );
+
+    var table = $('#penilaian').DataTable({
           dom: 'Bfrtlip',
           buttons: [
               {
@@ -84,7 +102,19 @@
               { data: 'nilaiperilaku', name: 'penilaian.nilaiperilaku' },
               { data: 'keterangan', name: 'penilaian.keterangan' },
               { data: 'action', name: 'action', orderable: false, searchable: false }
-          ]
+          ],
+      });
+      // Apply the search
+      table.columns().every( function () {
+          var that = this;
+   
+          $( 'input', this.footer() ).on( 'keyup change', function () {
+              if ( that.search() !== this.value ) {
+                  that
+                      .search( this.value )
+                      .draw();
+              }
+          });
       });
   });
   </script>

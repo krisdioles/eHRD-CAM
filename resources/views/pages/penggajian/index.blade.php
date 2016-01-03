@@ -19,6 +19,16 @@
 
         </tr>
       </thead>
+      <tfoot>
+        <tr>
+          <th>#</th>
+          <th>Nama Pegawai</th>
+          <th>Tanggal Penggajian</th>
+          <th>Periode Penggajian</th>
+          <th>Jumlah Penggajian</th>
+          <th width="17%"></th>
+        </tr>
+      </tfoot>
       
     </table>
 
@@ -33,7 +43,13 @@
 @push('scripts')
   <script>
   $(document).ready(function() {
-      $('#penggajian').DataTable({
+    // Setup - add a text input to each footer cell
+    $('#penggajian tfoot th').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input type="text" />' );
+    } );
+
+    var table = $('#penggajian').DataTable({
           dom: 'Bfrtlip',
           buttons: [
               {
@@ -82,7 +98,19 @@
               { data: 'periodepenggajian', name: 'penggajian.periodepenggajian' },
               { data: 'jumlahpenggajian', name: 'jumlahpenggajian' },
               { data: 'action', name: 'action', orderable: false, searchable: false }
-          ]
+          ],    
+      });
+      // Apply the search
+      table.columns().every( function () {
+          var that = this;
+   
+          $( 'input', this.footer() ).on( 'keyup change', function () {
+              if ( that.search() !== this.value ) {
+                  that
+                      .search( this.value )
+                      .draw();
+              }
+          });
       });
   });
   </script>

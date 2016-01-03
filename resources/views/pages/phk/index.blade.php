@@ -20,6 +20,17 @@
 
         </tr>
       </thead>
+      <tfoot>
+        <tr>
+          <th>#</th>
+          <th>Nama Pegawai</th>
+          <th>Tanggal PHK</th>
+          <th>Jenis PHK</th>
+          <th>Nomor Surat</th>
+          <th>Keterangan</th>
+          <th></th>
+        </tr>
+      </tfoot>
     </table>
 
     @if(Auth::user()->idpegawai==1)
@@ -33,7 +44,13 @@
 @push('scripts')
   <script>
   $(document).ready(function() {
-      $('#phk').DataTable({
+    // Setup - add a text input to each footer cell
+    $('#phk tfoot th').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input type="text" />' );
+    } );
+
+    var table = $('#phk').DataTable({
           dom: 'Bfrtlip',
           buttons: [
               {
@@ -83,7 +100,20 @@
               { data: 'nomorsurat', name: 'phk.nomorsurat' },
               { data: 'keterangan', name: 'phk.keterangan' },
               { data: 'action', name: 'action', orderable: false, searchable: false }
-          ]
+          ],
+      });
+
+      // Apply the search
+      table.columns().every( function () {
+          var that = this;
+   
+          $( 'input', this.footer() ).on( 'keyup change', function () {
+              if ( that.search() !== this.value ) {
+                  that
+                      .search( this.value )
+                      .draw();
+              }
+          });
       });
   });
   </script>

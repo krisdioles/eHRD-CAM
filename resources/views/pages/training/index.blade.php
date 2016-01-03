@@ -18,6 +18,16 @@
           <th width="17%"></th>
         </tr>
       </thead>
+      <tfoot>
+        <tr>
+            <th>#</th>
+            <th>Nama Training</th>
+            <th>Lokasi</th>
+            <th>Tanggal Training</th>
+            <th>Anggaran</th>
+            <th width="17%"></th>
+        </tr>
+      </tfoot>
     </table>
 
     @if(Auth::user()->idpegawai==1)
@@ -30,7 +40,13 @@
 @push('scripts')
 <script>
 $(document).ready(function() {
-    $('#training').DataTable({
+    // Setup - add a text input to each footer cell
+    $('#training tfoot th').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input type="text" />' );
+    } );
+
+    var table = $('#training').DataTable({
         dom: 'Bfrtlip',
         buttons: [
             {
@@ -79,7 +95,19 @@ $(document).ready(function() {
             { data: 'tgltraining', name: 'tgltraining' },
             { data: 'anggaran', name: 'anggaran' },
             { data: 'action', name: 'action', orderable: false, searchable: false }
-        ]
+        ],
+    });
+    // Apply the search
+    table.columns().every( function () {
+        var that = this;
+   
+        $( 'input', this.footer() ).on( 'keyup change', function () {
+            if ( that.search() !== this.value ) {
+                that
+                    .search( this.value )
+                    .draw();
+            }
+        });
     });
 });
 </script>

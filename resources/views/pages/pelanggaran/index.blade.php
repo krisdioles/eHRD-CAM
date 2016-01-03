@@ -19,6 +19,17 @@
           <th></th>
         </tr>
       </thead>
+      <tfoot>
+        <tr>
+          <th>#</th>
+          <th>Nama Pegawai</th>
+          <th>Tanggal Pelanggaran</th>
+          <th>Jenis Pelanggaran</th>
+          <th>Sanksi</th>
+          <th>Keterangan</th>
+          <th></th>
+        </tr>
+      </tfoot>
     </table>
 
     @if(Auth::user()->idpegawai==1)
@@ -32,7 +43,13 @@
 @push('scripts')
   <script>
   $(document).ready(function() {
-      $('#pelanggaran').DataTable({
+    // Setup - add a text input to each footer cell
+    $('#pelanggaran tfoot th').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input type="text" />' );
+    } );
+
+    var table = $('#pelanggaran').DataTable({
           dom: 'Bfrtlip',
           buttons: [
               {
@@ -82,8 +99,20 @@
               { data: 'sanksi', name: 'pelanggaran.sanksi' },
               { data: 'keterangan', name: 'pelanggaran.keterangan' },
               { data: 'action', name: 'action', orderable: false, searchable: false }
-          ]
+          ],          
       });
-  });
+      // Apply the search
+      table.columns().every( function () {
+          var that = this;
+   
+          $( 'input', this.footer() ).on( 'keyup change', function () {
+              if ( that.search() !== this.value ) {
+                  that
+                      .search( this.value )
+                      .draw();
+              }
+          });
+      });
+});
   </script>
   @endpush
