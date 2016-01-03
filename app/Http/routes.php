@@ -60,10 +60,9 @@ Route::get('pelanggaran/{idpelanggaran}/delete', 'PelanggaranController@delete')
 Route::resource('pelanggaran', 'PelanggaranController', ['except' => ['index', 'show']]);
 Route::controller('pelanggaran', 'PelanggaranController', ['getData'  => 'pelanggaran.data', 'getIndex' => 'pelanggaran']);
 
-Route::get('penggajian/{idpegawai}/create', 'PenggajianController@create');
 Route::get('penggajian/{idpenggajian}/show', 'PenggajianController@show');
 Route::get('penggajian/{idpenggajian}/delete', 'PenggajianController@delete');
-Route::resource('penggajian', 'PenggajianController', ['except'=>['create', 'edit', 'index', 'show']]);
+Route::resource('penggajian', 'PenggajianController', ['except'=>['index', 'show']]);
 Route::controller('penggajian', 'PenggajianController', ['getData'  => 'penggajian.data', 'getIndex' => 'penggajian']);
 
 Route::get('phk/{idphk}/show', 'PhkController@show');

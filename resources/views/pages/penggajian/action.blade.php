@@ -5,8 +5,8 @@
 </div>
 
 <div class="form-group">
-	<form action="{{ url('/penggajian/'.$penggajian->pegawai_id.'/create') }}">
-	    <button class="btn-xs btn-link" type="submit">Create</button>
+	<form action="{{ url('/penggajian/'.$penggajian->pegawai_id.'/edit') }}">
+	    <button class="btn-xs btn-link" type="submit">Edit</button>
 	</form>
 </div>
 

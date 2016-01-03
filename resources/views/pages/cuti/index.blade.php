@@ -18,9 +18,10 @@
 
           @if(Auth::user()->idpegawai==1)
             <th>Diajukan Oleh</th>
+            <th width="26%"></th>
+          @else
+            <th width="17%"></th>
           @endif
-
-          <th width="17%"></th>
 
         </tr>
       </thead>

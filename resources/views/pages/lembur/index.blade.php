@@ -18,9 +18,10 @@
 
           @if(Auth::user()->idpegawai==1)
             <th>Diajukan Oleh</th>
+            <th width="26%"></th>
+          @else
+            <th width="17%"></th>
           @endif
-
-          <th></th>
 
         </tr>
       </thead>
@@ -97,6 +98,44 @@
   <script>
   $(document).ready(function() {
       $('#lembur').DataTable({
+          dom: 'Bfrtlip',
+          buttons: [
+              {
+                  extend: 'print',
+                  exportOptions: {
+                      columns: ':visible'
+                  }
+              },
+              {
+                  extend: 'copyFlash',
+                  exportOptions: {
+                      columns: ':visible'
+                  }
+              },
+              {
+                  extend: 'csvFlash',
+                  exportOptions: {
+                      columns: ':visible'
+                  }
+              },
+              {
+                  extend: 'excelFlash',
+                  exportOptions: {
+                      columns: ':visible'
+                  }
+              },
+              {
+                  extend: 'pdfFlash',
+                  exportOptions: {
+                      columns: ':visible'
+                  }
+              },
+              'colvis',
+          ],
+          columnDefs: [{
+              targets: 0,
+              visible: false
+          }],
           processing: true,
           serverSide: true,
           ajax: '{!! route('lembur.data') !!}',

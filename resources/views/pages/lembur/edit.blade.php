@@ -10,7 +10,12 @@
 
 @section('content')
 <div class="col-md-8 col-md-offset-2">
-	<h2 class="sub-header">Edit lembur : {!! $lembur->tgllembur !!}</h2>
+	@if(Auth::user()->idpegawai==1)
+		<h2 class="sub-header">Pemilik Lembur : {!! $lembur->pegawai->nama !!}</h2>
+	@else
+		<h2 class="sub-header">Edit Lembur : {!! $lembur->tgllembur !!}</h2>
+	@endif
+
 	<div class="form-group">
 		
 		{!! Form::model($lembur, ['method' => 'PATCH' ,'url'=>'lembur/'.$lembur->idlembur]) !!}

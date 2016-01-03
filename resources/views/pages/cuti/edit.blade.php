@@ -10,11 +10,16 @@
 
 @section('content')
 <div class="col-md-8 col-md-offset-2">
-	<h2 class="sub-header">Edit Cuti : {!! $cuti->jeniscuti !!}</h2>
+	@if(Auth::user()->idpegawai==1)
+		<h2 class="sub-header">Pemilik Cuti : {!! $cuti->pegawai->nama !!}</h2>
+	@else
+		<h2 class="sub-header">Edit Cuti : {!! $cuti->jeniscuti !!}</h2>
+	@endif
+
 	<div class="form-group">
 		
 		{!! Form::model($cuti, ['method' => 'PATCH' ,'url'=>'cuti/'.$cuti->idcuti]) !!}
-			@include('pages/cuti/_form', ['submitButtonText'=>'Update Cuti'])
+			@include('pages/cuti/_form', ['submitButtonText'=>'Ubah Cuti'])
 		{!! Form::close() !!}
 
 		@include('errors/list')

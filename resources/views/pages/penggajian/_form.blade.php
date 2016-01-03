@@ -1,8 +1,7 @@
--{!! Form::hidden('pegawai_id', \App\Pegawai::find($idpegawai)->idpegawai) !!}
-
+<!-- Pelanggaran for Pegawai Form Input -->
 <div class="form-group">
 	{!! Form::label('namapegawai', 'Nama Pegawai : ') !!}
-	<p class="form-control-static">{{ \App\Pegawai::find($idpegawai)->nama }}</p>
+	{!! Form::select('pegawai_id', $pegawai, null, ['class'=>'form-control']) !!}
 </div>
 
 <div class="form-group">

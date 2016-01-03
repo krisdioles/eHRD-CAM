@@ -28,14 +28,18 @@ class PenggajianController extends Controller
 
     public function getData()
     {
-        $penggajian = DB::table('pegawai')->join('penggajian', 'penggajian.pegawai_id', '=', 'pegawai.idpegawai')
-            ->selectRaw('*, pegawai.gajipokok + pegawai.tunjangantetap + penggajian.biayabonus - penggajian.biayapotongan AS jumlahpenggajian')
-            ->where('penggajian.idpenggajian', '=', function($query){
-                $query->selectRaw('max(penggajian.idpenggajian)')
-                    ->from('penggajian')
-                    ->whereRaw('penggajian.pegawai_id = pegawai.idpegawai');
-                }
-            );
+        // $penggajian = DB::table('pegawai')->join('penggajian', 'penggajian.pegawai_id', '=', 'pegawai.idpegawai')
+        //     ->selectRaw('*, pegawai.gajipokok + pegawai.tunjangantetap + penggajian.biayabonus - penggajian.biayapotongan AS jumlahpenggajian')
+        //     ->where('penggajian.idpenggajian', '=', function($query){
+        //         $query->selectRaw('max(penggajian.idpenggajian)')
+        //             ->from('penggajian')
+        //             ->whereRaw('penggajian.pegawai_id = pegawai.idpegawai');
+        //         }
+        //     );
+
+        $penggajian=Penggajian::select('*')
+                    ->join('pegawai', 'penggajian.pegawai_id', '=', 'pegawai.idpegawai')
+                    ->get();
     
         return Datatables::of($penggajian)
             ->editColumn('tglpenggajian', function ($penggajian) {
@@ -75,7 +79,7 @@ class PenggajianController extends Controller
      *
      * @return Response
      */
-    public function create(Penggajian $penggajian, $idpegawai)
+    public function create(Penggajian $penggajian)
     {
         $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
 
@@ -97,6 +101,19 @@ class PenggajianController extends Controller
         flash()->overlay('Penggajian telah terdaftar!');
 
         return redirect('penggajian');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  penggajian  $penggajian
+     * @return Response
+     */
+    public function edit(Penggajian $penggajian)
+    {
+        $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
+        
+        return view('pages/penggajian/edit', compact('penggajian', 'pegawai'));
     }
 
     /**
@@ -124,7 +141,7 @@ class PenggajianController extends Controller
     public function destroy(Penggajian $penggajian)
     {
         $pegawai = \App\Pegawai::findOrFail($penggajian->pegawai_id);
-        dd($penggajian);
+        //dd($penggajian);
 
         if($pegawai->penggajian->last()!=$pegawai->penggajian->first())
         {
