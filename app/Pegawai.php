@@ -48,6 +48,7 @@ class Pegawai extends Model implements AuthenticatableContract,
         'statuskawin',
         'pendidikanterakhir',
         'jabatan',
+        'hakcuti',
         'statusaktif'
     ];
 
