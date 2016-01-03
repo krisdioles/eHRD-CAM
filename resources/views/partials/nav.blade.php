@@ -15,7 +15,6 @@
 
           @if(!Auth::check())
             <li><a href="/eHRD-CAM/public/auth/login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>  Login</a></li>
-            <li><a href="/eHRD-CAM/public/auth/register"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>   Register</a></li>
           @else
             <li><a href="/eHRD-CAM/public/auth/logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>  Logout as {{ Auth::user()->nama }}</a></li>
           @endif

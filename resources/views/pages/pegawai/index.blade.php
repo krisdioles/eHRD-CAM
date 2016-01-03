@@ -38,6 +38,7 @@
                 </div>
             </div>
         </div>
+        <a class="btn btn-default" href="{{ url('/auth/register') }}" role="button">Create</a>
     </div>
 </div>
 @stop
