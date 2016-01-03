@@ -31,6 +31,26 @@ class PegawaiController extends Controller
         	->make(true);
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  pegawai  $pegawai
+     * @return Response
+     */
+    public function show($idpegawai)
+    {
+        $pegawai=Pegawai::findOrFail($idpegawai);
+        
+        return view('pages/pegawai/show', compact('pegawai'));
+    }
+
+    public function delete($idpegawai)
+    {
+        $pegawai=Pegawai::findOrFail($idpegawai);
+        
+        return view('pages/pegawai/delete', compact('pegawai'));
+    }
+
     public function edit(Pegawai $pegawai)
     {
         //dd($idpegawai);

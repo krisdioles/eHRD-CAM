@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\AbsensiRequest;
 use App\Http\Controllers\Controller;
 use App\Absensi;
 use yajra\Datatables\Datatables;
@@ -25,14 +26,18 @@ class AbsensiController extends Controller
     public function getData()
     {
         $absensi = Absensi::select('*')
-            ->join('pegawai', 'absensi.pegawai_id', '=', 'pegawai.idpegawai');
+            ->join('pegawai', 'absensi.pegawai_id', '=', 'pegawai.idpegawai')
+            ;
 
         return Datatables::of($absensi)
-            ->editColumn('waktupulang', function ($pegawai) {
-                return $pegawai->waktupulang ? with(new Carbon($pegawai->waktupulang)) : '';
+            ->editColumn('waktupulang', function ($absensi) {
+                return $absensi->waktupulang ? with(new Carbon($absensi->waktupulang)) : '';
             })
-            ->editColumn('waktumasuk', function ($pegawai) {
-                return $pegawai->waktumasuk ? with(new Carbon($pegawai->waktumasuk)) : '';
+            ->editColumn('waktumasuk', function ($absensi) {
+                return $absensi->waktumasuk ? with(new Carbon($absensi->waktumasuk)) : '';
+            })
+            ->addColumn('action', function ($absensi) {
+                return view('pages.absensi.action', compact('absensi'))->render();
             })
             ->make(true);
     }
@@ -83,58 +88,23 @@ class AbsensiController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  Request  $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function show($idabsensi)
     {
-        //
+        $absensi=Absensi::findOrFail($idabsensi);
+        
+        return view('pages/absensi/show', compact('absensi'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
+    public function delete($idabsensi)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  Request  $request
-     * @param  int  $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        $absensi=Absensi::findOrFail($idabsensi);
+        
+        return view('pages/absensi/delete', compact('absensi'));
     }
 
     /**
@@ -143,8 +113,27 @@ class AbsensiController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Absensi $absensi)
     {
-        //
+        // delete
+        $absensi->delete();
+
+        // redirect
+        flash()->overlay('Absensi berhasil dihapus!');
+        return redirect('absensi');
+    }
+
+    public function edit(Absensi $absensi)
+    {
+        return view('pages/absensi/edit', compact('absensi'));
+    }
+
+    public function update(Absensi $absensi, AbsensiRequest $request)
+    {
+        $absensi->update($request->all());
+
+        flash()->overlay('Absensi berhasil diubah!');
+
+        return redirect('absensi');
     }
 }

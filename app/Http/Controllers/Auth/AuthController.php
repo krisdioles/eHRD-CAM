@@ -77,7 +77,7 @@ class AuthController extends Controller
             'agama' => $data['agama'],
             'statuskawin' => $data['statuskawin'],
             'pendidikanterakhir' => $data['pendidikanterakhir'],
-            'statusaktif' => 'aktif',
+            'statusaktif' => 'Aktif',
         ]);
 
         \App\Penilaian::create([

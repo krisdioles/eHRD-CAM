@@ -26,6 +26,8 @@
           <h4>Email : {{ \Auth::user()->email }}</h4>
           <h4>Alamat : {{ \Auth::user()->alamat }}</h4>
           <h4>Agama : {{ \Auth::user()->agama }}</h4>
+          <br>
+          <a href=""><h4>Info Profil Selengkapnya...</h4></a>
         </div>
       </div>
     </div>

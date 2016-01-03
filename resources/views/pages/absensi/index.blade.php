@@ -17,7 +17,7 @@
               <th>Waktu Pulang</th>
               <th>Status Masuk</th>
               <th>Status Pulang</th>
-              <th>Keterangan</th>
+              <th></th>
             </tr>
           </thead>
         </table>    
@@ -64,9 +64,10 @@
                 'colvis',
             ],
             columnDefs: [{
-                targets: 6,
+                targets: 0,
                 visible: false
             }],
+            order: [[ 2, 'desc' ]],
             processing: true,
             serverSide: true,
             ajax: '{!! route('absensi.data') !!}',
@@ -77,7 +78,7 @@
                 { data: 'waktupulang', name: 'absensi.waktupulang' },
                 { data: 'statusmasuk', name: 'absensi.statusmasuk' },
                 { data: 'statuspulang', name: 'absensi.statuspulang' },
-                { data: 'keterangan', name: 'absensi.keterangan' },
+                { data: 'action', name: 'action', orderable: false, searchable: false }
             ],
             initComplete: function () {
                 this.api().columns().every(function () {

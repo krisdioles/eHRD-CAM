@@ -23,7 +23,7 @@ class Absensi extends Model
      *
      * @var array
      */
-    protected $fillable = ['waktumasuk' ,'waktupulang', 'statusmasuk', 'statuskeluar', 'keterangan', 'pegawai_id'];
+    protected $fillable = ['waktumasuk' ,'waktupulang', 'statusmasuk', 'statuspulang', 'keterangan', 'pegawai_id'];
 
     public function setWaktupulangAttribute($date)
     {

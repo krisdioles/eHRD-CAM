@@ -11,6 +11,9 @@
 |
 */
 Route::get('', 'DashboardController@index');
+
+Route::get('pegawai/{idpegawai}/show', 'PegawaiController@show');
+Route::get('pegawai/{idpegawai}/delete', 'PegawaiController@delete');
 Route::resource('pegawai', 'PegawaiController', ['except' => ['index', 'show']]);
 Route::controller('pegawai', 'PegawaiController', [
 	'getData'  => 'pegawai.data',
@@ -22,6 +25,8 @@ Route::resource('dashboard', 'DashboardController', ['only' => ['index']]);
 
 Route::get('absensi/masuk', 'AbsensiController@masuk');
 Route::get('absensi/pulang', 'AbsensiController@pulang');
+Route::get('absensi/{idabsensi}/show', 'AbsensiController@show');
+Route::get('absensi/{idabsensi}/delete', 'AbsensiController@delete');
 Route::resource('absensi', 'AbsensiController', ['except' => ['index', 'show']]);
 Route::controller('absensi', 'AbsensiController', ['getData'  => 'absensi.data', 'getIndex' => 'absensi']);
 

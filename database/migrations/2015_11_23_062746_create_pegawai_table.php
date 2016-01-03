@@ -30,6 +30,7 @@ class CreatePegawaiTable extends Migration
         $table->string('jabatan');
         $table->integer('gajipokok');
         $table->integer('tunjangantetap');
+        $table->integer('hakcuti');
         $table->string('statusaktif');
         $table->rememberToken();
         $table->timestamps();

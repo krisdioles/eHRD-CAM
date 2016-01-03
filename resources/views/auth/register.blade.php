@@ -84,10 +84,10 @@
 							<label class="col-md-4 control-label">Jenis Kelamin</label>
 							<div class="col-md-6">
 								<label class="radio-inline">
-								  <input type="radio" name="jeniskelamin" id="pria" value="pria"> Pria
+								  <input type="radio" name="jeniskelamin" id="pria" value="Pria"> Pria
 								</label>
 								<label class="radio-inline">
-								  <input type="radio" name="jeniskelamin" id="wanita" value="wanita"> Wanita
+								  <input type="radio" name="jeniskelamin" id="wanita" value="Wanita"> Wanita
 								</label>
 							</div>
 						</div>
@@ -117,10 +117,10 @@
 							<label class="col-md-4 control-label">Status Kawin</label>
 							<div class="col-md-6">
 								<label class="radio-inline">
-								  <input type="radio" name="statuskawin" id="sudahkawin" value="sudahkawin"> Sudah Kawin
+								  <input type="radio" name="statuskawin" id="sudahkawin" value="Sudah Kawin"> Sudah Kawin
 								</label>
 								<label class="radio-inline">
-								  <input type="radio" name="statuskawin" id="belumkawin" value="belumkawin"> Belum Kawin
+								  <input type="radio" name="statuskawin" id="belumkawin" value="Belum Kawin"> Belum Kawin
 								</label>
 							</div>
 						</div>
@@ -129,22 +129,22 @@
 							<label class="col-md-4 control-label">Pendidikan Terakhir</label>
 							<div class="col-md-6">
 								<label class="radio-inline">
-								  <input type="radio" name="pendidikanterakhir" id="smp" value="smp"> SMP
+								  <input type="radio" name="pendidikanterakhir" id="smp" value="SMP"> SMP
 								</label>
 								<label class="radio-inline">
-								  <input type="radio" name="pendidikanterakhir" id="sma" value="sma"> SMA
+								  <input type="radio" name="pendidikanterakhir" id="sma" value="SMA"> SMA
 								</label>
 								<label class="radio-inline">
-								  <input type="radio" name="pendidikanterakhir" id="d" value="d"> D1/D2/D3
+								  <input type="radio" name="pendidikanterakhir" id="d" value="D"> D1/D2/D3
 								</label>
 								<label class="radio-inline">
-								  <input type="radio" name="pendidikanterakhir" id="s1" value="s1"> S1
+								  <input type="radio" name="pendidikanterakhir" id="s1" value="S1"> S1
 								</label>
 								<label class="radio-inline">
-								  <input type="radio" name="pendidikanterakhir" id="s2" value="s2"> S2
+								  <input type="radio" name="pendidikanterakhir" id="s2" value="S2"> S2
 								</label>
 								<label class="radio-inline">
-								  <input type="radio" name="pendidikanterakhir" id="s3" value="s3"> S3
+								  <input type="radio" name="pendidikanterakhir" id="s3" value="S3"> S3
 								</label>
 							</div>
 						</div>

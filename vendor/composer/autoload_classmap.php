@@ -10,6 +10,7 @@ return array(
     'CreateAbsensiTable' => $baseDir . '/database/migrations/2015_11_23_063603_create_absensi_table.php',
     'CreateCutiTable' => $baseDir . '/database/migrations/2015_11_23_065426_create_cuti_table.php',
     'CreateLemburTable' => $baseDir . '/database/migrations/2015_11_23_065438_create_lembur_table.php',
+    'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePegawaiTable' => $baseDir . '/database/migrations/2015_11_23_062746_create_pegawai_table.php',
     'CreatePelanggaranTable' => $baseDir . '/database/migrations/2015_11_23_065547_create_pelanggaran_table.php',
     'CreatePenggajianTable' => $baseDir . '/database/migrations/2015_11_23_065457_create_penggajian_table.php',

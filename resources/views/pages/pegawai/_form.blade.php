@@ -48,5 +48,13 @@
 </div>
 
 <div class="form-group">
+	{!! Form::label('hakcuti', 'Hak Cuti : ') !!}
+	<div class="input-group">
+		{!! Form::text('hakcuti', null, ['class'=>'form-control']) !!}
+		<div class="input-group-addon">Hari</div>
+	</div>
+</div>
+
+<div class="form-group">
 	{!! Form::submit($submitButtonText, ['class'=>'btn btn-primary form-control']) !!}
 </div>
