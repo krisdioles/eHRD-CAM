@@ -19,7 +19,7 @@
 	    	<div class="panel-heading">Lembur</div>
 	  		<div class="panel-body">
 			    <div class="table-responsive">
-				    <table class="table table-bordered" id="lembur" cellspacing="0" width="100%">
+				    <table class="table table-striped" id="lembur" cellspacing="0" width="100%">
 				      <thead>
 				        <tr>
 				          <th>Tanggal Lembur</th>
@@ -42,7 +42,7 @@
 			<div class="panel-heading">Cuti</div>
 	  		<div class="panel-body">
 			   	<div class="table-responsive">
-				    <table class="table table-bordered" id="cuti" cellspacing="0" width="100%">
+				    <table class="table table-striped" id="cuti" cellspacing="0" width="100%">
 				      <thead>
 				        <tr>
 				          <th>Jenis Cuti</th>
@@ -53,10 +53,10 @@
 				      </thead>
 				      <tfoot>
 				        <tr>
-				        	<th>Jenis Cuti</th>
-				            <th>Tanggal Awal</th>
-				            <th>Tanggal Akhir</th>
-				            <th>Status</th>
+				        	<td>Jenis Cuti</td>
+				            <td>Tanggal Awal</td>
+				            <td>Tanggal Akhir</td>
+				            <td>Status</td>
 				        </tr>
 				      </tfoot>
 				    </table>
@@ -82,34 +82,33 @@ $(document).ready(function() {
 	    searching: false,
 	    ajax: '{!! route('dashboard.lembur') !!}',
 	    columns: [
-	        { data: 'tgllembur', name: 'lembur.tgllembur' },
-	        { data: 'jangkawaktu', name: 'lembur.jangkawaktu' },
-	        { data: 'status', name: 'lembur.status' },
+	        { data: 'tgllembur', name: 'tgllembur' },
+	        { data: 'jangkawaktu', name: 'jangkawaktu' },
+	        { data: 'status', name: 'status' },
 	    ],   
 	});
 
 	// Setup - add a text input to each footer cell
-	$('#cuti tfoot th').each( function () {
+	$('#cuti tfoot td').each( function () {
 	    var title = $(this).text();
 	    $(this).html( '<input type="text" />' );
 	} );
 
-	var tableCuti = $('#cuti').DataTable({
+	var table = $('#cuti').DataTable({
 	    processing: true,
 	    serverSide: true,
 	    ordering: false,
-	    searching: false,
 	    ajax: '{!! route('dashboard.cuti') !!}',
 	    columns: [
-            { data: 'jeniscuti', name: 'cuti.jeniscuti' },
-            { data: 'tglawal', name: 'cuti.tglawal' },
-            { data: 'tglakhir', name: 'cuti.tglakhir' },
-            { data: 'status', name: 'cuti.status' },
+            { data: 'jeniscuti', name: 'jeniscuti' },
+            { data: 'tglawal', name: 'tglawal' },
+            { data: 'tglakhir', name: 'tglakhir' },
+            { data: 'status', name: 'status' },
 	    ],     
 	});
 
 	// Apply the search
-    tableCuti.columns().every( function () {
+    table.columns().every( function () {
         var that = this;
    
         $( 'input', this.footer() ).on( 'keyup change', function () {
