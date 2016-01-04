@@ -27,7 +27,7 @@
           <h4>Alamat : {{ \Auth::user()->alamat }}</h4>
           <h4>Agama : {{ \Auth::user()->agama }}</h4>
           <br>
-          <a href=""><h4>Info Profil Selengkapnya...</h4></a>
+          <a href="/eHRD-CAM/public/dashboard/detailprofil"><h4>Info Profil Selengkapnya...</h4></a>
         </div>
       </div>
     </div>
