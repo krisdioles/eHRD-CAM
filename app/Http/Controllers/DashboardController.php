@@ -45,41 +45,11 @@ class DashboardController extends Controller
         return view('pages/dashboard/dashboard', compact('cuti', 'lembur', 'training'));
     }
 
-    /**
-     * Datatables Detail Profile
-     */
-    public function getIndex()
+    public function detail()
     {
-        return view('pages/dashboard/detailprofil');
-    }
+        $pegawai=\Auth::user();
 
-    public function getLembur()
-    {
-        $cuti = \Auth::user()->cuti;
-
-        $lembur = \Auth::user()->lembur;
-
-        $training = \Auth::user()->training;
-
-        return Datatables::of($lembur)
-            ->editColumn('tgllembur', function ($lembur) {
-                return $lembur->tgllembur ? with(new Carbon($lembur->tgllembur))->format('d-m-Y') : '';
-            })
-            ->make(true);
-    }
-
-    public function getCuti()
-    {
-        $cuti = \Auth::user()->cuti;
-
-        return Datatables::of($cuti)
-            ->editColumn('tglawal', function ($cuti) {
-                return $cuti->tglawal ? with(new Carbon($cuti->tglawal))->format('d-m-Y') : '';
-            })
-            ->editColumn('tglakhir', function ($cuti) {
-                return $cuti->tglakhir ? with(new Carbon($cuti->tglakhir))->format('d-m-Y') : '';
-            })
-            ->make(true);
+        return view('pages/dashboard/detailprofil', compact('pegawai'));
     }
 
     /**
