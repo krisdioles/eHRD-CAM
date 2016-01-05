@@ -63,20 +63,6 @@ class PegawaiController extends Controller
     {
         $pegawai->update($request->all());
 
-        if( $request->hasFile('foto'))
-        {
-            $imageName = $pegawai->kodepegawai . '.' . 
-                $request->file('foto')->getClientOriginalExtension();
-
-            $request->file('foto')->move(
-                base_path() . '/public/images/', $imageName
-            );
-        }
-        else
-        {
-            return redirect('dashboard/upload');
-        }   
-
         flash()->success('Pegawai berhasil diubah!');
 
         if(\Auth::user()->idpegawai==1)
@@ -85,6 +71,20 @@ class PegawaiController extends Controller
         }
         else
         {
+            if( $request->hasFile('foto'))
+            {
+                $imageName = $pegawai->kodepegawai . '.' . 
+                    $request->file('foto')->getClientOriginalExtension();
+
+                $request->file('foto')->move(
+                    base_path() . '/public/images/', $imageName
+                );
+            }
+            else
+            {
+                return redirect('dashboard/upload');
+            }
+
             return redirect('dashboard');
         }
         

@@ -51,6 +51,22 @@
 					<td>{{ $penggajian->jumlahpenggajian }}</td>
 				</tr>
 				<tr>
+					<td><strong>Cara Bayar</strong></td>
+					<td>{{ $penggajian->carabayar }}</td>
+				</tr>
+				<tr>
+					<td><strong>Nama Bank</strong></td>
+					<td>{{ $penggajian->namabank }}</td>
+				</tr>
+				<tr>
+					<td><strong>Nomor Rekening</strong></td>
+					<td>{{ $penggajian->norekening }}</td>
+				</tr>
+				<tr>
+					<td><strong>Nama Pemilik Rekening</strong></td>
+					<td>{{ $penggajian->namarekening }}</td>
+				</tr>
+				<tr>
 					<td><strong>Keterangan</strong></td>
 					<td>{{ $penggajian->keterangan }}</td>
 				</tr>

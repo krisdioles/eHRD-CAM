@@ -22,7 +22,7 @@ class CreatePegawaiTable extends Migration
         $table->string('email');
         $table->string('alamat');
         $table->string('jeniskelamin');
-        $table->integer('telepon');
+        $table->string('telepon');
         $table->date('tgllahir');
         $table->string('agama');
         $table->string('statuskawin');

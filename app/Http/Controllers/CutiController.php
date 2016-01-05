@@ -75,7 +75,9 @@ class CutiController extends Controller
 
     public function store(CutiRequest $request)
     {
-    	\Auth::user()->cuti()->create($request->all());
+    	$cuti=Cuti::create($request->all());
+        $cuti->tglpengajuan=Carbon::now();
+        $cuti->save();
 
         flash()->success('Cuti telah terdaftar!');
 

@@ -14,7 +14,7 @@
 	<div class="form-group">
 		
 		{!! Form::model($penggajian=new \App\Penggajian, ['url'=>'penggajian']) !!}
-			@include('pages/penggajian/_form', ['submitButtonText'=>'Add Penggajian'])
+			@include('pages/penggajian/_form', ['submitButtonText'=>'Buat Penggajian'])
 		{!! Form::close() !!}
 
 		@include('errors/list')

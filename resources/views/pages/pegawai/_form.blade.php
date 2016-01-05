@@ -17,8 +17,12 @@
 <!-- Jenis Kelamin Form Input -->
 <div class="form-group">
 	{!! Form::label('jeniskelamin', 'Jenis Kelamin : ') !!}<br>
-	{!! Form::radio('jeniskelamin', 'Pria', null) !!} Pria 
-	{!! Form::radio('jeniskelamin', 'Wanita', null) !!} Wanita
+	<label class="radio-inline">
+		{!! Form::radio('jeniskelamin', 'Pria', null) !!} Pria
+	</label> 
+	<label class="radio-inline">
+		{!! Form::radio('jeniskelamin', 'Wanita', null) !!} Wanita
+	</label>
 </div>
 
 <div class="form-group">
@@ -37,19 +41,34 @@
 </div>
 
 <div class="form-group">
-	{!! Form::label('statuskawin', 'Status Kawin : ') !!}<br>
-	{!! Form::radio('statuskawin', 'Belum Kawin', null) !!} Belum Kawin 
-	{!! Form::radio('statuskawin', 'Sudah Kawin', null) !!} Sudah Kawin
+	{!! Form::label('statuskawin', 'Status Kawin : ') !!}<br> 
+	<label class="radio-inline">
+		{!! Form::radio('statuskawin', 'Sudah Kawin', null) !!} Sudah Kawin
+	</label>
+	<label class="radio-inline">
+		{!! Form::radio('statuskawin', 'Belum Kawin', null) !!} Belum Kawin
+	</label>
 </div>
 
 <div class="form-group">
 	{!! Form::label('pendidikanterakhir', 'Pendidikan Terakhir : ') !!}<br>
-	{!! Form::radio('pendidikanterakhir', 'SMP', null) !!} SMP 
-	{!! Form::radio('pendidikanterakhir', 'SMA', null) !!} SMA
-	{!! Form::radio('pendidikanterakhir', 'D', null) !!} D1/D2/D3
-	{!! Form::radio('pendidikanterakhir', 'S1', null) !!} S1
-	{!! Form::radio('pendidikanterakhir', 'S2', null) !!} S2 
-	{!! Form::radio('pendidikanterakhir', 'S3', null) !!} S3
+	<label class="radio-inline">
+		{!! Form::radio('pendidikanterakhir', 'SMP', null) !!} SMP 
+	</label>
+	<label class="radio-inline">
+		{!! Form::radio('pendidikanterakhir', 'SMA', null) !!} SMA
+	</label>
+	<label class="radio-inline">
+		{!! Form::radio('pendidikanterakhir', 'D', null) !!} D1/D2/D3
+	</label>
+	<label class="radio-inline">
+		{!! Form::radio('pendidikanterakhir', 'S1', null) !!} S1
+	</label>
+	<label class="radio-inline">
+		{!! Form::radio('pendidikanterakhir', 'S2', null) !!} S2 
+	</label>
+	<label class="radio-inline">
+		{!! Form::radio('pendidikanterakhir', 'S3', null) !!} S3
 </div>
 
 <div class="form-group">

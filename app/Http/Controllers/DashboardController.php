@@ -20,13 +20,28 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $cuti = \Auth::user()->cuti->where('status', 'Accepted')->where('pegawai_id', \Auth::user()->idpegawai)->count();
+        if(\Auth::user()->idpegawai==1)
+        {
+            $cuti = \App\Cuti::where('status', 'Pending')->count();
 
-        $lembur = \Auth::user()->lembur->where('status', 'Accepted')->where('pegawai_id', \Auth::user()->idpegawai)->count();
+            $lembur = \App\Lembur::where('status', 'Pending')->count();
+        }
+        else
+        {
+            $cuti = \App\Cuti::where('tglawal', '>', Carbon::now())
+                ->where('status', 'Accepted')
+                ->where('pegawai_id', \Auth::user()->idpegawai)
+                ->count();
 
-        $training = \Auth::user()->training->count();
+            $lembur = \App\Lembur::where('tgllembur', '>', Carbon::now()->subWeek())
+                ->where('tgllembur', '<', Carbon::now())
+                ->whereRaw('status = "Accepted" OR status = "Declined"')
+                ->where('pegawai_id', \Auth::user()->idpegawai)
+                ->count();
 
-        //dd($training);
+            $training = \Auth::user()->training()->future()->count();
+        }
+        
         return view('pages/dashboard/dashboard', compact('cuti', 'lembur', 'training'));
     }
 

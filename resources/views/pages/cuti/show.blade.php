@@ -45,6 +45,10 @@
 					<td>{{ $cuti->jeniscuti }}</td>
 				</tr>
 				<tr>
+					<td><strong>Tanggal Pengajuan</strong></td>
+					<td>{{ $cuti->tglpengajuan->toDateString() }}</td>
+				</tr>
+				<tr>
 					<td><strong>Tanggal Awal Cuti</strong></td>
 					<td>{{ $cuti->tglawal->toDateString() }}</td>
 				</tr>
@@ -55,6 +59,14 @@
 				<tr>
 					<td><strong>Nomor Surat</strong></td>
 					<td>{{ $cuti->nomorsurat }}</td>
+				</tr>
+				<tr>
+					<td><strong>Status</strong></td>
+					<td>{{ $cuti->status }}</td>
+				</tr>
+				<tr>
+					<td><strong>Alamat Cuti</strong></td>
+					<td>{{ $cuti->alamatcuti }}</td>
 				</tr>
 				<tr>
 					<td><strong>Keterangan</strong></td>

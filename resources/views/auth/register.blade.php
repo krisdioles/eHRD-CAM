@@ -18,150 +18,159 @@
 ?>
 
 @section('content')
-<div class="container-fluid" style="padding-top : 20px">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">Register</div>
-				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+<div class="col-md-8 col-md-offset-2">	
+<h2 class="sub-header">Buat Pegawai</h2>			
+	@if (count($errors) > 0)
+		<div class="alert alert-danger">
+			<strong>Whoops!</strong> There were some problems with your input.<br><br>
+			<ul>
+				@foreach ($errors->all() as $error)
+					<li>{{ $error }}</li>
+				@endforeach
+			</ul>
+		</div>
+	@endif
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Kode Pegawai</label>
-							<div class="col-md-6">
-								<input type="text" class="form-control" name="kodepegawai" id="kodepegawai" value="{{ $kodepegawai}}" readonly>
-							</div>
-						</div>
+	<div class="form-group">
+		<form role="form" method="POST" action="{{ url('/auth/register') }}">
+			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Nama</label>
-							<div class="col-md-6">
-								<input type="text" class="form-control" name="name" value="{{ old('name') }}">
-							</div>
-						</div>
+			<?php 
+				$kodepegawai = substr_replace(
+						DB::table('pegawai')->orderBy('created_at', 'desc')->pluck('kodepegawai'),
+						substr(DB::table('pegawai')->orderBy('created_at', 'desc')->pluck('kodepegawai'),3,3)+1,
+						6-strlen(substr(DB::table('pegawai')->orderBy('created_at', 'desc')->pluck('kodepegawai'),3,3)+1),
+						strlen(substr(DB::table('pegawai')->orderBy('created_at', 'desc')->pluck('kodepegawai'),3,3)+1)
+					);
+			?>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Alamat E-Mail</label>
-							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
-							</div>
-						</div>
+			<div class="form-group">
+				{!! Form::label('kodepegawai', 'Kode Pegawai : ') !!}
+				{!! Form::text('kodepegawai', $kodepegawai, ['class'=>'form-control', 'readonly']) !!}
+			</div>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
-							</div>
-						</div>
+			<!-- Pelanggaran for Pegawai Form Input -->
+			<div class="form-group">
+				{!! Form::label('nama', 'Nama Pegawai : ') !!}
+				{!! Form::text('nama', null, ['class'=>'form-control']) !!}
+			</div>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Konfirmasi Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password_confirmation">
-							</div>
-						</div>
+			<div class="form-group">
+				{!! Form::label('email', 'Email : ') !!}
+				{!! Form::text('email', null, ['class'=>'form-control']) !!}
+			</div>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Alamat</label>
-							<div class="col-md-6">
-								<textarea class="form-control" name="alamat" value="{{ old('alamat') }}" rows="3"></textarea>
-							</div>
-						</div>
+			<div class="form-group">
+				{!! Form::label('password', 'Password : ') !!}
+				{!! Form::password('password', ['class'=>'form-control']) !!}
+			</div>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Jenis Kelamin</label>
-							<div class="col-md-6">
-								<label class="radio-inline">
-								  <input type="radio" name="jeniskelamin" id="pria" value="Pria"> Pria
-								</label>
-								<label class="radio-inline">
-								  <input type="radio" name="jeniskelamin" id="wanita" value="Wanita"> Wanita
-								</label>
-							</div>
-						</div>
+			<div class="form-group">
+				{!! Form::label('password_confirmation', 'Konfirmasi Password : ') !!}
+				{!! Form::password('password_confirmation', ['class'=>'form-control']) !!}
+			</div>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Telepon</label>
-							<div class="col-md-6">
-								<input type="text" class="form-control" name="telepon" value="{{ old('telepon') }}">
-							</div>
-						</div>
+			<div class="form-group">
+				{!! Form::label('alamat', 'Alamat : ') !!}
+				{!! Form::textarea('alamat', null, ['class'=>'form-control']) !!}
+			</div>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Tanggal Lahir</label>
-							<div class="col-md-6">
-								<input type="date" class="form-control" name="tgllahir" value="{{ old('tgllahir') }}">
-							</div>
-						</div>
+			<!-- Jenis Kelamin Form Input -->
+			<div class="form-group">
+				{!! Form::label('jeniskelamin', 'Jenis Kelamin : ') !!}<br>
+				<label class="radio-inline">
+					{!! Form::radio('jeniskelamin', 'Pria', null) !!} Pria
+				</label> 
+				<label class="radio-inline">
+					{!! Form::radio('jeniskelamin', 'Wanita', null) !!} Wanita
+				</label>
+			</div>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Agama</label>
-							<div class="col-md-6">
-								<input type="text" class="form-control" name="agama" value="{{ old('agama') }}">
-							</div>
-						</div>
+			<div class="form-group">
+				{!! Form::label('telepon', 'Telepon : ') !!}
+				{!! Form::text('telepon', null, ['class'=>'form-control']) !!}
+			</div>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Status Kawin</label>
-							<div class="col-md-6">
-								<label class="radio-inline">
-								  <input type="radio" name="statuskawin" id="sudahkawin" value="Sudah Kawin"> Sudah Kawin
-								</label>
-								<label class="radio-inline">
-								  <input type="radio" name="statuskawin" id="belumkawin" value="Belum Kawin"> Belum Kawin
-								</label>
-							</div>
-						</div>
+			<div class="form-group">
+				{!! Form::label('tgllahir', 'Tanggal Lahir : ') !!}
+				{!! Form::input('date', 'tgllahir', null, ['class'=>'form-control']) !!}
+			</div>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Pendidikan Terakhir</label>
-							<div class="col-md-6">
-								<label class="radio-inline">
-								  <input type="radio" name="pendidikanterakhir" id="smp" value="SMP"> SMP
-								</label>
-								<label class="radio-inline">
-								  <input type="radio" name="pendidikanterakhir" id="sma" value="SMA"> SMA
-								</label>
-								<label class="radio-inline">
-								  <input type="radio" name="pendidikanterakhir" id="d" value="D"> D1/D2/D3
-								</label>
-								<label class="radio-inline">
-								  <input type="radio" name="pendidikanterakhir" id="s1" value="S1"> S1
-								</label>
-								<label class="radio-inline">
-								  <input type="radio" name="pendidikanterakhir" id="s2" value="S2"> S2
-								</label>
-								<label class="radio-inline">
-								  <input type="radio" name="pendidikanterakhir" id="s3" value="S3"> S3
-								</label>
-							</div>
-						</div>
+			<div class="form-group">
+				{!! Form::label('agama', 'Agama : ') !!}
+				{!! Form::text('agama', null, ['class'=>'form-control']) !!}
+			</div>
 
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">
-									Register
-								</button>
-							</div>
-						</div>
-					</form>
+			<div class="form-group">
+				{!! Form::label('statuskawin', 'Status Kawin : ') !!}<br> 
+				<label class="radio-inline">
+					{!! Form::radio('statuskawin', 'Sudah Kawin', null) !!} Sudah Kawin
+				</label>
+				<label class="radio-inline">
+					{!! Form::radio('statuskawin', 'Belum Kawin', null) !!} Belum Kawin
+				</label>
+			</div>
+
+			<div class="form-group">
+				{!! Form::label('pendidikanterakhir', 'Pendidikan Terakhir : ') !!}<br>
+				<label class="radio-inline">
+					{!! Form::radio('pendidikanterakhir', 'SMP', null) !!} SMP 
+				</label>
+				<label class="radio-inline">
+					{!! Form::radio('pendidikanterakhir', 'SMA', null) !!} SMA
+				</label>
+				<label class="radio-inline">
+					{!! Form::radio('pendidikanterakhir', 'D', null) !!} D1/D2/D3
+				</label>
+				<label class="radio-inline">
+					{!! Form::radio('pendidikanterakhir', 'S1', null) !!} S1
+				</label>
+				<label class="radio-inline">
+					{!! Form::radio('pendidikanterakhir', 'S2', null) !!} S2 
+				</label>
+				<label class="radio-inline">
+					{!! Form::radio('pendidikanterakhir', 'S3', null) !!} S3
+			</div>
+
+			<div class="form-group">
+				{!! Form::label('jabatan', 'Jabatan : ') !!}
+				{!! Form::text('jabatan', null, ['class'=>'form-control']) !!}
+			</div>
+
+			<div class="form-group">
+				{!! Form::label('gajipokok', 'Gaji Pokok : ') !!}
+				<div class="input-group">
+					<div class="input-group-addon">Rp. </div>
+					{!! Form::text('gajipokok', null, ['class'=>'form-control']) !!}
 				</div>
 			</div>
-		</div>
+
+			<div class="form-group">
+				{!! Form::label('tunjangantetap', 'Tunjangan Tetap : ') !!}
+				<div class="input-group">
+					<div class="input-group-addon">Rp. </div>
+					{!! Form::text('tunjangantetap', null, ['class'=>'form-control']) !!}
+				</div>
+			</div>
+
+			<div class="form-group">
+				{!! Form::label('hakcuti', 'Hak Cuti : ') !!}
+				<div class="input-group">
+					{!! Form::text('hakcuti', null, ['class'=>'form-control']) !!}
+					<div class="input-group-addon">Hari</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="form-group">
+					{!! Form::submit('Buat Pegawai', ['class'=>'btn btn-primary form-control']) !!}
+				</div>
+			</div>
+		</form>
 	</div>
 </div>
+
 @endsection
 
 @section('spjs')

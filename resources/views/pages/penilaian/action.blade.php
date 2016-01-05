@@ -5,7 +5,7 @@
 </div>
 
 <div class="form-group">
-	<form action="{{ url('/penilaian/'.$penilaian->pegawai_id.'/edit') }}">
+	<form action="{{ url('/penilaian/'.$penilaian->idpenilaian.'/edit') }}">
 	    <button class="btn-xs btn-link" type="submit">Edit</button>
 	</form>
 </div>

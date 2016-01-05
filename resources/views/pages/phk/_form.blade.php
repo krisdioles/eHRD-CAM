@@ -1,8 +1,10 @@
-<!-- Pelanggaran for Pegawai Form Input -->
-<div class="form-group">
-	{!! Form::label('namapegawai', 'Nama Pegawai : ') !!}
-	{!! Form::select('pegawai_id', $pegawai, null, ['class'=>'form-control']) !!}
-</div>
+@if($submitButtonText=='Buat PHK')
+	<!-- Pelanggaran for Pegawai Form Input -->
+	<div class="form-group">
+		{!! Form::label('namapegawai', 'Nama Pegawai : ') !!}
+		{!! Form::select('pegawai_id', $pegawai, null, ['class'=>'form-control']) !!}
+	</div>
+@endif
 
 <div class="form-group">
 	{!! Form::label('tglphk', 'Tanggal PHK : ') !!}

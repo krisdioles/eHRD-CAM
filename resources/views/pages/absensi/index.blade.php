@@ -138,6 +138,110 @@
       </div>
 
     @endif
+    <br><br><br><br>
+    <div class="col-lg-12">
+        <div class="table-responsive">
+            <table class="table table-hover" id="absensi" cellspacing="0" width="100%">
+              <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Waktu Masuk</th>
+                    <th>Waktu Pulang</th>
+                    <th>Status Masuk</th>
+                    <th>Status Pulang</th>
+                    <th></th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                    <th>#</th>
+                    <th>Waktu Masuk</th>
+                    <th>Waktu Pulang</th>
+                    <th>Status Masuk</th>
+                    <th>Status Pulang</th>
+                  <th></th>
+                </tr>
+              </tfoot>
+            </table>    
+        </div>
+    </div>
+
+    @push('scripts')
+    <script>
+    $(document).ready(function() {
+        // Setup - add a text input to each footer cell
+        $('#absensi tfoot th').each( function () {
+            var title = $(this).text();
+            $(this).html( '<input type="text" />' );
+        } );
+
+        var table = $('#absensi').DataTable({
+            dom: 'Bfrtlip',
+            buttons: [
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'copyFlash',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'csvFlash',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'excelFlash',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'pdfFlash',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                'colvis',
+            ],
+            columnDefs: [{
+                targets: 0,
+                visible: false
+            }],
+            order: [[ 1, 'desc' ]],
+            processing: true,
+            serverSide: true,
+            ajax: '{!! route('absensi.data') !!}',
+            columns: [
+                { data: 'idabsensi', name: 'absensi.idabsensi' },
+                { data: 'waktumasuk', name: 'absensi.waktumasuk' },
+                { data: 'waktupulang', name: 'absensi.waktupulang' },
+                { data: 'statusmasuk', name: 'absensi.statusmasuk' },
+                { data: 'statuspulang', name: 'absensi.statuspulang' },
+                { data: 'action', name: 'action', orderable: false, searchable: false }
+            ],
+        });
+        // Apply the search
+        table.columns().every( function () {
+            var that = this;
+       
+            $( 'input', this.footer() ).on( 'keyup change', function () {
+                if ( that.search() !== this.value ) {
+                    that
+                        .search( this.value )
+                        .draw();
+                }
+            });
+        });
+    });
+    </script>
+    @endpush
 
   </div>
 @endif

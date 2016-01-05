@@ -25,9 +25,16 @@ class AbsensiController extends Controller
 
     public function getData()
     {
-        $absensi = Absensi::select('*')
-            ->join('pegawai', 'absensi.pegawai_id', '=', 'pegawai.idpegawai')
-            ;
+        if(\Auth::user()->idpegawai==1)
+        {
+            $absensi = Absensi::select('*')
+                ->join('pegawai', 'absensi.pegawai_id', '=', 'pegawai.idpegawai')
+                ;
+        }
+        else
+        {
+            $absensi = \Auth::user()->absensi;
+        }
 
         return Datatables::of($absensi)
             ->editColumn('waktupulang', function ($absensi) {

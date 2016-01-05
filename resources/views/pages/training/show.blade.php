@@ -15,31 +15,53 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 	<h2 class="sub-header">Training Detail</h2>
 
-	<div class="col-md-3">
-		<h4><strong>Nama Training</strong></h4>
-		<h4><strong>Nomor Surat</strong></h4>
-		<h4><strong>Lokasi</strong></h4>
-		<h4><strong>Tanggal Training</strong></h4>
-		<h4><strong>Penyelenggara</strong></h4>
-		<h4><strong>Anggaran</strong></h4>
-		<h4><strong>Keterangan</strong></h4>
-		<h4><strong>Peserta Training</strong></h4>
+	<div class="col-md-9">
+		<div class="table-responsive">
+			<table cellspacing="10" style="width:400px; border-collapse: separate; border-spacing: 15px;">
+				<tr>
+					<td><strong>Nama Training</strong></td>
+					<td>{{ $training->namatraining }}</td>
+				</tr>
+				<tr>
+					<td><strong>Nomor Surat</strong></td>
+					<td>{{ $training->nomorsurat }}</td>
+				</tr>
+				<tr>
+					<td><strong>Lokasi</strong></td>
+					<td>{{ $training->lokasi }}</td>
+				</tr>
+				<tr>
+					<td><strong>Tanggal training</strong></td>
+					<td>{{ $training->tgltraining->toDateString() }}</td>
+				</tr>
+				<tr>
+					<td><strong>Penyelenggara</strong></td>
+					<td>{{ $training->penyelenggara }}</td>
+				</tr>
+				<tr>
+					<td><strong>Peserta Training</strong></td>
+					<td>
+						@foreach ($training->pegawai as $pegawai)
+							{{ $pegawai->nama }}<br>
+						@endforeach
+					</td>
+				</tr>
+				@if(Auth::user()->idpegawai==1)
+					<tr>
+						<td><strong>Anggaran</strong></td>
+						<td>{{ $training->anggaran }}</td>
+					</tr>
+				@endif
+				<tr>
+					<td><strong>Keterangan</strong></td>
+					<td>{{ $training->keterangan }}</td>
+				</tr>
+			</table>
+			<br>
+			<a class="btn btn-default" href="/eHRD-CAM/public/training" role="button">Kembali</a>
+		</div>
 	</div>
 
-	<div class="col-md-3">
-	    <h4>{{ $training->namatraining }}</h4>
-	    <h4>{{ $training->nomorsurat }}</h4>
-		<h4>{{ $training->lokasi }}</h4>
-		<h4>{{ $training->tgltraining->toDateString() }}</h4>
-		<h4>{{ $training->penyelenggara }}</h4>
-		<h4>Rp {{ $training->anggaran }}</h4>
-		<h4>{{ $training->keterangan }}</h4>
-		@unless($training->pegawai->isEmpty())
-			@foreach ($training->pegawai as $pegawai)
-				<h4>{{ $pegawai->nama }}</h4>
-			@endforeach
-		@endunless
-	</div>
 </div>
 @endsection
 

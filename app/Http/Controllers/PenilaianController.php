@@ -95,6 +95,8 @@ class PenilaianController extends Controller
     public function store(PenilaianRequest $request)
     {
         $penilaian=Penilaian::create($request->all());
+        $penilaian->tglpenilaian=Carbon::now();
+        $penilaian->save();
 
         flash()->success('Penilaian telah terdaftar!');
 

@@ -98,6 +98,7 @@ $(document).ready(function() {
 	    processing: true,
 	    serverSide: true,
 	    ordering: false,
+	    // searching: false,
 	    ajax: '{!! route('dashboard.cuti') !!}',
 	    columns: [
             { data: 'jeniscuti', name: 'jeniscuti' },

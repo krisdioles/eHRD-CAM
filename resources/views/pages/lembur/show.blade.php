@@ -39,6 +39,10 @@
 					<td>{{ $lembur->pegawai->nama }}</td>
 				</tr>
 				<tr>
+					<td><strong>Tanggal Pengajuan</strong></td>
+					<td>{{ $lembur->created_at->toDateString() }}</td>
+				</tr>
+				<tr>
 					<td><strong>Tanggal Lembur</strong></td>
 					<td>{{ $lembur->tgllembur->toDateString() }}</td>
 				</tr>
@@ -49,6 +53,10 @@
 				<tr>
 					<td><strong>Nomor SPKL</strong></td>
 					<td>{{ $lembur->nomorspkl }}</td>
+				</tr>
+				<tr>
+					<td><strong>Status</strong></td>
+					<td>{{ $lembur->status }}</td>
 				</tr>
 				<tr>
 					<td><strong>Keterangan</strong></td>

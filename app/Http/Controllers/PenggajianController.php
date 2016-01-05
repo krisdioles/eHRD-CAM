@@ -23,7 +23,7 @@ class PenggajianController extends Controller
     {
         //$pegawai = \App\Pegawai::all();
 
-        return view('pages/penggajian/index');
+        return view('pages/penggajian/index', compact('penggajian'));
     }
 
     public function getData()
@@ -37,9 +37,15 @@ class PenggajianController extends Controller
         //         }
         //     );
 
-        $penggajian=Penggajian::select('*')
-                    ->join('pegawai', 'penggajian.pegawai_id', '=', 'pegawai.idpegawai')
-                    ->get();
+        if(\Auth::user()->idpegawai==1)
+        {
+            $penggajian=Penggajian::select('*')
+                        ->join('pegawai', 'penggajian.pegawai_id', '=', 'pegawai.idpegawai');
+        }
+        else
+        {
+            $penggajian = \Auth::user()->penggajian;
+        }
     
         return Datatables::of($penggajian)
             ->editColumn('tglpenggajian', function ($penggajian) {
@@ -95,7 +101,10 @@ class PenggajianController extends Controller
     public function store(PenggajianRequest $request)
     {
         $penggajian=Penggajian::create($request->all());
-        $penggajian->jumlahpenggajian=\Auth::user()->gajipokok + \Auth::user()->gajipokok + $penggajian->biayabonus - $penggajian->biayapotongan;
+
+        $pegawai=$penggajian->pegawai;
+
+        $penggajian->jumlahpenggajian=$pegawai->gajipokok + $pegawai->tunjangantetap + $penggajian->biayabonus - $penggajian->biayapotongan;
         $penggajian->save();
         //dd($penggajian->jumlahpenggajian);
         flash()->overlay('Penggajian telah terdaftar!');
