@@ -31,6 +31,7 @@ class Cuti extends Model
     'tglakhir', 
     'nomorsurat', 
     'status', 
+    'keterangan',
     'pegawai_id'
     ];
 
