@@ -1,4 +1,4 @@
-@if($submitButtonText=='Buat PHK')
+@if($submitButtonText=='Add PHK')
 	<!-- Pelanggaran for Pegawai Form Input -->
 	<div class="form-group">
 		{!! Form::label('namapegawai', 'Nama Pegawai : ') !!}

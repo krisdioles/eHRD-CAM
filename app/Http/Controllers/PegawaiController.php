@@ -80,10 +80,6 @@ class PegawaiController extends Controller
                     base_path() . '/public/images/', $imageName
                 );
             }
-            else
-            {
-                return redirect('dashboard/upload');
-            }
 
             return redirect('dashboard');
         }
