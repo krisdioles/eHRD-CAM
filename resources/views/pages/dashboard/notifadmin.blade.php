@@ -1,4 +1,4 @@
-<div class="col-lg-4 col-md-3 col-md-offset-2">
+<div class="col-lg-4 col-md-4 col-md-offset-2">
     <div class="panel panel-success">
         <div class="panel-heading">
             <div class="row">
@@ -20,7 +20,7 @@
         </a>
     </div>
 </div>
-<div class="col-lg-4 col-md-3">
+<div class="col-lg-4 col-md-4">
     <div class="panel panel-danger">
         <div class="panel-heading">
             <div class="row">
