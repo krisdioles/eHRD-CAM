@@ -84,22 +84,6 @@ class AuthController extends Controller
             'statusaktif' => 'Aktif',
         ]);
 
-        // \App\Penilaian::create([
-        //     'pegawai_id' => $pegawai->idpegawai,
-        //     'nilaikompetensi' => '0',
-        //     'nilaikedisiplinan' => '0',
-        //     'nilaiperilaku' => '0',
-        //     'keterangan' => 'baru',
-        // ]);
-
-        // \App\Penggajian::create([
-        //     'pegawai_id' => $pegawai->idpegawai,
-        //     'biayabonus' => '0',
-        //     'keteranganbonus' => 'baru',
-        //     'biayapotongan' => '0',
-        //     'keteranganpotongan' => 'baru',
-        // ]);
-
         \App\Absensi::create([
             'pegawai_id' => $pegawai->idpegawai,
             'tglabsen' => Carbon::now(),

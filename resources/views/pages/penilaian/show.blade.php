@@ -40,6 +40,10 @@
 					<td>{{ $penilaian->pegawai->nama }}</td>
 				</tr>
 				<tr>
+					<td><strong>Tanggal Penilaian</strong></td>
+					<td>{{ $penilaian->tglpenilaian->format('d-m-Y') }}</td>
+				</tr>
+				<tr>
 					<td><strong>Nilai Kompetensi</strong></td>
 					<td>{{ $penilaian->nilaikompetensi }}</td>
 				</tr>
