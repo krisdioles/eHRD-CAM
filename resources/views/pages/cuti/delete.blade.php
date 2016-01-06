@@ -44,12 +44,20 @@
 					<td>{{ $cuti->nomorsurat }}</td>
 				</tr>
 				<tr>
+					<td><strong>Status</strong></td>
+					<td>{{ $cuti->status }}</td>
+				</tr>
+				<tr>
 					<td><strong>Alamat Cuti</strong></td>
 					<td>{{ $cuti->alamatcuti }}</td>
 				</tr>
 				<tr>
-					<td><strong>Status</strong></td>
-					<td>{{ $cuti->status }}</td>
+					<td><strong>Keterangan</strong></td>
+					@if($cuti->keterangan!=NULL)
+						<td>{{ $cuti->keterangan }}</td>
+					@else
+						<td>-</td>
+					@endif
 				</tr>
 			</table>
 		</div>

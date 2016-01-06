@@ -66,6 +66,10 @@
 					<td><strong>Alamat Cuti</strong></td>
 					<td>{{ $cuti->alamatcuti }}</td>
 				</tr>
+				<tr>
+					<td><strong>Keterangan</strong></td>
+					<td>{{ $cuti->keterangan }}</td>
+				</tr>
 			</table>
 			<br>
 			<a class="btn btn-default" href="/eHRD-CAM/public/cuti" role="button">Kembali</a>

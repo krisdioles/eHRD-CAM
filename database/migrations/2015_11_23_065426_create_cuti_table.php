@@ -21,6 +21,7 @@ class CreateCutiTable extends Migration
 		 $table->timestamp('tglakhir');
          $table->string('alamatcuti');
 		 $table->string('nomorsurat');
+         $table->string('keterangan');
          $table->string('status');
          $table->timestamps();
 		 
