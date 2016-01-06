@@ -13,7 +13,7 @@
 	@if(Auth::user()->idpegawai==1)
 		<h2 class="sub-header">Edit Lembur : {!! $lembur->pegawai->nama !!}</h2>
 	@else
-		<h2 class="sub-header">Edit Lembur : {!! $lembur->tgllembur !!}</h2>
+		<h2 class="sub-header">Edit Lembur</h2>
 	@endif
 
 	<div class="form-group">
