@@ -10,7 +10,7 @@
 
 @section('content')
 <div class="col-md-8 col-md-offset-2">
-	<h2 class="sub-header">Create Cuti</h2>
+	<h2 class="sub-header">Add Cuti</h2>
 	<div class="form-group">
 
 		{!! Form::model($lembur=new \App\Lembur, ['url'=>'lembur']) !!}

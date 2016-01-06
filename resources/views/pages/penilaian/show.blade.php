@@ -14,7 +14,7 @@
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-	<h2 class="sub-header">Penilaian Detail</h2>
+	<h2 class="sub-header">Detail Penilaian</h2>
 
 	{{-- <div class="col-md-3">
 		<h4><strong>Nama Pegawai</strong></h4>
