@@ -77,24 +77,28 @@ class AuthController extends Controller
             'agama' => $data['agama'],
             'statuskawin' => $data['statuskawin'],
             'pendidikanterakhir' => $data['pendidikanterakhir'],
+            'jabatan' => $data['jabatan'],
+            'gajipokok' => $data['gajipokok'],
+            'tunjangantetap' => $data['tunjangantetap'],
+            'hakcuti' => $data['hakcuti'],
             'statusaktif' => 'Aktif',
         ]);
 
-        \App\Penilaian::create([
-            'pegawai_id' => $pegawai->idpegawai,
-            'nilaikompetensi' => '0',
-            'nilaikedisiplinan' => '0',
-            'nilaiperilaku' => '0',
-            'keterangan' => 'baru',
-        ]);
+        // \App\Penilaian::create([
+        //     'pegawai_id' => $pegawai->idpegawai,
+        //     'nilaikompetensi' => '0',
+        //     'nilaikedisiplinan' => '0',
+        //     'nilaiperilaku' => '0',
+        //     'keterangan' => 'baru',
+        // ]);
 
-        \App\Penggajian::create([
-            'pegawai_id' => $pegawai->idpegawai,
-            'biayabonus' => '0',
-            'keteranganbonus' => 'baru',
-            'biayapotongan' => '0',
-            'keteranganpotongan' => 'baru',
-        ]);
+        // \App\Penggajian::create([
+        //     'pegawai_id' => $pegawai->idpegawai,
+        //     'biayabonus' => '0',
+        //     'keteranganbonus' => 'baru',
+        //     'biayapotongan' => '0',
+        //     'keteranganpotongan' => 'baru',
+        // ]);
 
         \App\Absensi::create([
             'pegawai_id' => $pegawai->idpegawai,

@@ -20,7 +20,7 @@
 @section('content')
 
 <div class="col-md-8 col-md-offset-2">	
-<h2 class="sub-header">Buat Pegawai</h2>			
+<h2 class="sub-header">Add Pegawai</h2>			
 	@if (count($errors) > 0)
 		<div class="alert alert-danger">
 			<strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -52,8 +52,8 @@
 
 			<!-- Pelanggaran for Pegawai Form Input -->
 			<div class="form-group">
-				{!! Form::label('nama', 'Nama Pegawai : ') !!}
-				{!! Form::text('nama', null, ['class'=>'form-control']) !!}
+				{!! Form::label('name', 'Nama Pegawai : ') !!}
+				{!! Form::text('name', null, ['class'=>'form-control']) !!}
 			</div>
 
 			<div class="form-group">
@@ -164,7 +164,7 @@
 
 			<div class="form-group">
 				<div class="form-group">
-					{!! Form::submit('Buat Pegawai', ['class'=>'btn btn-primary form-control']) !!}
+					{!! Form::submit('Add Pegawai', ['class'=>'btn btn-primary form-control']) !!}
 				</div>
 			</div>
 		</form>
