@@ -14,7 +14,7 @@
 	<div class="form-group">
 		
 		{!! Form::model($absensi, ['method' => 'PATCH' ,'url'=>'absensi/'.$absensi->idabsensi]) !!}
-			@include('pages/absensi/_form', ['submitButtonText'=>'Update Absensi'])
+			@include('pages/absensi/_form', ['submitButtonText'=>'Edit Absensi'])
 		{!! Form::close() !!}
 
 		@include('errors/list')

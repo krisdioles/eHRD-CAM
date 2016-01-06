@@ -13,7 +13,7 @@
         <tr>
           <th>#</th>
           <th>Tanggal Lembur</th>
-          <th>Jangka Waktu</th>
+          <th>Jangka Waktu (jam)</th>
           <th>Status</th>
 
           @if(Auth::user()->idpegawai==1)
@@ -29,7 +29,7 @@
         <tr>
           <th>#</th>
           <th>Tanggal Lembur</th>
-          <th>Jangka Waktu</th>
+          <th>Jangka Waktu (jam)</th>
           <th>Status</th>
           @if(Auth::user()->idpegawai==1)
             <th>Diajukan Oleh</th>

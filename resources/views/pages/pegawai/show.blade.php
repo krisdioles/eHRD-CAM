@@ -65,15 +65,15 @@
 				</tr>
 				<tr>
 					<td><strong>Gaji Pokok</strong></td>
-					<td>{{ $pegawai->gajipokok }}</td>
+					<td>Rp. {{ $pegawai->gajipokok }}</td>
 				</tr>
 				<tr>
 					<td><strong>Tunjangan Tetap</strong></td>
-					<td>{{ $pegawai->tunjangantetap }}</td>
+					<td>Rp. {{ $pegawai->tunjangantetap }}</td>
 				</tr>
 				<tr>
 					<td><strong>Hak Cuti</strong></td>
-					<td>{{ $pegawai->hakcuti }}</td>
+					<td>{{ $pegawai->hakcuti }} hari</td>
 				</tr>
 				<tr>
 					<td><strong>Status Aktif</strong></td>

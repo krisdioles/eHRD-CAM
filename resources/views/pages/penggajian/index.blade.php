@@ -16,7 +16,7 @@
           @endif
           <th>Tanggal Penggajian</th>
           <th>Periode Penggajian</th>
-          <th>Jumlah Penggajian</th>
+          <th>Jumlah Penggajian (Rp.)</th>
           <th width="17%"></th>
 
         </tr>
@@ -29,7 +29,7 @@
           @endif
           <th>Tanggal Penggajian</th>
           <th>Periode Penggajian</th>
-          <th>Jumlah Penggajian</th>
+          <th>Jumlah Penggajian (Rp.)</th>
           <th width="17%"></th>
         </tr>
       </tfoot>

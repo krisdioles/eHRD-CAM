@@ -11,7 +11,7 @@
 @section('content')
 <div class="col-md-8 col-md-offset-2">
 	@if(Auth::user()->idpegawai==1)
-		<h2 class="sub-header">Pemilik Cuti : {!! $cuti->pegawai->nama !!}</h2>
+		<h2 class="sub-header">Edit Cuti : {!! $cuti->pegawai->nama !!}</h2>
 	@else
 		<h2 class="sub-header">Edit Cuti : {!! $cuti->jeniscuti !!}</h2>
 	@endif

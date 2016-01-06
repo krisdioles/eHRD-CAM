@@ -7,7 +7,7 @@
                 </div>
                 <div class="col-xs-9 text-right">
                     <span class="badge">{{ $training }}</span>
-                    <div><br>Training Anda!</div>
+                    <div><br>Training Untuk Anda!</div>
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-xs-9 text-right">
                     <span class="badge">{{ $cuti }}</span>
-                    <div><br>Cuti Anda!</div>
+                    <div><br>Permintaan Cuti Anda Diterima!</div>
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-xs-9 text-right">
                     <span class="badge">{{ $lembur }}</span>
-                    <div><br>Lembur Anda!</div>
+                    <div><br>Lembur Anda Minggu Ini Diterima!</div>
                 </div>
             </div>
         </div>

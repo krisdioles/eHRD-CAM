@@ -35,7 +35,7 @@ class DashboardController extends Controller
 
             $lembur = \App\Lembur::where('tgllembur', '>', Carbon::now()->subWeek())
                 ->where('tgllembur', '<', Carbon::now())
-                ->whereRaw('status = "Accepted" OR status = "Declined"')
+				->where('status', 'Accepted')
                 ->where('pegawai_id', \Auth::user()->idpegawai)
                 ->count();
 

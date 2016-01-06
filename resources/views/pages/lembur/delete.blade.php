@@ -29,7 +29,7 @@
 				</tr>
 				<tr>
 					<td><strong>Jangka Waktu</strong></td>
-					<td>{{ $lembur->jangkawaktu }}</td>
+					<td>{{ $lembur->jangkawaktu }} jam</td>
 				</tr>
 				<tr>
 					<td><strong>Nomor SPKL</strong></td>

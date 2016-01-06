@@ -15,7 +15,7 @@
             <th>Lokasi</th>
             <th>Tanggal Training</th>
             @if(Auth::user()->idpegawai==1)
-                <th>Anggaran</th>
+                <th>Anggaran (Rp.)</th>
             @endif
           <th width="17%"></th>
         </tr>
@@ -27,7 +27,7 @@
             <th>Lokasi</th>
             <th>Tanggal Training</th>
             @if(Auth::user()->idpegawai==1)
-                <th>Anggaran</th>
+                <th>Anggaran (Rp.)</th>
             @endif
             <th width="17%"></th>
         </tr>

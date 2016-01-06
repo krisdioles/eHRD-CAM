@@ -14,7 +14,7 @@
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-	<h2 class="sub-header">Penggajian Detail</h2>
+	<h2 class="sub-header">Detail Penggajian</h2>
 
 	<div class="col-md-9">
 		<div class="table-responsive">
@@ -33,31 +33,47 @@
 				</tr>
 				<tr>
 					<td><strong>Gaji Pokok</strong></td>
-					<td>{{ $penggajian->pegawai->gajipokok }}</td>
+					<td>Rp. {{ $penggajian->pegawai->gajipokok }}</td>
 				</tr>
 				<tr>
 					<td><strong>Tunjangan Tetap</strong></td>
-					<td>{{ $penggajian->pegawai->tunjangantetap }}</td>
+					<td>Rp. {{ $penggajian->pegawai->tunjangantetap }}</td>
 				</tr>
 				<tr>
 					<td><strong>Biaya Bonus</strong></td>
-					<td>{{ $penggajian->biayabonus }}</td>
+					<td>Rp. {{ $penggajian->biayabonus }}</td>
+				</tr>
+				<tr>
+					<td><strong>Keterangan Bonus</strong></td>
+					<td>{{ $penggajian->keteranganbonus }}</td>
 				</tr>
 				<tr>
 					<td><strong>Biaya Potongan</strong></td>
-					<td>{{ $penggajian->biayapotongan }}</td>
+					<td>Rp. {{ $penggajian->biayapotongan }}</td>
+				</tr>
+				<tr>
+					<td><strong>Keterangan Potongan</strong></td>
+					<td>{{ $penggajian->keteranganpotongan }}</td>
 				</tr>
 				<tr>
 					<td><strong>Jumlah Penggajian</strong></td>
-					<td>{{ $penggajian->jumlahpenggajian }}</td>
+					<td>Rp. {{ $penggajian->jumlahpenggajian }}</td>
 				</tr>
 				<tr>
-					<td><strong>Keterangan</strong></td>
-					@if($penggajian->keterangan!=NULL)
-						<td>{{ $penggajian->keterangan }}</td>
-					@else
-						<td>-</td>
-					@endif
+					<td><strong>Cara Bayar</strong></td>
+					<td>{{ $penggajian->carabayar }}</td>
+				</tr>
+				<tr>
+					<td><strong>Nama Bank</strong></td>
+					<td>{{ $penggajian->namabank }}</td>
+				</tr>
+				<tr>
+					<td><strong>Nomor Rekening</strong></td>
+					<td>{{ $penggajian->norekening }}</td>
+				</tr>
+				<tr>
+					<td><strong>Atas Nama</strong></td>
+					<td>{{ $penggajian->namarekening }}</td>
 				</tr>
 			</table>
 		</div>

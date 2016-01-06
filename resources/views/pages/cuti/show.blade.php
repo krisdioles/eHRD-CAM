@@ -21,7 +21,6 @@
 		<h4><strong>Tanggal Awal Cuti</strong></h4>
 		<h4><strong>Tanggal Akhir Cuti</strong></h4>
 		<h4><strong>Nomor Surat</strong></h4>
-		<h4><strong>Keterangan</strong></h4>
 	</div>
 
 	<div class="col-md-3">
@@ -30,7 +29,6 @@
 		<h4>{{ $cuti->tglawal->toDateString() }}</h4>
 		<h4>{{ $cuti->tglakhir->toDateString() }}</h4>
 		<h4>{{ $cuti->nomorsurat }}</h4>
-		<h4>{{ $cuti->keterangan }}</h4>
 	</div> --}}
 
 	<div class="col-md-9">
@@ -67,10 +65,6 @@
 				<tr>
 					<td><strong>Alamat Cuti</strong></td>
 					<td>{{ $cuti->alamatcuti }}</td>
-				</tr>
-				<tr>
-					<td><strong>Keterangan</strong></td>
-					<td>{{ $cuti->keterangan }}</td>
 				</tr>
 			</table>
 			<br>
