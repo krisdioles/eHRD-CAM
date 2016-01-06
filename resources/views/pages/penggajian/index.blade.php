@@ -37,7 +37,7 @@
     </table>
 
     @if(Auth::user()->idpegawai==1)
-      <a class="btn btn-default" href="{{ url('/penggajian/create') }}" role="button">Create</a>
+      <a class="btn btn-default" href="{{ url('/penggajian/create') }}" role="button">Add</a>
     @endif
     
   </div>

@@ -14,7 +14,7 @@
 	<div class="form-group">
 
 		{!! Form::model($lembur=new \App\Lembur, ['url'=>'lembur']) !!}
-			@include('pages/lembur/_form', ['submitButtonText'=>'Daftar Lembur'])
+			@include('pages/lembur/_form', ['submitButtonText'=>'Add Lembur'])
 		{!! Form::close() !!}
 
 		@include('errors/list')

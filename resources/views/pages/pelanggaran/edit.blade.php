@@ -36,7 +36,7 @@
 			</div>
 
 			<div class="form-group">
-				{!! Form::submit('Ubah Pelanggaran', ['class'=>'btn btn-primary form-control']) !!}
+				{!! Form::submit('Edit Pelanggaran', ['class'=>'btn btn-primary form-control']) !!}
 			</div>
 		{!! Form::close() !!}
 

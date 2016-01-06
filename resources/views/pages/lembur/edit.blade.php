@@ -19,7 +19,7 @@
 	<div class="form-group">
 		
 		{!! Form::model($lembur, ['method' => 'PATCH' ,'url'=>'lembur/'.$lembur->idlembur]) !!}
-			@include('pages/lembur/_form', ['submitButtonText'=>'Ubah Lembur'])
+			@include('pages/lembur/_form', ['submitButtonText'=>'Edit Lembur'])
 		{!! Form::close() !!}
 
 		@include('errors/list')

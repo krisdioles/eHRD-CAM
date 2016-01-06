@@ -24,8 +24,7 @@
           <h3 class="sub-header"><strong>{{ \Auth::user()->nama }}</strong></h3>
           <h4>Kode Pegawai : {{ \Auth::user()->kodepegawai }}</h4>
           <h4>Email : {{ \Auth::user()->email }}</h4>
-          <h4>Alamat : {{ \Auth::user()->alamat }}</h4>
-          <h4>Agama : {{ \Auth::user()->agama }}</h4>
+          <h4>Jabatan : {{ \Auth::user()->jabatan }}</h4>
           <br>
           <a href="/eHRD-CAM/public/dashboard/detailprofil"><h4>Info Profil Selengkapnya...</h4></a>
         </div>

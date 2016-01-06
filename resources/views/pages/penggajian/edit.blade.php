@@ -14,7 +14,7 @@
 	<div class="form-group">
 		
 		{!! Form::model($penggajian, ['method' => 'PATCH' ,'url'=>'penggajian/'.$penggajian->idpenggajian]) !!}
-			@include('pages/penggajian/_form', ['submitButtonText'=>'Update Penggajian'])
+			@include('pages/penggajian/_form', ['submitButtonText'=>'Edit Penggajian'])
 		{!! Form::close() !!}
 
 		@include('errors/list')

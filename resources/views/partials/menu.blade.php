@@ -14,14 +14,14 @@
           <ul class="nav nav-sidebar">
           @if(Auth::user()->idpegawai==1)
             <li class="{{ Request::segment(1) === 'pegawai' ? 'active' : null }}"><a href="/eHRD-CAM/public/pegawai">Pegawai</a></li>
+            <li class="{{ Request::segment(1) === 'penilaian' ? 'active' : null }}"><a href="/eHRD-CAM/public/penilaian">Penilaian</a></li>
+            <li class="{{ Request::segment(1) === 'pelanggaran' ? 'active' : null }}"><a href="/eHRD-CAM/public/pelanggaran">Pelanggaran</a></li>
           @endif
             <li class="{{ Request::segment(1) === 'penggajian' ? 'active' : null }}"><a href="/eHRD-CAM/public/penggajian">Penggajian</a></li>
           @if(Auth::user()->idpegawai==1)
-            <li class="{{ Request::segment(1) === 'penilaian' ? 'active' : null }}"><a href="/eHRD-CAM/public/penilaian">Penilaian</a></li>
-            <li class="{{ Request::segment(1) === 'pelanggaran' ? 'active' : null }}"><a href="/eHRD-CAM/public/pelanggaran">Pelanggaran</a></li>
             <li class="{{ Request::segment(1) === 'phk' ? 'active' : null }}"><a href="/eHRD-CAM/public/phk">PHK</a></li>
           @endif
-          </ul>
+            </ul>
           
         </div>
       </div>

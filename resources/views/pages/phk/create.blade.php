@@ -14,7 +14,7 @@
 	<div class="form-group">
 
 		{!! Form::model($phk=new \App\Phk, ['url'=>'phk']) !!}
-			@include('pages/phk/_form', ['submitButtonText'=>'Buat PHK'])
+			@include('pages/phk/_form', ['submitButtonText'=>'Add PHK'])
 		{!! Form::close() !!}
 
 		@include('errors/list')

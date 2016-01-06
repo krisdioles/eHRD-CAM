@@ -42,7 +42,7 @@
 			</div>
 
 			<div class="form-group">
-				{!! Form::submit('Buat Pelanggaran', ['class'=>'btn btn-primary form-control']) !!}
+				{!! Form::submit('Add Pelanggaran', ['class'=>'btn btn-primary form-control']) !!}
 			</div>
 		{!! Form::close() !!}
 

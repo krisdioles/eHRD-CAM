@@ -14,7 +14,7 @@
 	<div class="form-group">
 		
 		{!! Form::model($phk, ['method' => 'PATCH' ,'url'=>'phk/'.$phk->idphk]) !!}
-			@include('pages/phk/_form', ['submitButtonText'=>'Ubah PHK'])
+			@include('pages/phk/_form', ['submitButtonText'=>'Edit PHK'])
 		{!! Form::close() !!}
 
 		@include('errors/list')

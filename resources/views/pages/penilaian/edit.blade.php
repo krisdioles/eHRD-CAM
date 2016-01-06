@@ -14,7 +14,7 @@
 	<div class="form-group">
 		
 		{!! Form::model($penilaian, ['method' => 'PATCH' ,'url'=>'penilaian/'.$penilaian->idpenilaian]) !!}
-			@include('pages/penilaian/_form', ['submitButtonText'=>'Update Penilaian'])
+			@include('pages/penilaian/_form', ['submitButtonText'=>'Edit Penilaian'])
 		{!! Form::close() !!}
 
 		@include('errors/list')

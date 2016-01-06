@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <a class="btn btn-default" href="{{ url('/auth/register') }}" role="button">Create</a>
+        <a class="btn btn-default" href="{{ url('/auth/register') }}" role="button">Add</a>
     </div>
 </div>
 @stop
@@ -88,6 +88,7 @@ $(document).ready(function() {
             'colvis',
         ],
         columnDefs: [{
+            targets: 0,
             visible: false
         }],
         processing: true,
