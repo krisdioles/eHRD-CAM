@@ -67,7 +67,7 @@ class AbsensiController extends Controller
 
         $absensi->save();
 
-        flash()->overlay('Absen Sukses!');
+        flash()->overlay('Absen Masuk Sukses!');
 
         return redirect('absensi');
     }
@@ -89,7 +89,7 @@ class AbsensiController extends Controller
 
         $absensi->save();
 
-        flash()->overlay('Absen Sukses!');
+        flash()->overlay('Absen Pulang Sukses!');
 
         return redirect('absensi');
     }
@@ -126,7 +126,7 @@ class AbsensiController extends Controller
         $absensi->delete();
 
         // redirect
-        flash()->overlay('Absensi berhasil dihapus!');
+        flash()->overlay('Data absensi berhasil dihapus!');
         return redirect('absensi');
     }
 
@@ -139,7 +139,7 @@ class AbsensiController extends Controller
     {
         $absensi->update($request->all());
 
-        flash()->overlay('Absensi berhasil diubah!');
+        flash()->overlay('Data absensi berhasil diubah!');
 
         return redirect('absensi');
     }

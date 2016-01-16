@@ -107,7 +107,7 @@ class PenggajianController extends Controller
         $penggajian->jumlahpenggajian=$pegawai->gajipokok + $pegawai->tunjangantetap + $penggajian->biayabonus - $penggajian->biayapotongan;
         $penggajian->save();
         //dd($penggajian->jumlahpenggajian);
-        flash()->overlay('Penggajian telah terdaftar!');
+        flash()->overlay('Data penggajian berhasil ditambahkan!');
 
         return redirect('penggajian');
     }
@@ -136,7 +136,7 @@ class PenggajianController extends Controller
     {
         $penggajian->update($request->all());
 
-        flash()->overlay('Penggajian berhasil diubah!');
+        flash()->overlay('Data penggajian berhasil diubah!');
 
         return redirect('penggajian');
     }
@@ -157,11 +157,11 @@ class PenggajianController extends Controller
             // delete
             $penggajian->delete();
 
-            flash()->overlay('Penggajian berhasil dihapus!');
+            flash()->overlay('Data penggajian berhasil dihapus!');
         }
         else
         {
-            flash()->overlay('Penggajian tidak bisa dihapus!');
+            flash()->overlay('Data penggajian tidak bisa dihapus!');
         }
 
         // redirect

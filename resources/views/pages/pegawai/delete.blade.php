@@ -87,7 +87,7 @@
 	<div class="col-md-4 col-md-push-4">
 		<div class="panel panel-default">
 		  	<div class="panel-body">
-				<h4 class="text-center">Apakah Anda Yakin Menghapus Data Ini?</h4>
+				<h4 class="text-center">Apakah anda yakin mau menghapus data ini?</h4>
 				<div class="form-group" align="center">
 					{!! Form::open(['method' => 'DELETE', 'route' => ['pegawai.destroy', $pegawai->idpegawai]]) !!}
 					    <button class="btn btn-primary" type="submit">Hapus</button>

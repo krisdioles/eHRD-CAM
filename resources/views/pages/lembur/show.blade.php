@@ -64,7 +64,7 @@
 				</tr>
 			</table>
 			<br>
-			<a class="btn btn-default" href="/eHRD-CAM/public/lembur" role="button">Kembali</a>
+			<a class="btn btn-default" href="/eHRD-CAM/public/lembur" role="button">Back</a>
 		</div>
 	</div>
 </div>

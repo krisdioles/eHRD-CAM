@@ -94,7 +94,7 @@ class LemburController extends Controller
     {
         \Auth::user()->lembur()->create($request->all());
 
-        flash()->success('Lembur telah terdaftar!');
+        flash()->overlay('Lembur berhasil diajukan!');
 
         return redirect('lembur');
     }
@@ -121,7 +121,7 @@ class LemburController extends Controller
     {
         $lembur->update($request->all());
 
-        flash()->success('Lembur berhasil diubah!');
+        flash()->overlay('Data lembur berhasil diubah!');
 
         return redirect('lembur');
     }
@@ -138,7 +138,7 @@ class LemburController extends Controller
         $lembur->delete();
 
         // redirect
-        flash()->success('Lembur berhasil dihapus!');
+        flash()->overlay('Data lembur berhasil dihapus!');
         return redirect('lembur');
     }
 
@@ -148,7 +148,7 @@ class LemburController extends Controller
         $lembur->status = 'Accepted';
         $lembur->save();
 
-        flash()->success('Lembur telah diberikan!');
+        flash()->overlay('Lembur telah disetujui!');
 
         return redirect('lembur');
     }
@@ -159,7 +159,7 @@ class LemburController extends Controller
         $lembur->status = 'Declined';
         $lembur->save();
 
-        flash()->success('Lembur telah ditolak!');
+        flash()->overlay('Lembur telah ditolak!');
 
         return redirect('lembur');
     }

@@ -19,7 +19,8 @@
 			    {!! Form::file('foto', null, ['class'=>'form-control']) !!}
 			</div>
 			<div class="form-group">
-				{!! Form::submit('Upload Foto', ['class'=>'btn btn-primary form-control']) !!}
+				{!! Form::submit('Upload Foto', ['class'=>'btn btn-primary']) !!}
+				<a class="btn btn-primary" href="/eHRD-CAM/public/dashboard" role="button">Back</a>
 			</div>
 		{!! Form::close() !!}
 

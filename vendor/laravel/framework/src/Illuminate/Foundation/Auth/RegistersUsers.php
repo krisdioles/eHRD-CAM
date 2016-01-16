@@ -36,7 +36,9 @@ trait RegistersUsers
         }
 
         $this->create($request->all());
-
+		
+		flash()->overlay('Data pegawai berhasil ditambahkan!');
+		
         return redirect($this->redirectPath());
     }
 }

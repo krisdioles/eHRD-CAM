@@ -27,5 +27,5 @@
 
 <div class="form-group">
 	{!! Form::submit($submitButtonText, ['class'=>'btn btn-primary']) !!}
-	<a class="btn btn-primary" href="/eHRD-CAM/public/pelanggaran" role="button">Kembali</a>
+	<a class="btn btn-primary" href="/eHRD-CAM/public/pelanggaran" role="button">Back</a>
 </div>

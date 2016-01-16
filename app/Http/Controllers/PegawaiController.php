@@ -63,7 +63,7 @@ class PegawaiController extends Controller
     {
         $pegawai->update($request->all());
 
-        flash()->success('Pegawai berhasil diubah!');
+        flash()->overlay('Data pegawai berhasil diubah!');
 
         if(\Auth::user()->idpegawai==1)
         {
@@ -94,7 +94,7 @@ class PegawaiController extends Controller
         $pegawai->delete();
 
         // redirect
-        flash()->success('Pegawai berhasil dihapus!');
+        flash()->overlay('Data pegawai berhasil dihapus!');
         return redirect('pegawai');
     }
 }

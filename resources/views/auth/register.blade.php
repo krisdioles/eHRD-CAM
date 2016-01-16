@@ -164,7 +164,8 @@
 
 			<div class="form-group">
 				<div class="form-group">
-					{!! Form::submit('Add Pegawai', ['class'=>'btn btn-primary form-control']) !!}
+					{!! Form::submit('Add Pegawai', ['class'=>'btn btn-primary']) !!}
+					<a class="btn btn-primary" href="/eHRD-CAM/public/pegawai" role="button">Back</a>
 				</div>
 			</div>
 		</form>

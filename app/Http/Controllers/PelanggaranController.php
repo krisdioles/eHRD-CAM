@@ -82,7 +82,7 @@ class PelanggaranController extends Controller
     {
         $pelanggaran=Pelanggaran::create($request->all());
 
-        flash()->success('Pelanggaran telah terdaftar!');
+        flash()->overlay('Data pelanggaran berhasil ditambahkan!');
 
         return redirect('pelanggaran');
     }
@@ -111,7 +111,7 @@ class PelanggaranController extends Controller
     {
         $pelanggaran->update($request->all());
 
-        flash()->success('Pelanggaran berhasil diubah!');
+        flash()->overlay('Data pelanggaran berhasil diubah!');
 
         return redirect('pelanggaran');
     }
@@ -128,7 +128,7 @@ class PelanggaranController extends Controller
         $pelanggaran->delete();
 
         // redirect
-        flash()->success('Pelanggaran berhasil dihapus!');
+        flash()->overlay('Data pelanggaran berhasil dihapus!');
         return redirect('pelanggaran');
     }
 }

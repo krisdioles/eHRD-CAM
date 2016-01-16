@@ -71,7 +71,7 @@ class TrainingController extends Controller
      	$training=Training::create($request->all());
         $training->pegawai()->attach($request->input('pegawai_list'));
 
-        flash()->info('Training berhasil disimpan!');
+        flash()->overlay('Data training berhasil ditambahkan!');
 
     	return redirect('training');
     }
@@ -88,7 +88,7 @@ class TrainingController extends Controller
         $training->update($request->all());
         $training->pegawai()->sync($request->input('pegawai_list'));
 
-        flash()->info('Training berhasil diubah!');
+        flash()->overlay('Data training berhasil diubah!');
 
         return redirect('training');
     }
@@ -99,7 +99,7 @@ class TrainingController extends Controller
         $training->delete();
 
         // redirect
-        flash()->info('Training berhasil dihapus!');
+        flash()->overlay('Data training berhasil dihapus!');
         return redirect('training');
     }
 }

@@ -58,7 +58,7 @@
 				</tr>
 			</table>
 			<br>
-			<a class="btn btn-default" href="/eHRD-CAM/public/training" role="button">Kembali</a>
+			<a class="btn btn-default" href="/eHRD-CAM/public/training" role="button">Back</a>
 		</div>
 	</div>
 

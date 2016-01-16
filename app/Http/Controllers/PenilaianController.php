@@ -98,7 +98,7 @@ class PenilaianController extends Controller
         $penilaian->tglpenilaian=Carbon::now();
         $penilaian->save();
 
-        flash()->success('Penilaian telah terdaftar!');
+        flash()->overlay('Data penilaian berhasil ditambahkan!');
 
         return redirect('penilaian');
     }
@@ -127,7 +127,7 @@ class PenilaianController extends Controller
     {
         $penilaian->update($request->all());
 
-        flash()->success('Penilaian berhasil diubah!');
+        flash()->overlay('Data penilaian berhasil diubah!');
 
         return redirect('penilaian');
     }
@@ -149,11 +149,11 @@ class PenilaianController extends Controller
             // delete
             $penilaian->delete();
 
-            flash()->success('Penilaian berhasil dihapus!');
+            flash()->overlay('Data penilaian berhasil dihapus!');
         }
         else
         {
-            flash()->overlay('Penilaian tidak bisa dihapus!');
+            flash()->overlay('Data penilaian tidak bisa dihapus!');
         }
 
         // redirect

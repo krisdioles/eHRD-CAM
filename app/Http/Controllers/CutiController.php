@@ -79,7 +79,7 @@ class CutiController extends Controller
         $cuti->tglpengajuan=Carbon::now();
         $cuti->save();
 
-        flash()->success('Cuti telah terdaftar!');
+        flash()->overlay('Cuti berhasil diajukan!');
 
     	return redirect('cuti');
     }
@@ -96,7 +96,7 @@ class CutiController extends Controller
     {
         $cuti->update($request->all());
 
-        flash()->success('Cuti berhasil diubah!');
+        flash()->overlay('Data cuti berhasil diubah!');
 
         return redirect('cuti');
     }
@@ -109,7 +109,7 @@ class CutiController extends Controller
         $cuti->delete();
 
         // redirect
-        flash()->success('Cuti berhasil dihapus!');
+        flash()->overlay('Data cuti berhasil dihapus!');
         return redirect('cuti');
     }
 
@@ -119,7 +119,7 @@ class CutiController extends Controller
         $cuti->status = 'Accepted';
         $cuti->save();
 
-        flash()->success('Cuti berhasil diberikan!');
+        flash()->overlay('Cuti telah disetujui!');
 
         return redirect('cuti');
     }
@@ -130,7 +130,7 @@ class CutiController extends Controller
         $cuti->status = 'Declined';
         $cuti->save();
 
-        flash()->success('Cuti telah ditolak!');
+        flash()->overlay('Cuti telah ditolak!');
 
         return redirect('cuti');
     }

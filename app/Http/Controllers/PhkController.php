@@ -86,7 +86,7 @@ class PhkController extends Controller
         $pegawai->statusaktif='Tidak Aktif';
         $pegawai->save();
 
-        flash()->success('Phk telah terdaftar!');
+        flash()->overlay('Data PHK berhasil ditambahkan!');
 
         return redirect('phk');
     }
@@ -115,7 +115,7 @@ class PhkController extends Controller
     {
         $phk->update($request->all());
 
-        flash()->success('Phk berhasil diubah!');
+        flash()->overlay('Data PHK berhasil diubah!');
 
         return redirect('phk');
     }
@@ -132,7 +132,7 @@ class PhkController extends Controller
         $phk->delete();
 
         // redirect
-        flash()->success('Phk berhasil dihapus!');
+        flash()->overlay('Data PHK berhasil dihapus!');
         return redirect('phk');
     }
 }

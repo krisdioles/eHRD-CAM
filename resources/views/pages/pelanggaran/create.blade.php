@@ -42,7 +42,8 @@
 			</div>
 
 			<div class="form-group">
-				{!! Form::submit('Add Pelanggaran', ['class'=>'btn btn-primary form-control']) !!}
+				{!! Form::submit('Add Pelanggaran', ['class'=>'btn btn-primary']) !!}
+				<a class="btn btn-primary" href="/eHRD-CAM/public/pelanggaran" role="button">Back</a>
 			</div>
 		{!! Form::close() !!}
 
