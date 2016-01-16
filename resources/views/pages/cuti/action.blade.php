@@ -31,8 +31,8 @@
 <!-- Button trigger modal -->
 <div class="form-group">
 	<form action="{{ url('/cuti/'.$cuti->idcuti.'/delete') }}">
-    <button class="btn-xs btn-link" type="submit">Delete</button>
-</form>
+	    <button class="btn-xs btn-link" type="submit">Delete</button>
+	</form>
 </div>
 
 <div class="form-group">

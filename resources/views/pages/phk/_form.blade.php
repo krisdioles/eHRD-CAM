@@ -28,5 +28,6 @@
 </div>
 
 <div class="form-group">
-	{!! Form::submit($submitButtonText, ['class'=>'btn btn-primary form-control']) !!}
+	{!! Form::submit($submitButtonText, ['class'=>'btn btn-primary']) !!}
+	<a class="btn btn-primary" href="/eHRD-CAM/public/phk" role="button">Kembali</a>
 </div>

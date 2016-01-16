@@ -31,6 +31,7 @@
 	{!! Form::textarea('keterangan', null, ['class'=>'form-control']) !!}
 </div>
 
-<div class="form-group">
-	{!! Form::submit($submitButtonText, ['class'=>'btn btn-primary form-control']) !!}
+<div class="form-group" align="center">
+	{!! Form::submit($submitButtonText, ['class'=>'btn btn-primary']) !!}
+	<a class="btn btn-primary" href="/eHRD-CAM/public/cuti" role="button">Kembali</a>
 </div>
