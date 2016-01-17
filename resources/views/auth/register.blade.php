@@ -47,7 +47,7 @@
 
 			<div class="form-group">
 				{!! Form::label('kodepegawai', 'Kode Pegawai : ') !!}
-				{!! Form::text('kodepegawai', $kodepegawai, ['class'=>'form-control', 'readonly']) !!}
+				{!! Form::text('kodepegawai', null, ['class'=>'form-control']) !!}
 			</div>
 
 			<!-- Pelanggaran for Pegawai Form Input -->

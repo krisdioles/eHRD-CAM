@@ -27,6 +27,7 @@ class PegawaiRequest extends Request
             'nama'   => 'required',
             'alamat'   => 'required',
             'foto'   => 'required|mimes:jpg,png,jpeg',
+            'kodepegawai' => 'required|numeric',
         ];
     }
 }
