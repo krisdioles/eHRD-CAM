@@ -81,7 +81,7 @@ class AuthController extends Controller
             'gajipokok' => $data['gajipokok'],
             'tunjangantetap' => $data['tunjangantetap'],
             'hakcuti' => $data['hakcuti'],
-            'statusaktif' => 'Aktif',
+            'statusaktif' => $data['statusaktif'],
         ]);
 
         \App\Absensi::create([

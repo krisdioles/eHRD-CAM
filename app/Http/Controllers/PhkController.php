@@ -67,7 +67,7 @@ class PhkController extends Controller
      */
     public function create()
     {
-        $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
+        $pegawai=\App\Pegawai::active()->lists('nama', 'idpegawai');
 
         return view('pages/phk/create', compact('pegawai'));
     }
@@ -99,7 +99,7 @@ class PhkController extends Controller
      */
     public function edit(Phk $phk)
     {
-        $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
+        $pegawai=\App\Pegawai::active()->lists('nama', 'idpegawai');
 
         return view('pages/phk/edit', compact('phk', 'pegawai'));
     }

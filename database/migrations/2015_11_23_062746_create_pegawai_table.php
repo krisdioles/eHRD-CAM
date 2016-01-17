@@ -32,6 +32,7 @@ class CreatePegawaiTable extends Migration
         $table->integer('tunjangantetap');
         $table->integer('hakcuti');
         $table->string('statusaktif');
+        $table->softDeletes();
         $table->rememberToken();
         $table->timestamps();
         });

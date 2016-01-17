@@ -67,7 +67,7 @@ class PelanggaranController extends Controller
      */
     public function create()
     {
-        $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
+        $pegawai=\App\Pegawai::active()->lists('nama', 'idpegawai');
 
         return view('pages/pelanggaran/create', compact('pegawai'));
     }
@@ -95,7 +95,7 @@ class PelanggaranController extends Controller
      */
     public function edit(Pelanggaran $pelanggaran)
     {
-        $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
+        $pegawai=\App\Pegawai::active()->lists('nama', 'idpegawai');
 
         return view('pages/pelanggaran/edit', compact('pelanggaran', 'pegawai'));
     }

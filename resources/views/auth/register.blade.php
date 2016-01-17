@@ -163,6 +163,16 @@
 			</div>
 
 			<div class="form-group">
+				{!! Form::label('statusaktif', 'Status Aktif : ') !!}<br> 
+				<label class="radio-inline">
+					{!! Form::radio('statusaktif', 'Aktif', null) !!} Aktif
+				</label>
+				<label class="radio-inline">
+					{!! Form::radio('statusaktif', 'Tidak Aktif', null) !!} Tidak Aktif
+				</label>
+			</div>
+
+			<div class="form-group">
 				<div class="form-group">
 					{!! Form::submit('Add Pegawai', ['class'=>'btn btn-primary']) !!}
 					<a class="btn btn-primary" href="/eHRD-CAM/public/pegawai" role="button">Back</a>

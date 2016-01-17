@@ -61,7 +61,7 @@ class TrainingController extends Controller
 
     public function create()
     {
-        $peg=Pegawai::lists('nama', 'idpegawai');
+        $peg=Pegawai::active()->lists('nama', 'idpegawai');
 
     	return view('pages/training/create', compact('peg'));
     }
@@ -78,7 +78,7 @@ class TrainingController extends Controller
 
     public function edit(Training $training)
     {
-        $peg=Pegawai::lists('nama', 'idpegawai');
+        $peg=Pegawai::active()->lists('nama', 'idpegawai');
 
         return view('pages/training/edit', compact('training', 'peg'));
     }

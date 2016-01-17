@@ -80,7 +80,7 @@ class PenilaianController extends Controller
      */
     public function create(Penilaian $penilaian)
     {
-        $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
+        $pegawai=\App\Pegawai::active()->lists('nama', 'idpegawai');
         //dd(\App\Pegawai::find($idpegawai)->idpegawai);
 
         return view('pages/penilaian/create', compact('penilaian', 'pegawai', 'idpegawai'));
@@ -111,7 +111,7 @@ class PenilaianController extends Controller
      */
     public function edit(Penilaian $penilaian)
     {
-        $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
+        $pegawai=\App\Pegawai::active()->lists('nama', 'idpegawai');
         
         return view('pages/penilaian/edit', compact('penilaian', 'pegawai'));
     }

@@ -87,7 +87,7 @@ class PenggajianController extends Controller
      */
     public function create(Penggajian $penggajian)
     {
-        $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
+        $pegawai=\App\Pegawai::active()->lists('nama', 'idpegawai');
 
         return view('pages/penggajian/create', compact('pegawai', 'penggajian', 'idpegawai'));
     }
@@ -120,7 +120,7 @@ class PenggajianController extends Controller
      */
     public function edit(Penggajian $penggajian)
     {
-        $pegawai=\App\Pegawai::lists('nama', 'idpegawai');
+        $pegawai=\App\Pegawai::active()->lists('nama', 'idpegawai');
         
         return view('pages/penggajian/edit', compact('penggajian', 'pegawai'));
     }

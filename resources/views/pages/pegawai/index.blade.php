@@ -7,10 +7,6 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h2 class="sub-header">Pegawai</h2>
     <div class="col-md-12 col-md-offset-0">
-        <div class="panel panel-default">
-            <!-- Default panel contents -->
-            <div class="panel-heading">Daftar Pegawai</div>
-            <div class="panel-body">
                 <div class="table-responsive">
                   <table class="table table-striped" id="pegawai" cellspacing="0" width="100%">
                     <thead>
@@ -36,8 +32,6 @@
                     </tfoot>
                   </table>
                 </div>
-            </div>
-        </div>
         <a class="btn btn-default" href="{{ url('/auth/register') }}" role="button">Add</a>
     </div>
 </div>

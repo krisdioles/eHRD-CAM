@@ -49,7 +49,7 @@ class Pegawai extends Model implements AuthenticatableContract,
         'pendidikanterakhir',
         'jabatan',
         'hakcuti',
-        'statusaktif'
+        'statusaktif',
     ];
 
     /**
@@ -58,6 +58,11 @@ class Pegawai extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function scopeActive($query)
+    {
+        $query->where('statusaktif', '=', 'Aktif');
+    }
 
     public function training()
     {
