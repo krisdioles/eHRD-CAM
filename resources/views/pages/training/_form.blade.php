@@ -20,7 +20,10 @@
 
 <div class="form-group">
 	{!! Form::label('anggaran', 'Anggaran : ') !!}
+	<div class="input-group">
+		<div class="input-group-addon">Rp. </div>
 	{!! Form::text('anggaran', null, ['class'=>'form-control']) !!}
+	</div>
 </div>
 
 <div class="form-group">

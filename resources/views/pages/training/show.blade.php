@@ -49,7 +49,7 @@
 				@if(Auth::user()->idpegawai==1)
 					<tr>
 						<td><strong>Anggaran</strong></td>
-						<td>{{ $training->anggaran }}</td>
+						<td>Rp. {{ $training->anggaran }}</td>
 					</tr>
 				@endif
 				<tr>

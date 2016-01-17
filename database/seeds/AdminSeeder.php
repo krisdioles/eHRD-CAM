@@ -17,11 +17,11 @@ class AdminSeeder extends Seeder
             'password' => bcrypt('admin'),
             'kodepegawai' => 'CAM000',
             'role' => 'admin',
-            'agama' => 'atheist',
-            'telepon' => '000',
-            'statuskawin' => 'tengah',
-            'pendidikanterakhir' => 'sss',
-            'statusaktif' => 'aktif',
+            'agama' => '-',
+            'telepon' => '-',
+            'statuskawin' => '-',
+            'pendidikanterakhir' => '-',
+            'statusaktif' => 'Aktif',
         ]);
     }
 }

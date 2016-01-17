@@ -18,7 +18,10 @@
 
 <div class="form-group">
 	{!! Form::label('biayabonus', 'Biaya Bonus : ') !!}
-	{!! Form::text('biayabonus', null, ['class'=>'form-control']) !!}
+	<div class="input-group">
+		<div class="input-group-addon">Rp. </div>
+		{!! Form::text('biayabonus', null, ['class'=>'form-control']) !!}
+	</div>	
 </div>
 
 <div class="form-group">
@@ -28,7 +31,10 @@
 
 <div class="form-group">
 	{!! Form::label('biayapotongan', 'Biaya Potongan : ') !!}
+	<div class="input-group">
+		<div class="input-group-addon">Rp. </div>
 	{!! Form::text('biayapotongan', null, ['class'=>'form-control']) !!}
+	</div>
 </div>
 
 <!-- Keterangan Form Input -->
@@ -40,22 +46,22 @@
 <!-- Keterangan Form Input -->
 <div class="form-group">
 	{!! Form::label('carabayar', 'Cara Bayar : ') !!}
-	{!! Form::textarea('carabayar', null, ['class'=>'form-control', 'rows'=>'3']) !!}
+	{!! Form::text('carabayar', null, ['class'=>'form-control']) !!}
 </div>
 
 <div class="form-group">
 	{!! Form::label('namabank', 'Nama Bank : ') !!}
-	{!! Form::textarea('namabank', null, ['class'=>'form-control', 'rows'=>'3']) !!}
+	{!! Form::text('namabank', null, ['class'=>'form-control']) !!}
 </div>
 
 <div class="form-group">
 	{!! Form::label('norekening', 'Nomor Rekening : ') !!}
-	{!! Form::textarea('norekening', null, ['class'=>'form-control', 'rows'=>'3']) !!}
+	{!! Form::text('norekening', null, ['class'=>'form-control']) !!}
 </div>
 
 <div class="form-group">
 	{!! Form::label('namarekening', 'Atas Nama : ') !!}
-	{!! Form::textarea('namarekening', null, ['class'=>'form-control', 'rows'=>'3']) !!}
+	{!! Form::text('namarekening', null, ['class'=>'form-control']) !!}
 </div>
 
 <div class="form-group">
