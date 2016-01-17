@@ -17,6 +17,7 @@
                 <th>Waktu Pulang</th>
                 <th>Status Masuk</th>
                 <th>Status Pulang</th>
+                <th>Keterangan</th>
                 <th></th>
             </tr>
           </thead>
@@ -28,6 +29,7 @@
                 <th>Waktu Pulang</th>
                 <th>Status Masuk</th>
                 <th>Status Pulang</th>
+                <th>Keterangan</th>
               <th></th>
             </tr>
           </tfoot>
@@ -81,7 +83,7 @@
                 'colvis',
             ],
             columnDefs: [{
-                targets: 0,
+                targets: [0,6],
                 visible: false
             }],
             order: [[ 2, 'desc' ]],
@@ -95,6 +97,7 @@
                 { data: 'waktupulang', name: 'absensi.waktupulang' },
                 { data: 'statusmasuk', name: 'absensi.statusmasuk' },
                 { data: 'statuspulang', name: 'absensi.statuspulang' },
+                { data: 'keterangan', name: 'absensi.keterangan' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ],
         });
@@ -149,6 +152,7 @@
                     <th>Waktu Pulang</th>
                     <th>Status Masuk</th>
                     <th>Status Pulang</th>
+                    <th>Keterangan</th>
                     <th></th>
                 </tr>
               </thead>
@@ -159,6 +163,7 @@
                     <th>Waktu Pulang</th>
                     <th>Status Masuk</th>
                     <th>Status Pulang</th>
+                    <th>Keterangan</th>
                   <th></th>
                 </tr>
               </tfoot>
@@ -211,7 +216,7 @@
                 'colvis',
             ],
             columnDefs: [{
-                targets: 0,
+                targets: [0,5],
                 visible: false
             }],
             order: [[ 1, 'desc' ]],
@@ -224,6 +229,7 @@
                 { data: 'waktupulang', name: 'absensi.waktupulang' },
                 { data: 'statusmasuk', name: 'absensi.statusmasuk' },
                 { data: 'statuspulang', name: 'absensi.statuspulang' },
+                { data: 'keterangan', name: 'absensi.keterangan' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ],
         });

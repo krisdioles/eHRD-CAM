@@ -16,6 +16,7 @@
             <th>Tanggal Training</th>
             <th>Penyelenggara</th>
             <th>Nomor Surat</th>
+            <th>Keterangan</th>
             @if(Auth::user()->idpegawai==1)
                 <th>Anggaran (Rp.)</th>
             @endif
@@ -30,6 +31,7 @@
             <th>Tanggal Training</th>
             <th>Penyelenggara</th>
             <th>Nomor Surat</th>
+            <th>Keterangan</th>
             @if(Auth::user()->idpegawai==1)
                 <th>Anggaran (Rp.)</th>
             @endif
@@ -91,7 +93,7 @@
                 'colvis',
             ],
             columnDefs: [{
-                targets: [0,4,5],
+                targets: [0,4,5,6],
                 visible: false
             }],
             processing: true,
@@ -104,6 +106,7 @@
                 { data: 'tgltraining', name: 'tgltraining' },
                 { data: 'penyelenggara', name: 'penyelenggara' },
                 { data: 'nomorsurat', name: 'nomorsurat' },
+                { data: 'keterangan', name: 'keterangan' },
                 { data: 'anggaran', name: 'anggaran' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ],
@@ -169,7 +172,7 @@
                 'colvis',
             ],
             columnDefs: [{
-                targets: 0,
+                targets: [0,4,5,6],
                 visible: false
             }],
             processing: true,
@@ -182,6 +185,7 @@
                 { data: 'tgltraining', name: 'tgltraining' },
                 { data: 'penyelenggara', name: 'penyelenggara' },
                 { data: 'nomorsurat', name: 'nomorsurat' },
+                { data: 'anggaran', name: 'anggaran' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ],
         });

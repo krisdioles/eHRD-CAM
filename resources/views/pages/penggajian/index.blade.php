@@ -184,7 +184,7 @@
                 'colvis',
             ],
             columnDefs: [{
-                targets: 0,
+                targets: [0,3,4,6,7,8,9],
                 visible: false
             }],
             processing: true,
@@ -194,7 +194,13 @@
                 { data: 'idpenggajian', name: 'penggajian.idpenggajian' },
                 { data: 'tglpenggajian', name: 'penggajian.tglpenggajian' },
                 { data: 'periodepenggajian', name: 'penggajian.periodepenggajian' },
+                { data: 'biayabonus', name: 'penggajian.biayabonus' },
+                { data: 'biayapotongan', name: 'penggajian.biayapotongan' },
                 { data: 'jumlahpenggajian', name: 'penggajian.jumlahpenggajian' },
+                { data: 'carabayar', name: 'penggajian.carabayar' },
+                { data: 'namabank', name: 'penggajian.namabank' },
+                { data: 'norekening', name: 'penggajian.norekening' },
+                { data: 'namarekening', name: 'penggajian.namarekening' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ],    
         });

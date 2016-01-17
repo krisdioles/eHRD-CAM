@@ -14,7 +14,11 @@
           <th>Jenis Cuti</th>
           <th>Tanggal Awal</th>
           <th>Tanggal Akhir</th>
+          <th>Tanggal Pengajuan</th>
+          <th>Nomor Surat</th>
+          <th>Alamat Cuti</th>
           <th>Status</th>
+          <th>Keterangan</th>
 
           @if(Auth::user()->idpegawai==1)
             <th>Diajukan Oleh</th>
@@ -32,7 +36,11 @@
           <th>Jenis Cuti</th>
           <th>Tanggal Awal</th>
           <th>Tanggal Akhir</th>
+          <th>Tanggal Pengajuan</th>
+          <th>Nomor Surat</th>
+          <th>Alamat Cuti</th>
           <th>Status</th>
+          <th>Keterangan</th>
 
           @if(Auth::user()->idpegawai==1)
             <th>Diajukan Oleh</th>
@@ -99,7 +107,7 @@
               'colvis',
           ],
           columnDefs: [{
-              targets: 0,
+              targets: [0,4,5,6,8],
               visible: false
           }],
           processing: true,
@@ -110,7 +118,11 @@
               { data: 'jeniscuti', name: 'cuti.jeniscuti' },
               { data: 'tglawal', name: 'cuti.tglawal' },
               { data: 'tglakhir', name: 'cuti.tglakhir' },
+              { data: 'tglpengajuan', name: 'cuti.tglpengajuan' },
+              { data: 'nomorsurat', name: 'cuti.nomorsurat' },
+              { data: 'alamatcuti', name: 'cuti.alamatcuti' },
               { data: 'status', name: 'cuti.status' },
+              { data: 'keterangan', name: 'cuti.keterangan' },
               { data: 'nama', name: 'pegawai.nama' },
               { data: 'action', name: 'action', orderable: false, searchable: false }
           ],
@@ -176,7 +188,7 @@
               'colvis',
           ],
           columnDefs: [{
-              targets: 0,
+              targets: [0,4,5,6,8],
               visible: false
           }],
           processing: true,
@@ -187,7 +199,11 @@
               { data: 'jeniscuti', name: 'jeniscuti' },
               { data: 'tglawal', name: 'tglawal' },
               { data: 'tglakhir', name: 'tglakhir' },
-              { data: 'status', name: 'status' },
+              { data: 'tglpengajuan', name: 'cuti.tglpengajuan' },
+              { data: 'nomorsurat', name: 'cuti.nomorsurat' },
+              { data: 'alamatcuti', name: 'cuti.alamatcuti' },
+              { data: 'status', name: 'cuti.status' },
+              { data: 'keterangan', name: 'cuti.keterangan' },
               { data: 'action', name: 'action', orderable: false, searchable: false }
           ],
       });

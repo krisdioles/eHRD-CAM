@@ -14,7 +14,9 @@
           <th>#</th>
           <th>Tanggal Lembur</th>
           <th>Jangka Waktu (jam)</th>
+          <th>Nomor SPKL</th>
           <th>Status</th>
+          <th>Keterangan</th>
 
           @if(Auth::user()->idpegawai==1)
             <th>Diajukan Oleh</th>
@@ -30,7 +32,9 @@
           <th>#</th>
           <th>Tanggal Lembur</th>
           <th>Jangka Waktu (jam)</th>
+          <th>Nomor SPKL</th>
           <th>Status</th>
+          <th>Keterangan</th>
           @if(Auth::user()->idpegawai==1)
             <th>Diajukan Oleh</th>
             <th width="26%"></th>
@@ -95,7 +99,7 @@
             'colvis',
         ],
         columnDefs: [{
-            targets: 0,
+            targets: [0,3,5],
             visible: false
         }],
         processing: true,
@@ -105,7 +109,9 @@
             { data: 'idlembur', name: 'lembur.idlembur' },
             { data: 'tgllembur', name: 'lembur.tgllembur' },
             { data: 'jangkawaktu', name: 'lembur.jangkawaktu' },
+            { data: 'nomorspkl', name: 'lembur.nomorspkl' },
             { data: 'status', name: 'lembur.status' },
+            { data: 'keterangan', name: 'lembur.keterangan' },
             { data: 'nama', name: 'pegawai.nama' },
             { data: 'action', name: 'action', orderable: false, searchable: false }
         ],
@@ -173,7 +179,7 @@
               'colvis',
           ],
           columnDefs: [{
-              targets: 0,
+              targets: [0,3,5],
               visible: false
           }],
           processing: true,
@@ -183,7 +189,9 @@
               { data: 'idlembur', name: '.idlembur' },
               { data: 'tgllembur', name: 'tgllembur' },
               { data: 'jangkawaktu', name: 'jangkawaktu' },
-              { data: 'status', name: 'status' },
+              { data: 'nomorspkl', name: 'lembur.nomorspkl' },
+              { data: 'status', name: 'lembur.status' },
+              { data: 'keterangan', name: 'lembur.keterangan' },
               { data: 'action', name: 'action', orderable: false, searchable: false }
           ],
       });
