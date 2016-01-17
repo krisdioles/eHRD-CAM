@@ -16,7 +16,13 @@
           @endif
           <th>Tanggal Penggajian</th>
           <th>Periode Penggajian</th>
+          <th>Biaya Bonus</th>
+          <th>Biaya Potongan</th>
           <th>Jumlah Penggajian (Rp.)</th>
+          <th>Cara Bayar</th>
+          <th>Nama Bank</th>
+          <th>No Rekening</th>
+          <th>Nama Pemilik Rekening</th>
           <th width="17%"></th>
 
         </tr>
@@ -29,7 +35,13 @@
           @endif
           <th>Tanggal Penggajian</th>
           <th>Periode Penggajian</th>
+          <th>Biaya Bonus</th>
+          <th>Biaya Potongan</th>
           <th>Jumlah Penggajian (Rp.)</th>
+          <th>Cara Bayar</th>
+          <th>Nama Bank</th>
+          <th>No Rekening</th>
+          <th>Nama Pemilik Rekening</th>
           <th width="17%"></th>
         </tr>
       </tfoot>
@@ -90,7 +102,7 @@
                 'colvis',
             ],
             columnDefs: [{
-                targets: 0,
+                targets: [0,4,5,7,8,9,10],
                 visible: false
             }],
             processing: true,
@@ -101,7 +113,13 @@
                 { data: 'nama', name: 'pegawai.nama' },
                 { data: 'tglpenggajian', name: 'penggajian.tglpenggajian' },
                 { data: 'periodepenggajian', name: 'penggajian.periodepenggajian' },
+                { data: 'biayabonus', name: 'penggajian.biayabonus' },
+                { data: 'biayapotongan', name: 'penggajian.biayapotongan' },
                 { data: 'jumlahpenggajian', name: 'penggajian.jumlahpenggajian' },
+                { data: 'carabayar', name: 'penggajian.carabayar' },
+                { data: 'namabank', name: 'penggajian.namabank' },
+                { data: 'norekening', name: 'penggajian.norekening' },
+                { data: 'namarekening', name: 'penggajian.namarekening' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ],    
         });

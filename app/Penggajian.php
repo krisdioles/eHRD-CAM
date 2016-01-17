@@ -26,8 +26,7 @@ class Penggajian extends Model
     protected $fillable = [
         'tglpenggajian', 
         'periodepenggajian', 
-        'biayabonus', 
-        'anggaran', 
+        'biayabonus',  
         'keteranganbonus', 
         'biayapotongan', 
         'jumlahpenggajian', 

@@ -14,6 +14,8 @@
             <th>Nama Training</th>
             <th>Lokasi</th>
             <th>Tanggal Training</th>
+            <th>Penyelenggara</th>
+            <th>Nomor Surat</th>
             @if(Auth::user()->idpegawai==1)
                 <th>Anggaran (Rp.)</th>
             @endif
@@ -26,6 +28,8 @@
             <th>Nama Training</th>
             <th>Lokasi</th>
             <th>Tanggal Training</th>
+            <th>Penyelenggara</th>
+            <th>Nomor Surat</th>
             @if(Auth::user()->idpegawai==1)
                 <th>Anggaran (Rp.)</th>
             @endif
@@ -87,7 +91,7 @@
                 'colvis',
             ],
             columnDefs: [{
-                targets: 0,
+                targets: [0,4,5],
                 visible: false
             }],
             processing: true,
@@ -98,6 +102,8 @@
                 { data: 'namatraining', name: 'namatraining' },
                 { data: 'lokasi', name: 'lokasi' },
                 { data: 'tgltraining', name: 'tgltraining' },
+                { data: 'penyelenggara', name: 'penyelenggara' },
+                { data: 'nomorsurat', name: 'nomorsurat' },
                 { data: 'anggaran', name: 'anggaran' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ],
@@ -174,6 +180,8 @@
                 { data: 'namatraining', name: 'namatraining' },
                 { data: 'lokasi', name: 'lokasi' },
                 { data: 'tgltraining', name: 'tgltraining' },
+                { data: 'penyelenggara', name: 'penyelenggara' },
+                { data: 'nomorsurat', name: 'nomorsurat' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ],
         });

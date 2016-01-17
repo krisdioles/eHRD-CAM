@@ -16,6 +16,16 @@
                         <th>Nama</th>
                         <th>Jenis Kelamin</th>
                         <th>Jabatan</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Alamat</th>
+                        <th>Telepon</th>
+                        <th>Agama</th>
+                        <th>Gaji Pokok</th>
+                        <th>Tunjangan Tetap</th>
+                        <th>Status Kawin</th>
+                        <th>Pendidikan Terakhir</th>
+                        <th>Hak Cuti</th>
+                        <th>Status Aktif</th>
                         <th></th>
                       </tr>
                     </thead>
@@ -27,6 +37,16 @@
                             <th>Nama</th>
                             <th>Jenis Kelamin</th>
                             <th>Jabatan</th>
+                            <th>Tanggal Lahir</th>
+                            <th>Alamat</th>
+                            <th>Telepon</th>
+                            <th>Agama</th>
+                            <th>Gaji Pokok</th>
+                            <th>Tunjangan Tetap</th>
+                            <th>Status Kawin</th>
+                            <th>Pendidikan Terakhir</th>
+                            <th>Hak Cuti</th>
+                            <th>Status Aktif</th>
                             <th></th>
                         </tr>
                     </tfoot>
@@ -82,7 +102,7 @@ $(document).ready(function() {
             'colvis',
         ],
         columnDefs: [{
-            targets: 0,
+            targets: [0,5,6,7,8,9,10,11,12,13,14],
             visible: false
         }],
         processing: true,
@@ -94,6 +114,16 @@ $(document).ready(function() {
             { data: 'nama', name: 'nama' },
             { data: 'jeniskelamin', name: 'jeniskelamin' },
             { data: 'jabatan', name: 'jabatan' },
+            { data: 'tgllahir', name: 'tgllahir' },
+            { data: 'alamat', name: 'alamat' },
+            { data: 'telepon', name: 'telepon' },
+            { data: 'agama', name: 'agama' },
+            { data: 'gajipokok', name: 'gajipokok' },
+            { data: 'tunjangantetap', name: 'tunjangantetap' },
+            { data: 'statuskawin', name: 'statuskawin' },
+            { data: 'pendidikanterakhir', name: 'pendidikanterakhir' },
+            { data: 'hakcuti', name: 'hakcuti' },
+            { data: 'statusaktif', name: 'statusaktif' },
             { data: 'action', name: 'action', orderable: false, searchable: false }
         ],
         
