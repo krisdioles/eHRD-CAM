@@ -33,7 +33,7 @@ class CutiController extends Controller
         if(\Auth::user()->idpegawai==1)
         {
             $cuti = Cuti::join('pegawai', 'cuti.pegawai_id', '=', 'pegawai.idpegawai')
-                ->select(['cuti.idcuti', 'cuti.jeniscuti', 'cuti.tglawal', 'cuti.tglakhir', 'cuti.status', 'pegawai.nama'])
+                ->select('*')
                 ->get();    
         }
         else

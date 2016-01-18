@@ -37,7 +37,7 @@ class LemburController extends Controller
         if(\Auth::user()->idpegawai==1)
         {
             $lembur = Lembur::join('pegawai', 'lembur.pegawai_id', '=', 'pegawai.idpegawai')
-                ->select(['lembur.idlembur', 'lembur.tgllembur', 'lembur.jangkawaktu', 'lembur.keterangan', 'lembur.status', 'pegawai.nama']);   
+                ->select('*');   
         }
         else
         {
